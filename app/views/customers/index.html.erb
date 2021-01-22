@@ -1,0 +1,67 @@
+<div class="list-wrapper">
+  <div class="search-form">
+    <input type="text" class="search-text" placeholder="フリーワード検索">
+    <%= link_to image_tag("search.png", class:"search-icon"), "/" %>
+  </div>
+
+  <div class="page-link">
+    <%= link_to image_tag("left.png", class:"before-page"), "/" %>
+    <p>2／10</p>
+    <%= link_to image_tag("right.png", class:"after-page"), "/" %>
+  </div>
+
+  <%= link_to "/", class:"customer" do %>
+  <div class="customer-info">
+    <div class="info-left">
+      <div class="status">
+        <p>ステータス</p>
+      </div>
+      <div class="order">受注日</div>
+      <div class="store">受注店舗</div>
+      <div class="name">お客様名</div>
+    </div>
+    <div class="info-right">
+      <div class="update">更新日時</div>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to "/", class:"customer" do %>
+  <div class="customer-info">
+    <div class="info-left">
+      <div class="status">
+        <p>見積作成中</p>
+      </div>
+      <div class="order">受注日：2020/12/31</div>
+      <div class="store">名古屋本店</div>
+      <div class="name">山田 孝之</div>
+    </div>
+    <div class="info-right">
+      <div class="update">更新日時：2021/1/30 11:34</div>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to "/", class:"customer" do %>
+  <div class="customer-info">
+    <div class="info-left">
+      <div class="status">
+        <p>成約</p>
+      </div>
+      <div class="order">受注日：2020/11/5</div>
+      <div class="store">豊橋支店</div>
+      <div class="name">藤原 竜也</div>
+    </div>
+    <div class="info-right">
+      <div class="update">更新日時：2021/12/4 16:12</div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="page-link">
+    <%= link_to image_tag("left.png", class:"before-page"), "/" %>
+    <p>2／10</p>
+    <%= link_to image_tag("right.png", class:"after-page"), "/" %>
+  </div>
+
+</div>
