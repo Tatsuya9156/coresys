@@ -10,21 +10,23 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-logo">
-        <%= link_to image_tag("logo.png", class:"logo-icon"), "/" %>
-      </div>
-      <div class="nav">
-        <ul class="category">
-          <li><%= link_to "案件新規作成", "/", class:"nav-list" %></li>
-          <li><%= link_to "案件一覧", "/", class:"nav-list" %></li>
-          <li><%= link_to "在庫管理表", "/", class:"nav-list" %></li>
-          <li><%= link_to "チャット", "/", class:"nav-list" %></li>
-          <li><%= link_to "カレンダー", "/", class:"nav-list" %></li>
-          <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
-        </ul>
-      </div>
-    </header>
+    <% unless request.path.include?('sign_in') %>
+      <header>
+        <div class="header-logo">
+          <%= link_to image_tag("logo.png", class:"logo-icon"), "/" %>
+        </div>
+        <div class="nav">
+          <ul class="category">
+            <li><%= link_to "案件新規作成", "/", class:"nav-list" %></li>
+            <li><%= link_to "案件一覧", "/", class:"nav-list" %></li>
+            <li><%= link_to "在庫管理表", "/", class:"nav-list" %></li>
+            <li><%= link_to "チャット", "/", class:"nav-list" %></li>
+            <li><%= link_to "カレンダー", "/", class:"nav-list" %></li>
+            <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
+          </ul>
+        </div>
+      </header>
+    <% end %>
     <%= yield %>
   </body>
 </html>
