@@ -24,12 +24,12 @@
   font-size: 20px;
 }
 
-.label-name {
+.employee-new-label-name {
   font-size: 15px;
   margin-top: 10px;
 }
 
-.input-field {
+.employee-new-input-field {
   width: 350px;
   height: 40px;
   margin: -10px 0 15px;
