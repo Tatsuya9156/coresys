@@ -1,0 +1,56 @@
+.session-wrapper {
+  width: 300px;
+  margin: 100px auto;
+  color: rgb(80, 80, 80);
+}
+
+.session-header {
+  text-align: center;
+}
+
+.session-logo-icon {
+  width: 220px;
+}
+
+.session-header-text {
+  font-size: 18px;
+}
+
+.field, .actions {
+  text-align: center;
+}
+
+.field {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.input-field {
+  width: 200px;
+  height: 25px;
+}
+
+.actions {
+  margin-top: 30px;
+}
+
+.login-btn {
+  background-color: white;
+  border: solid 1px rgb(80, 80, 80);
+  width: 90px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.to-login {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+}
+
+.to-login:hover {
+  color: black;
+  font-weight: bold;
+}
