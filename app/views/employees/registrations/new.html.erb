@@ -1,29 +1,42 @@
-<h2>Sign up</h2>
+<div class='registration-header'>
+  <p class='registration-header-text'>社員新規登録</p>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "employees/shared/error_messages", resource: resource %>
+<%= form_with model: @employee, url: employee_registration_path, method: :post, class: 'employee-new-main', local: true do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="employee-new-wrapper">
+
+  <div class="employee-new-field">
+    <%= f.label :name, '名前(漢字)', class:"label-name" %></br>
+    <%= f.text_field :name, autofocus: true, class:"input-field", placeholder:"名前(漢字)" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="employee-new-field">
+    <%= f.label :name_kana, '名前(カナ)', class:"label-name" %></br>
+    <%= f.text_field :name_kana, class:"input-field", placeholder:"名前(カナ)" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="employee-new-field">
+    <%= f.label :phone, '携帯番号', class:"label-name" %></br>
+    <%= f.text_field :phone, class:"input-field", placeholder:"携帯番号" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="employee-new-field">
+    <%= f.label :email, 'メールアドレス', class:"label-name" %></br>
+    <%= f.email_field :email, autocomplete: "email", class:"input-field", placeholder:"メールアドレス" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :password, 'パスワード', class:"label-name" %></br>
+    <%= f.password_field :password, autocomplete: "new-password", class:"input-field", placeholder:"パスワード" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :password_confirmation, 'パスワード確認', class:"label-name" %></br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input-field", placeholder:"パスワード確認" %>
+  </div>
+
+  <div class="employee-new-actions">
+    <%= f.submit "新規登録", class:"login-btn" %>
   </div>
 <% end %>
-
-<%= render "employees/shared/links" %>
