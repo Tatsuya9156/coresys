@@ -9,7 +9,9 @@ class DeviseCreateWorkers < ActiveRecord::Migration[6.0]
       t.integer :phone,              null: false
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
-      t.string  :residence,          null: false
+      t.string  :address_zip,        null: false
+      t.string  :address,            null: false
+      t.string  :warehouse_zip,      null: false
       t.string  :warehouse
       t.string  :inaba
       t.string  :yodo

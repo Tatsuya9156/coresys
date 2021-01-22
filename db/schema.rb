@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 2021_01_22_030244) do
     t.integer "phone", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "residence", null: false
+    t.string "address_zip", null: false
+    t.string "address", null: false
+    t.string "warehouse_zip", null: false
     t.string "warehouse"
     t.string "inaba"
     t.string "yodo"
