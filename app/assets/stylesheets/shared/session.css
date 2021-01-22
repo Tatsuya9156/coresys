@@ -1,11 +1,15 @@
-.session-wrapper {
-  width: 300px;
-  margin: 100px auto;
-  color: rgb(80, 80, 80);
-}
-
 .session-header {
   text-align: center;
+}
+
+.session-wrapper {
+  color: rgb(80, 80, 80);
+  width: 550px;
+  margin: 20px auto;
+  padding: 70px 100px;
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border-radius: 5px;
 }
 
 .session-logo-icon {
@@ -13,38 +17,44 @@
 }
 
 .session-header-text {
-  font-size: 18px;
+  font-size: 15px;
 }
 
-.field, .actions {
+.session-field, .session-actions {
   text-align: center;
+  font-size: 20px;
 }
 
-.field {
-  margin-top: 20px;
+.session-field {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.label-name {
   font-size: 15px;
 }
 
 .input-field {
-  width: 200px;
-  height: 25px;
+  width: 350px;
+  height: 40px;
+  margin-top: 10px;
 }
 
-.actions {
-  margin-top: 30px;
+.session-actions {
+  margin-top: 50px;
 }
 
 .login-btn {
   background-color: white;
   border: solid 1px rgb(80, 80, 80);
-  width: 90px;
-  height: 30px;
   border-radius: 3px;
+  width: 100px;
+  height: 40px;
 }
 
 .to-login {
   display: block;
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: center;
   text-decoration: none;
   color: rgb(80, 80, 80);
