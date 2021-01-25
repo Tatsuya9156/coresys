@@ -23,13 +23,20 @@
             <li class="category-list"><%= link_to "チャット", "/", class:"nav-list" %></li>
             <li class="category-list"><%= link_to "カレンダー", "/", class:"nav-list" %></li>
             <li class="category-list" id="user-pulldown">
-              <%= current_employee.name %>
+              <% if employee_signed_in? %>
+                <%= current_employee.name %>
+              <% else %>
+                ユーザー名
+              <% end %>
             </li>
           </ul>
           <div class="pulldown-list">
             <ul class="pulldown-child" id="pulldown-child">
-              <li class="user-list"><%= link_to "ユーザー管理", "/", class:"user-list-child" %></li>
-              <li class="user-list"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
+              <li class="user-list"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
+              <li class="user-list"><%= link_to "社員情報編集", "/", class:"user-list-child" %></li>
+              <li class="user-list"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
+              <li class="user-list"><%= link_to "職人情報編集", "/", class:"user-list-child" %></li>
+              <li class="user-list"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
             </ul>
           </div>
         </div>

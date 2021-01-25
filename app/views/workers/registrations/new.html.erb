@@ -1,29 +1,112 @@
-<h2>Sign up</h2>
+<div class='registration-header'>
+  <p class='registration-header-text'>職人新規登録</p>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "workers/shared/error_messages", resource: resource %>
+<%= form_with model: @worker, url: worker_registration_path, method: :post, class: 'worker-new-main', local: true do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="worker-new-wrapper">
+
+  <div class="worker-info">
+    <div class="main-info">
+      <p class="info-title">＜基本情報＞</p>
+      <div class="worker-new-field">
+        <%= f.label :worker_number, '職人番号', class:"worker-new-label" %>
+        <%= f.text_field :worker_number, class:"worker-new-input", autofocus: true %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :name, '名前(漢字)', class:"worker-new-label" %>
+        <%= f.text_field :name, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :name_kana, '名前(カナ)', class:"worker-new-label" %>
+        <%= f.text_field :name_kana, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :phone, '電話番号', class:"worker-new-label" %>
+        <%= f.text_field :phone, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :email, 'メールアドレス', class:"worker-new-label" %>
+        <%= f.email_field :email, class:"worker-new-input", autocomplete: "email" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :password, 'パスワード', class:"worker-new-label" %>
+        <%= f.password_field :password, class:"worker-new-input", autocomplete: "new-password" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :password_confirmation, 'パスワード確認', class:"worker-new-label" %>
+        <%= f.password_field :password_confirmation, class:"worker-new-input", autocomplete: "new-password" %>
+      </div>
+    </div>
+
+    <div class="sub-info-left">
+      <p class="info-title">＜居住地＞</p>
+      <div class="worker-new-field">
+        <%= f.label :address_zip, '郵便番号', class:"worker-new-label" %>
+        <%= f.text_field :address_zip, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :address, '住所', class:"worker-new-label" %>
+        <%= f.text_field :address, class:"worker-new-input" %>
+      </div>
+
+      <p class="info-title">＜倉庫住所＞</p>
+      <div class="worker-new-field">
+        <%= f.label :warehouse_zip, '郵便番号', class:"worker-new-label" %>
+        <%= f.text_field :warehouse_zip, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :warehouse, '住所', class:"worker-new-label" %>
+        <%= f.text_field :warehouse, class:"worker-new-input" %>
+      </div>
+    </div>
+
+    <div class="sub-info-right">
+      <p class="info-title">＜直送コード＞</p>
+      <div class="worker-new-field">
+        <%= f.label :inaba, 'イナバ物置', class:"worker-new-label" %>
+        <%= f.text_field :inaba, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :yodo, 'ヨド物置', class:"worker-new-label" %>
+        <%= f.text_field :yodo, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :takubo, 'タクボ物置', class:"worker-new-label" %>
+        <%= f.text_field :takubo, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :ykkap, 'YKKAP', class:"worker-new-label" %>
+        <%= f.text_field :ykkap, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :sankyo, '三協アルミ', class:"worker-new-label" %>
+        <%= f.text_field :sankyo, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :lixil, 'LIXIL', class:"worker-new-label" %>
+        <%= f.text_field :lixil, class:"worker-new-input" %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="worker-new-actions">
+    <%= f.submit "新規登録", class: "signup-btn" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
 <% end %>
-
-<%= render "workers/shared/links" %>

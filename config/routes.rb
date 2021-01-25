@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     registrations: 'employees/registrations'
   }
   root to: 'customers#index'
+  resources :employees, only: [:index]
+  resources :workers, only: [:index]
 end

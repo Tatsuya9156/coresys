@@ -7,6 +7,11 @@
 <div class="employee-new-wrapper">
 
   <div class="employee-new-field">
+    <%= f.label :employee_number, '社員番号', class:"employee-new-label" %></br>
+    <%= f.text_field :employee_number, autofocus: true, class:"employee-new-input", placeholder:"社員番号" %>
+  </div>
+
+  <div class="employee-new-field">
     <%= f.label :name, '名前(漢字)', class:"employee-new-label" %></br>
     <%= f.text_field :name, autofocus: true, class:"employee-new-input", placeholder:"名前(漢字)" %>
   </div>

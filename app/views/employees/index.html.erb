@@ -1,0 +1,31 @@
+<div class='registration-header'>
+  <p class='registration-header-text'>社員一覧</p>
+</div>
+
+<div class="user-index-wrapper">
+  <% @employees.each do |employee| %>
+    <div class="employee">
+      <div class="user-info">
+        <%= employee.employee_number %>
+      </div>
+      <div class="user-info">
+        <%= employee.name %>
+      </div>
+      <div class="user-info">
+        <%= employee.name_kana %>
+      </div>
+      <div class="user-info">
+        <%= employee.phone %>
+      </div>
+      <div class="user-info">
+        <%= employee.email %>
+      </div>
+      <div class="user-info">
+        <%= employee.admin %>
+      </div>
+      <div class="user-info">
+        <%= link_to "編集", employees_path %>
+      </div>
+    </div>
+  <% end %>
+</div>
