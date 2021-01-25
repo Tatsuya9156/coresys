@@ -17,19 +17,21 @@
         </div>
         <div class="nav">
           <ul class="category">
-            <li><%= link_to "案件新規作成", "/", class:"nav-list" %></li>
-            <li><%= link_to "案件一覧", "/", class:"nav-list" %></li>
-            <li><%= link_to "在庫管理表", "/", class:"nav-list" %></li>
-            <li><%= link_to "チャット", "/", class:"nav-list" %></li>
-            <li><%= link_to "カレンダー", "/", class:"nav-list" %></li>
-            <% if employee_signed_in? %>
-              <li><%= link_to current_employee.name, class:"nav-list" %></li>
-            <% elsif worker_signed_in? %>
-              <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
-            <% else %>
-              <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
-            <% end %>
+            <li class="category-list"><%= link_to "案件新規作成", "/", class:"nav-list" %></li>
+            <li class="category-list"><%= link_to "案件一覧", "/", class:"nav-list" %></li>
+            <li class="category-list"><%= link_to "在庫管理表", "/", class:"nav-list" %></li>
+            <li class="category-list"><%= link_to "チャット", "/", class:"nav-list" %></li>
+            <li class="category-list"><%= link_to "カレンダー", "/", class:"nav-list" %></li>
+            <li class="category-list" id="user-pulldown">
+              <%= current_employee.name %>
+            </li>
           </ul>
+          <div class="pulldown-list">
+            <ul class="pulldown-child" id="pulldown-child">
+              <li class="user-list"><%= link_to "ユーザー管理", "/", class:"user-list-child" %></li>
+              <li class="user-list"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
+            </ul>
+          </div>
         </div>
       </header>
     <% end %>
