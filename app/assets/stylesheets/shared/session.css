@@ -4,7 +4,7 @@
 
 .session-wrapper {
   color: rgb(80, 80, 80);
-  width: 550px;
+  width: 500px;
   margin: 20px auto;
   padding: 70px 100px;
   background-color: white;
@@ -20,24 +20,16 @@
   font-size: 15px;
 }
 
-.session-field, .session-actions {
-  text-align: center;
-  font-size: 20px;
-}
-
 .session-field {
   margin-top: 10px;
-  font-size: 15px;
 }
 
-.label-name {
-  font-size: 15px;
+.session-label {
+  font-size: 10px;
 }
 
-.input-field {
-  width: 350px;
-  height: 40px;
-  margin-top: 10px;
+.session-input {
+  width: 100px;
 }
 
 .session-actions {

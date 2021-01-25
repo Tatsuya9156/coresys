@@ -22,7 +22,13 @@
             <li><%= link_to "在庫管理表", "/", class:"nav-list" %></li>
             <li><%= link_to "チャット", "/", class:"nav-list" %></li>
             <li><%= link_to "カレンダー", "/", class:"nav-list" %></li>
-            <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
+            <% if employee_signed_in? %>
+              <li><%= link_to current_employee.name, class:"nav-list" %></li>
+            <% elsif worker_signed_in? %>
+              <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
+            <% else %>
+              <li><%= link_to "ユーザー名", "/", class:"nav-list" %></li>
+            <% end %>
           </ul>
         </div>
       </header>
