@@ -1,0 +1,56 @@
+<div class='registration-header'>
+  <p class='registration-header-text'>職人一覧</p>
+</div>
+
+<div class="workers-index-wrapper">
+
+    <div class="workers-sample">
+      <div class="workers-info-sample">
+        <p>職人番号</p>
+      </div>
+      <div class="workers-info-sample">
+        <p>名前(漢字)</p>
+      </div>
+      <div class="workers-info-sample">
+        <p>名前(カナ)</p>
+      </div>
+      <div class="workers-info-sample">
+        <p>電話番号</p>
+      </div>
+      <div class="workers-info-sample">
+        <p>メールアドレス</p>
+      </div>
+      <div class="workers-info-sample">
+        <p>編集(管理者のみ)</p>
+      </div>
+    </div>
+
+  <% @workers.each do |worker| %>
+    <div class="workers">
+      <div class="workers-info">
+        <%= worker.worker_number %>
+      </div>
+      <div class="workers-info">
+        <%= worker.name %>
+      </div>
+      <div class="workers-info">
+        <%= worker.name_kana %>
+      </div>
+      <div class="workers-info">
+        <%= worker.phone %>
+      </div>
+      <div class="workers-info">
+        <%= worker.email %>
+      </div>
+      <% if employee_signed_in? && (current_employee.admin == true) %>
+        <div class="workers-info">
+          <%= link_to "編集", edit_worker_path(worker.id), class:"edit-btn" %>
+        </div>
+      <% else %>
+        <div class="workers-info">
+          <p>管理者権限がありません</p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
