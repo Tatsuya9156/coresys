@@ -1,0 +1,52 @@
+.workers-index-wrapper {
+  color: rgb(80, 80, 80);
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border-radius: 5px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 30px;
+}
+
+.workers-sample {
+  display: flex;
+  text-align: center;
+  margin-bottom: 60px;
+  border-bottom: solid 2px rgb(80, 80, 80);
+  font-weight: bold;
+}
+
+.workers-info-sample {
+  width: calc(100% / 6);
+  display: flex;
+  justify-content: center;
+}
+
+.workers {
+  display: flex;
+  text-align: center;
+  margin-bottom: 50px;
+  border-bottom: solid 1px rgb(80, 80, 80);
+}
+
+.workers-info {
+  width: calc(100% / 6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-btn {
+  display: block;
+  color: rgb(80, 80, 80);
+  text-decoration: none;
+  border: solid 1px rgb(80, 80, 80);
+  border-radius: 5px;
+  padding: 3px;
+  margin-bottom: 5px;
+  width: 40px;
+}
+
+.edit-btn:hover {
+  font-weight: bold;
+}
