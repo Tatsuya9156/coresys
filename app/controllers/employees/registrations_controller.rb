@@ -52,18 +52,18 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  def current_user_is_admin?
+  def current_employee_is_admin?
     current_employee.admin == true
   end
 
   def sign_up(resource_name, resource)
-    if !current_user_is_admin?
+    if !current_employee_is_admin?
       sign_in(resource_name, resource)
     end
   end
 
   def creatable?
-    if !current_user_is_admin?
+    if !current_employee_is_admin?
       redirect_to root_path
     end
   end

@@ -1,0 +1,54 @@
+<div class='registration-header'>
+  <p class='registration-header-text'>社員情報編集</p>
+</div>
+
+<%= form_with model: @employee, url: employee_path(@employee.id), method: :patch, class: 'employee-new-main', local: true do |f| %>
+
+<div class="employee-new-wrapper">
+
+  <div class="employee-new-field">
+    <%= f.label :employee_number, '社員番号', class:"employee-new-label" %></br>
+    <%= f.text_field :employee_number, autofocus: true, class:"employee-new-input", placeholder:"社員番号" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :name, '名前(漢字)', class:"employee-new-label" %></br>
+    <%= f.text_field :name, autofocus: true, class:"employee-new-input", placeholder:"名前(漢字)" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :name_kana, '名前(カナ)', class:"employee-new-label" %></br>
+    <%= f.text_field :name_kana, class:"employee-new-input", placeholder:"名前(カナ)" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :phone, '携帯番号', class:"employee-new-label" %></br>
+    <%= f.text_field :phone, class:"employee-new-input", placeholder:"携帯番号" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :email, 'メールアドレス', class:"employee-new-label" %></br>
+    <%= f.email_field :email, autocomplete: "email", class:"employee-new-input", placeholder:"メールアドレス" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :password, 'パスワード', class:"employee-new-label" %></br>
+    <%= f.password_field :password, autocomplete: "new-password", class:"employee-new-input", placeholder:"パスワード" %>
+  </div>
+
+  <div class="employee-new-field">
+    <%= f.label :password_confirmation, 'パスワード確認', class:"employee-new-label" %></br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"employee-new-input", placeholder:"パスワード確認" %>
+  </div>
+
+  <div class="check_signup">
+    <div class="employee-new-check-box">
+      <%= f.label :admin, '管理者権限', class:"employee-new-check-box-label" %>
+      <%= f.check_box :admin, autofocus: false, class:"employee-new-check-box-input" %>
+    </div>
+
+    <div class="employee-new-actions">
+      <%= f.submit "新規登録", class:"signup-btn" %>
+    </div>
+  </div>
+<% end %>

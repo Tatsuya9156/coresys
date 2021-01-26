@@ -24,7 +24,7 @@
         <%= employee.admin %>
       </div>
       <div class="user-info">
-        <%= link_to "編集", employees_path %>
+        <%= link_to "編集", edit_employee_path(employee.id) %>
       </div>
     </div>
   <% end %>
