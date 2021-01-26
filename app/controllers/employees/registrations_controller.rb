@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Employees::RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :require_no_authentication, only: [:cancel]
+  before_action :creatable?, only: [:new, :create]
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -50,13 +52,30 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
+  def current_user_is_admin?
+    current_employee.admin == true
+  end
+
+  def sign_up(resource_name, resource)
+    if !current_user_is_admin?
+      sign_in(resource_name, resource)
+    end
+  end
+
+  def creatable?
+    if !current_user_is_admin?
+      redirect_to root_path
+    end
+  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
   # end
-
+  
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
 end
