@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-27T03:29:01.756Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="Ha41P4o9zx76_WxwXXZA" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-27T03:32:46.763Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="IuJsgvW-HpDz7Jqi-KPU" version="13.10.0" type="embed">
     <diagram id="HBBoJEqQbI67x2nuvv9k" name="ページ1">
-        <mxGraphModel dx="2506" dy="1510" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="3028" dy="1954" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -722,7 +722,7 @@
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="367" value="見積書(quotations)テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" parent="1" vertex="1">
-                    <mxGeometry x="-80" y="1470" width="320" height="120" as="geometry"/>
+                    <mxGeometry x="-320" y="1470" width="320" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="368" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="367" vertex="1">
                     <mxGeometry y="30" width="320" height="30" as="geometry"/>
@@ -1022,12 +1022,12 @@
                 <mxCell id="546" value="顧客ID (customers)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;" parent="544" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="550" value="" style="endArrow=none;html=1;rounded=1;strokeColor=#f0f0f0;startArrow=ERmany;startFill=0;endSize=0;startSize=20;exitX=0.745;exitY=1.048;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.005;entryY=0.04;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="544" target="88" edge="1">
+                <mxCell id="550" value="" style="endArrow=none;html=1;rounded=1;strokeColor=#f0f0f0;startArrow=ERmany;startFill=0;endSize=0;startSize=20;exitX=0.745;exitY=1.048;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="544" target="440" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="150" y="580" as="sourcePoint"/>
                         <mxPoint x="38" y="580" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="38" y="1100"/>
+                            <mxPoint x="38" y="1215"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
