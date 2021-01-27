@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   root to: 'customers#index'
   resources :employees, only: [:index, :edit, :update]
   resources :workers, only: [:index, :edit, :update]
+  resources :customers
 end
