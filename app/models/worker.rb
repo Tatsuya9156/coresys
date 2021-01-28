@@ -19,6 +19,7 @@ class Worker < ApplicationRecord
     validates :phone,         format: { with: VALID_PHONE_REGEX }
     validates :address_zip,   format: { with: VALID_ZIP_REGEX }
     validates :address
+    validates :trade_name
   end
   validates :warehouse_zip, format: { with: VALID_ZIP_REGEX }
   with_options format: { with: VALID_DELICODE_REGEX } do
