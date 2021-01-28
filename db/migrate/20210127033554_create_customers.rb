@@ -10,8 +10,8 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
       t.string      :email,         null: false
       t.string      :address_zip,   null: false
       t.string      :address,       null: false
-      t.string      :residence_zip, null: false
-      t.string      :residence,     null: false
+      t.string      :residence_zip
+      t.string      :residence
       t.timestamps
     end
   end
