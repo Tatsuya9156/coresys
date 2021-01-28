@@ -21,5 +21,4 @@ class Customer < ApplicationRecord
     validates :address
   end
   validates :residence_zip, format: { with: VALID_ZIP_REGEX }
-  validates :residence
 end
