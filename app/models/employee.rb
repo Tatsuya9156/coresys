@@ -8,7 +8,7 @@ class Employee < ApplicationRecord
   VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/
   VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/
   VALID_PHONE_REGEX = /\A[0-9]{10,11}\z/
-  
+
   with_options presence: true do
     validates :employee_number, format: { with: VALID_NUM_REGEX }
     validates :name,            format: { with: VALID_NAME_REGEX }
@@ -16,5 +16,4 @@ class Employee < ApplicationRecord
     validates :phone,           format: { with: VALID_PHONE_REGEX }
     validates :position
   end
-
 end

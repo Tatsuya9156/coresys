@@ -9,7 +9,7 @@ class Store < ActiveHash::Base
     { id: 7,  name: '岐阜支店' },
     { id: 8,  name: '養老支店' },
     { id: 9,  name: '多治見支店' },
-    { id: 10,  name: '中津川支店' },
+    { id: 10, name: '中津川支店' },
     { id: 11, name: '四日市支店' },
     { id: 12, name: '伊勢支店' },
     { id: 13, name: '浜松支店' },
@@ -20,5 +20,4 @@ class Store < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :customers
-
-  end
+end
