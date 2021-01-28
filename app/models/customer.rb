@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   belongs_to :status
 
   VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龠々]+\z/
-  VALID_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
+  VALID_KANA_REGEX = /\A[ァ-ヶー－]+\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_ZIP_REGEX = /\A[0-9]{3}-[0-9]{4}\z/
 
