@@ -16,4 +16,5 @@ class Employee < ApplicationRecord
     validates :phone,           format: { with: VALID_PHONE_REGEX }
     validates :position
   end
+  validates :admin, inclusion: {in: [true, false]}
 end
