@@ -14,7 +14,7 @@ class Employee < ApplicationRecord
     validates :name,            format: { with: VALID_NAME_REGEX }
     validates :name_kana,       format: { with: VALID_KANA_REGEX }
     validates :phone,           format: { with: VALID_PHONE_REGEX }
-    validates :admin,           inclusion: {in: [true, false]}
+    validates :position
   end
 
 end
