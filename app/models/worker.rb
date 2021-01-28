@@ -3,7 +3,7 @@ class Worker < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  
   with_options presence: true do
     validates :name,      format: { with: /\A[ぁ-んァ-ン一-龠々]+\z/ }
     validates :name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
@@ -14,7 +14,7 @@ class Worker < ApplicationRecord
       validates :phone,         format: { with: /\A[0-9]{10,11}\z/ }
     end
   end
-  with_options format: { /\A[A-Z0-9]+\z/ } do
+  with_options format: { with: /\A[A-Z0-9]+\z/ } do
     validates :inaba
     validates :yodo
     validates :takubo
