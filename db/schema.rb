@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_01_27_033554) do
     t.string "email", null: false
     t.string "address_zip", null: false
     t.string "address", null: false
-    t.string "residence_zip", null: false
-    t.string "residence", null: false
+    t.string "residence_zip"
+    t.string "residence"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 2021_01_27_033554) do
     t.string "employee_number", null: false
     t.string "name", null: false
     t.string "name_kana", null: false
+    t.string "position"
     t.string "phone", null: false
-    t.boolean "admin", null: false
+    t.boolean "admin", default: false, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_033554) do
     t.string "worker_number", null: false
     t.string "name", null: false
     t.string "name_kana", null: false
+    t.string "trade_name", null: false
     t.string "phone", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
