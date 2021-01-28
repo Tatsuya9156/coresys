@@ -9,7 +9,7 @@ class DeviseCreateEmployees < ActiveRecord::Migration[6.0]
       t.string  :name_kana,          null: false
       t.string  :position
       t.string  :phone,              null: false
-      t.boolean :admin,              null: false, default: "false"
+      t.boolean :admin,              null: false
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
       
