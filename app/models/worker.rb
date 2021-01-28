@@ -15,7 +15,7 @@ class Worker < ApplicationRecord
   with_options presence: true do
     validates :worker_number, format: { with: VALID_NUM_REGEX }
     validates :name,          format: { with: VALID_NAME_REGEX }
-    validates :name_kana,     format: { with: VALID_NAME_KANA_REGEX }
+    validates :name_kana,     format: { with: VALID_KANA_REGEX }
     validates :phone,         format: { with: VALID_PHONE_REGEX }
     validates :address_zip,   format: { with: VALID_ZIP_REGEX }
     validates :address
