@@ -1,9 +1,8 @@
 class CustomersController < ApplicationController
-
   def index
     @customers = Customer.all
   end
-  
+
   def new
     @customer = Customer.new
   end
@@ -21,8 +20,9 @@ class CustomersController < ApplicationController
   end
 
   private
-  def customer_params
-    params.require(:customer).permit(:order_date, :store_id, :name, :name_kana, :phone, :email, :address_zip, :address, :residence_zip, :residence, :status_id)
-  end
 
+  def customer_params
+    params.require(:customer).permit(:order_date, :store_id, :name, :name_kana, :phone, :email, :address_zip, :address,
+                                     :residence_zip, :residence, :status_id)
+  end
 end

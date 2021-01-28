@@ -3,7 +3,7 @@ class Worker < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   VALID_NUM_REGEX      = /\A[0-9]{4}\z/
   VALID_NAME_REGEX     = /\A[ぁ-んァ-ン一-龠々]+\z/
   VALID_KANA_REGEX     = /\A[ァ-ヶー－]+\z/
@@ -11,7 +11,7 @@ class Worker < ApplicationRecord
   VALID_EMAIL_REGEX    = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_ZIP_REGEX      = /\A[0-9]{3}-[0-9]{4}\z/
   VALID_DELICODE_REGEX = /\A[A-Z0-9]+\z/
-  
+
   with_options presence: true do
     validates :worker_number, format: { with: VALID_NUM_REGEX }
     validates :name,          format: { with: VALID_NAME_REGEX }
@@ -30,5 +30,4 @@ class Worker < ApplicationRecord
     validates :sankyo
     validates :lixil
   end
-
 end

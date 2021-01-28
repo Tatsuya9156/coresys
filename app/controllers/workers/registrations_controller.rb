@@ -44,7 +44,9 @@ class Workers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:worker_number, :name, :name_kana, :trade_name, :phone, :address_zip, :address, :warehouse_zip, :warehouse, :inaba, :yodo, :takubo, :ykkap, :sankyo, :lixil])
+    devise_parameter_sanitizer.permit(:sign_up,
+                                      keys: [:worker_number, :name, :name_kana, :trade_name, :phone, :address_zip, :address, :warehouse_zip, :warehouse, :inaba,
+                                             :yodo, :takubo, :ykkap, :sankyo, :lixil])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -57,15 +59,11 @@ class Workers::RegistrationsController < Devise::RegistrationsController
   end
 
   def sign_up(resource_name, resource)
-    if !current_employee_is_admin?
-      sign_in(resource_name, resource)
-    end
+    sign_in(resource_name, resource) unless current_employee_is_admin?
   end
 
   def creatable?
-    if !current_employee_is_admin?
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_employee_is_admin?
   end
 
   # The path used after sign up.

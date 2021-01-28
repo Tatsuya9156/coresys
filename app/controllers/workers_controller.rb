@@ -17,8 +17,9 @@ class WorkersController < ApplicationController
   end
 
   private
-  def worker_params
-    params.require(:worker).permit(:worker_number, :name, :name_kana, :trade_name, :phone, :email, :password, :address_zip, :address, :warehouse_zip, :warehouse, :inaba, :yodo, :takubo, :ykkap, :sankyo, :lixil)
-  end
 
+  def worker_params
+    params.require(:worker).permit(:worker_number, :name, :name_kana, :trade_name, :phone, :email, :password, :address_zip,
+                                   :address, :warehouse_zip, :warehouse, :inaba, :yodo, :takubo, :ykkap, :sankyo, :lixil)
+  end
 end
