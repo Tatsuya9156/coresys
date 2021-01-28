@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_033554) do
     t.string "name_kana", null: false
     t.string "position"
     t.string "phone", null: false
-    t.boolean "admin", null: false
+    t.boolean "admin", default: false, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
