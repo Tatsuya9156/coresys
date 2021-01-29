@@ -3,11 +3,11 @@ class Customer < ApplicationRecord
   belongs_to :store
   belongs_to :status
 
-  VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/
-  VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/
-  VALID_PHONE_REGEX = /\A[0-9]{10,11}\z/
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_ZIP_REGEX   = /\A[0-9]{3}-[0-9]{4}\z/
+  VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
+  VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/.freeze
+  VALID_PHONE_REGEX = /\A[0-9]{10,11}\z/.freeze
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  VALID_ZIP_REGEX   = /\A[0-9]{3}-[0-9]{4}\z/.freeze
 
   with_options presence: true do
     validates :order_date
@@ -20,5 +20,5 @@ class Customer < ApplicationRecord
     validates :address_zip, format: { with: VALID_ZIP_REGEX }
     validates :address
   end
-  validates :residence_zip, format: { with: VALID_ZIP_REGEX }
+  validates :residence_zip, format: { with: VALID_ZIP_REGEX }, allow_blank: true
 end
