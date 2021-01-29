@@ -29,6 +29,6 @@ class Worker < ApplicationRecord
     validates :sankyo
     validates :lixil
   end
-  validates :password,      format: { with: VALID_PASSWORD_REGEX }, uniqueness: true
+  validates :password,      format: { with: VALID_PASSWORD_REGEX }
   validates :warehouse_zip, format: { with: VALID_ZIP_REGEX }
 end
