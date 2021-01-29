@@ -8,7 +8,7 @@ class Worker < ApplicationRecord
   VALID_NAME_REGEX     = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
   VALID_KANA_REGEX     = /\A[ァ-ヶー－]+\z/.freeze
   VALID_PHONE_REGEX    = /\A[0-9]{10,11}\z/.freeze
-  VALID_EMAIL_REGEX    = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   VALID_ZIP_REGEX      = /\A[0-9]{3}-[0-9]{4}\z/.freeze
   VALID_DELICODE_REGEX = /\A[A-Z0-9]+\z/.freeze
 
@@ -21,7 +21,6 @@ class Worker < ApplicationRecord
     validates :address
     validates :trade_name
   end
-  validates :warehouse_zip, format: { with: VALID_ZIP_REGEX }
   with_options format: { with: VALID_DELICODE_REGEX } do
     validates :inaba
     validates :yodo
@@ -30,4 +29,6 @@ class Worker < ApplicationRecord
     validates :sankyo
     validates :lixil
   end
+  validates :warehouse_zip, format: { with: VALID_ZIP_REGEX }
+  validates :password,      format: { with: VALID_PASSWORD_REGEX }
 end
