@@ -151,6 +151,11 @@ RSpec.describe Worker, type: :model do
         @worker.valid?
         expect(@worker.errors.full_messages).to include('Address zip is invalid')
       end
+      it '居住地の住所(address)が空だと登録できない' do
+        @worker.address = nil
+        @worker.valid?
+        expect(@worker.errors.full_messages).to include("Address can't be blank")
+      end
       it '倉庫の郵便番号(warehouse_zip)が半角数字3桁-4桁でないと登録できない' do
         @worker.warehouse_zip = '1234-567'
         @worker.valid?
