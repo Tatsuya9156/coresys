@@ -11,7 +11,7 @@ class Employee < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
   with_options presence: true do
-    validates :employee_number, format: { with: VALID_NUM_REGEX }, uniqueness: true
+    validates :employee_number, format: { with: VALID_NUM_REGEX }, uniqueness: { case_sensitive: true }
     validates :name,            format: { with: VALID_NAME_REGEX }
     validates :name_kana,       format: { with: VALID_KANA_REGEX }
     validates :phone,           format: { with: VALID_PHONE_REGEX }

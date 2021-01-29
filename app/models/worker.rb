@@ -13,7 +13,7 @@ class Worker < ApplicationRecord
   VALID_DELICODE_REGEX = /\A[A-Z0-9]+\z/.freeze
 
   with_options presence: true do
-    validates :worker_number, format: { with: VALID_NUM_REGEX }, uniqueness: true
+    validates :worker_number, format: { with: VALID_NUM_REGEX }, uniqueness: { case_sensitive: true }
     validates :name,          format: { with: VALID_NAME_REGEX }
     validates :name_kana,     format: { with: VALID_KANA_REGEX }
     validates :phone,         format: { with: VALID_PHONE_REGEX }
