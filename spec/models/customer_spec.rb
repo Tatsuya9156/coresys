@@ -7,7 +7,8 @@ RSpec.describe Customer, type: :model do
 
   describe '顧客新規登録' do
     context '新規登録ができるとき' do
-      it '受注日(order_date)、受注店舗(store_id)、ステータス(status)、名前(漢字)(name)、名前(カナ)(name_kana)、電話番号(phone)、メールアドレス(email)、居住地の郵便番号(address_zip)、居住地の住所(address)が存在すれば登録できる' do
+      it '受注日(order_date)、受注店舗(store_id)、ステータス(status)、名前(漢字)(name)、名前(カナ)(name_kana)、電話番号(phone)、
+          メールアドレス(email)、居住地の郵便番号(address_zip)、居住地の住所(address)が存在すれば登録できる' do
         expect(@customer).to be_valid
       end
       it '施工先の郵便番号(residence_zip)、施工先の住所(residence)が空でも登録できる' do

@@ -7,7 +7,8 @@ RSpec.describe Employee, type: :model do
 
   describe '社員新規登録' do
     context '新規登録ができるとき' do
-      it '社員番号(employee_number)、名前(漢字)(name)、名前(カナ)(name_kana)、役職(position)、電話番号(phone)、管理者権限(admin)、メールアドレス(email)、パスワード(password)、パスワード確認(password_confirmation)が存在すれば登録できる' do
+      it '社員番号(employee_number)、名前(漢字)(name)、名前(カナ)(name_kana)、役職(position)、電話番号(phone)、
+          管理者権限(admin)、メールアドレス(email)、パスワード(password)、パスワード確認(password_confirmation)が存在すれば登録できる' do
         expect(@employee).to be_valid
       end
     end
