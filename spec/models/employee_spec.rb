@@ -18,7 +18,7 @@ RSpec.describe Employee, type: :model do
         @employee.valid?
         expect(@employee.errors.full_messages).to include("Employee number can't be blank")
       end
-      it '社員番号(employee_number)が数字のみでないと登録できない' do
+      it '社員番号(employee_number)が半角数字のみでないと登録できない' do
         @employee.employee_number = "abcd"
         @employee.valid?
         expect(@employee.errors.full_messages).to include("Employee number is invalid")
@@ -69,7 +69,7 @@ RSpec.describe Employee, type: :model do
         @employee.valid?
         expect(@employee.errors.full_messages).to include("Phone can't be blank")
       end
-      it '電話番号(phone)が数字でないと登録できない' do
+      it '電話番号(phone)が半角数字でないと登録できない' do
         @employee.phone = "abcdefghijk"
         @employee.valid?
         expect(@employee.errors.full_messages).to include("Phone is invalid")
