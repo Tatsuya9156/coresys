@@ -3,7 +3,7 @@ FactoryBot.define do
     employee_number       { Faker::Number.number(digits: 4) }
     name                  { Gimei.last.kanji }
     name_kana             { Gimei.last.katakana }
-    position              { "部長" }
+    position              { '部長' }
     phone                 { Faker::Number.number(digits: 11) }
     admin                 { false }
     email                 { Faker::Internet.free_email }

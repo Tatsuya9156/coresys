@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :customer do
-    zip = "123-4567"
+    zip = '123-4567'
     address = Gimei.address.kanji
-    order_date    { "2020-12-31" }
+    order_date    { '2020-12-31' }
     store_id      { Faker::Number.within(range: 1..16) }
     status_id     { Faker::Number.within(range: 1..8) }
     name          { Gimei.last.kanji }

@@ -39,9 +39,9 @@ RSpec.describe Customer, type: :model do
         expect(@customer.errors.full_messages).to include("Name can't be blank")
       end
       it '名前(漢字)(name)が漢字・ひらがな・カタカナでないと登録できない' do
-        @customer.name = "abc"
+        @customer.name = 'abc'
         @customer.valid?
-        expect(@customer.errors.full_messages).to include("Name is invalid")
+        expect(@customer.errors.full_messages).to include('Name is invalid')
       end
       it '名前(カナ)(name_kana)が空だと登録できない' do
         @customer.name_kana = nil
@@ -49,9 +49,9 @@ RSpec.describe Customer, type: :model do
         expect(@customer.errors.full_messages).to include("Name kana can't be blank")
       end
       it '名前(カナ)(name_kana)がカタカナでないと登録できない' do
-        @customer.name_kana = "漢字"
+        @customer.name_kana = '漢字'
         @customer.valid?
-        expect(@customer.errors.full_messages).to include("Name kana is invalid")
+        expect(@customer.errors.full_messages).to include('Name kana is invalid')
       end
       it '電話番号(phone)が空だと登録できない' do
         @customer.phone = nil
@@ -59,19 +59,19 @@ RSpec.describe Customer, type: :model do
         expect(@customer.errors.full_messages).to include("Phone can't be blank")
       end
       it '電話番号(phone)が半角数字でないと登録できない' do
-        @customer.phone = "abcdefghijk"
+        @customer.phone = 'abcdefghijk'
         @customer.valid?
-        expect(@customer.errors.full_messages).to include("Phone is invalid")
+        expect(@customer.errors.full_messages).to include('Phone is invalid')
       end
       it '電話番号(phone)が10桁未満だと登録できない' do
-        @customer.phone = 123456789
+        @customer.phone = 123_456_789
         @customer.valid?
-        expect(@customer.errors.full_messages).to include("Phone is invalid")
+        expect(@customer.errors.full_messages).to include('Phone is invalid')
       end
       it '電話番号(phone)が11桁を超えると登録できない' do
-        @customer.phone = 123456789012
+        @customer.phone = 123_456_789_012
         @customer.valid?
-        expect(@customer.errors.full_messages).to include("Phone is invalid")
+        expect(@customer.errors.full_messages).to include('Phone is invalid')
       end
       it 'メールアドレス(email)が空だと登録できない' do
         @customer.email = nil
@@ -79,9 +79,9 @@ RSpec.describe Customer, type: :model do
         expect(@customer.errors.full_messages).to include("Email can't be blank")
       end
       it 'メールアドレス(email)が@が含まれないと登録できない' do
-        @customer.email = "test.example"
+        @customer.email = 'test.example'
         @customer.valid?
-        expect(@customer.errors.full_messages).to include("Email is invalid")
+        expect(@customer.errors.full_messages).to include('Email is invalid')
       end
       it '居住地の郵便番号(address_zip)が空だと登録できない' do
         @customer.address_zip = nil

@@ -30,25 +30,25 @@ RSpec.describe Worker, type: :model do
         expect(@worker.errors.full_messages).to include("Worker number can't be blank")
       end
       it '職人番号(worker_number)が半角数字のみでないと登録できない' do
-        @worker.worker_number = "abcd"
+        @worker.worker_number = 'abcd'
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Worker number is invalid")
+        expect(@worker.errors.full_messages).to include('Worker number is invalid')
       end
       it '職人番号(worker_number)が4桁未満だと登録できない' do
         @worker.worker_number = 123
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Worker number is invalid")
+        expect(@worker.errors.full_messages).to include('Worker number is invalid')
       end
       it '職人番号(worker_number)が4桁を超えると登録できない' do
-        @worker.worker_number = 12345
+        @worker.worker_number = 12_345
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Worker number is invalid")
+        expect(@worker.errors.full_messages).to include('Worker number is invalid')
       end
       it '職人番号(worker_number)が登録済みの社員番号と重複していると登録できない' do
         @worker.save
         another_worker = FactoryBot.build(:worker, worker_number: @worker.worker_number)
         another_worker.valid?
-        expect(another_worker.errors.full_messages).to include("Worker number has already been taken")
+        expect(another_worker.errors.full_messages).to include('Worker number has already been taken')
       end
       it '名前(漢字)(name)が空だと登録できない' do
         @worker.name = nil
@@ -56,9 +56,9 @@ RSpec.describe Worker, type: :model do
         expect(@worker.errors.full_messages).to include("Name can't be blank")
       end
       it '名前(漢字)(name)が漢字・ひらがな・カタカナでないと登録できない' do
-        @worker.name = "abc"
+        @worker.name = 'abc'
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Name is invalid")
+        expect(@worker.errors.full_messages).to include('Name is invalid')
       end
       it '名前(カナ)(name_kana)が空だと登録できない' do
         @worker.name_kana = nil
@@ -66,9 +66,9 @@ RSpec.describe Worker, type: :model do
         expect(@worker.errors.full_messages).to include("Name kana can't be blank")
       end
       it '名前(カナ)(name_kana)がカタカナでないと登録できない' do
-        @worker.name_kana = "漢字"
+        @worker.name_kana = '漢字'
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Name kana is invalid")
+        expect(@worker.errors.full_messages).to include('Name kana is invalid')
       end
       it '屋号(trade_name)が空だと登録できない' do
         @worker.trade_name = nil
@@ -81,19 +81,19 @@ RSpec.describe Worker, type: :model do
         expect(@worker.errors.full_messages).to include("Phone can't be blank")
       end
       it '電話番号(phone)が半角数字でないと登録できない' do
-        @worker.phone = "abcdefghijk"
+        @worker.phone = 'abcdefghijk'
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Phone is invalid")
+        expect(@worker.errors.full_messages).to include('Phone is invalid')
       end
       it '電話番号(phone)が10桁未満だと登録できない' do
-        @worker.phone = 123456789
+        @worker.phone = 123_456_789
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Phone is invalid")
+        expect(@worker.errors.full_messages).to include('Phone is invalid')
       end
       it '電話番号(phone)が11桁を超えると登録できない' do
-        @worker.phone = 123456789012
+        @worker.phone = 123_456_789_012
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Phone is invalid")
+        expect(@worker.errors.full_messages).to include('Phone is invalid')
       end
       it 'メールアドレス(email)が空だと登録できない' do
         @worker.email = nil
@@ -101,15 +101,15 @@ RSpec.describe Worker, type: :model do
         expect(@worker.errors.full_messages).to include("Email can't be blank")
       end
       it 'メールアドレス(email)が@が含まれないと登録できない' do
-        @worker.email = "test.example"
+        @worker.email = 'test.example'
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Email is invalid")
+        expect(@worker.errors.full_messages).to include('Email is invalid')
       end
       it 'メールアドレス(email)が登録済みのメールアドレスと重複していると登録できない' do
         @worker.save
         another_worker = FactoryBot.build(:worker, email: @worker.email)
         another_worker.valid?
-        expect(another_worker.errors.full_messages).to include("Email has already been taken")
+        expect(another_worker.errors.full_messages).to include('Email has already been taken')
       end
       it 'パスワード(password)が空だと登録できない' do
         @worker.password = nil
@@ -117,22 +117,22 @@ RSpec.describe Worker, type: :model do
         expect(@worker.errors.full_messages).to include("Password can't be blank")
       end
       it 'パスワード(password)が数字のみだと登録できない' do
-        @worker.password = 123456
+        @worker.password = 123_456
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Password is invalid")
+        expect(@worker.errors.full_messages).to include('Password is invalid')
       end
       it 'パスワード(password)が英字のみだと登録できない' do
-        @worker.password = "abcdef"
+        @worker.password = 'abcdef'
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Password is invalid")
+        expect(@worker.errors.full_messages).to include('Password is invalid')
       end
       it 'パスワード(password)が6文字未満だと登録できない' do
-        @worker.password = 12345
+        @worker.password = 12_345
         @worker.valid?
-        expect(@worker.errors.full_messages).to include("Password is invalid")
+        expect(@worker.errors.full_messages).to include('Password is invalid')
       end
       it 'パスワード(password)とパスワード確認(password_confirmation)が不一致だと登録できない' do
-        @worker.password_confirmation = "abc123"
+        @worker.password_confirmation = 'abc123'
         @worker.valid?
         expect(@worker.errors.full_messages).to include("Password confirmation doesn't match Password")
       end

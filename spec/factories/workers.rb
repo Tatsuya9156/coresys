@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :worker do
-    name = Gimei.last.kanji 
-    zip = "123-4567"
-    delicode = "ABC123"
+    name = Gimei.last.kanji
+    zip = '123-4567'
+    delicode = 'ABC123'
     address = Gimei.address.kanji
     worker_number         { Faker::Number.number(digits: 4) }
     name                  { name }
