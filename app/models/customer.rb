@@ -20,5 +20,5 @@ class Customer < ApplicationRecord
     validates :address_zip, format: { with: VALID_ZIP_REGEX }
     validates :address
   end
-  validates :residence_zip, format: { with: VALID_ZIP_REGEX }
+  validates :residence_zip, format: { with: VALID_ZIP_REGEX }, allow_blank: true
 end
