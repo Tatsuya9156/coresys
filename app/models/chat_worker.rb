@@ -1,0 +1,2 @@
+class ChatWorker < ApplicationRecord
+end

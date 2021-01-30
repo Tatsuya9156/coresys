@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_105922) do
+ActiveRecord::Schema.define(version: 2021_01_30_033711) do
+
+  create_table "chat_employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "chat_id"
+    t.bigint "employee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_id"], name: "index_chat_employees_on_chat_id"
+    t.index ["employee_id"], name: "index_chat_employees_on_employee_id"
+  end
+
+  create_table "chat_workers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "chat_id"
+    t.bigint "worker_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_id"], name: "index_chat_workers_on_chat_id"
+    t.index ["worker_id"], name: "index_chat_workers_on_worker_id"
+  end
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -79,4 +97,8 @@ ActiveRecord::Schema.define(version: 2021_01_29_105922) do
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chat_employees", "chats"
+  add_foreign_key "chat_employees", "employees"
+  add_foreign_key "chat_workers", "chats"
+  add_foreign_key "chat_workers", "workers"
 end
