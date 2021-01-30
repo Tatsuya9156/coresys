@@ -19,4 +19,7 @@ class Employee < ApplicationRecord
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :admin, inclusion: { in: [true, false] }
+
+  has_many :chat_employees
+  has_many :chats, through: :chat_employees
 end
