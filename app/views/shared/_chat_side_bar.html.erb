@@ -1,0 +1,15 @@
+<div class="chat-side-bar">
+  <div class="chat-search-area">
+    <input type="text" class="chat-search-form" placeholder="チャットルーム検索">
+  </div>
+
+  <p class="chat-room-header">チャットルーム一覧 ▼</p>
+
+  <div class="chat-room-area">
+    <% current_employee.chats.each do |chat| %>
+      <div class="chat-room-index">
+        <%= link_to chat.title, chat_path(chat.id), class:"chat-room-name" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   def index
+
   end
 
   def new
@@ -13,6 +14,10 @@ class ChatsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @chat = Chat.find(params[:id])
   end
 
   private
