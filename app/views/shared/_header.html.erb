@@ -49,7 +49,7 @@
         <% if employee_signed_in? %>
           <li class="user-list"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
         <% elsif worker_signed_in? %>
-          <li class="user-list"><%= link_to "ログアウト", worker_employee_session_path, method: :delete, class:"user-list-child" %></li>
+          <li class="user-list"><%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"user-list-child" %></li>
         <% else %>
           <li class="user-list"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
         <% end %>

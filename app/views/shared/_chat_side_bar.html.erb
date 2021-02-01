@@ -6,10 +6,18 @@
   <p class="chat-room-header">チャットルーム一覧 ▼</p>
 
   <div class="chat-room-area">
-    <% current_employee.chats.each do |chat| %>
-      <div class="chat-room-index">
-        <%= link_to chat.title, chat_path(chat.id), class:"chat-room-name" %>
-      </div>
+    <% if employee_signed_in? %>
+      <% current_employee.chats.each do |chat| %>
+        <div class="chat-room-index">
+          <%= link_to chat.title, chat_path(chat.id), class:"chat-room-name" %>
+        </div>
+      <% end %>
+    <% elsif worker_signed_in? %>
+      <% current_worker.chats.each do |chat| %>
+        <div class="chat-room-index">
+          <%= link_to chat.title, chat_path(chat.id), class:"chat-room-name" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

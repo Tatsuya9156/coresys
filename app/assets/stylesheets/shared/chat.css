@@ -67,32 +67,19 @@
   overflow: scroll;
 }
 
-/* メッセージ左側 */
+/* メッセージ共通 */
 
-.chat-messages-left {
-  width: 50%;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
+.chat-user-name {
+  margin-top: -15px;
 }
 
-.chat-message-text-left {
-  margin: 20px auto 20px 20px;
-  padding: 10px;
-  background-color: white;
-  box-shadow: 0 1px 10px 0 rgba(200, 200, 200, 0.5);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 5px;
-}
-
-.chat-user-icon-left {
+.chat-user-icon {
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 50%;
-  margin-left: 60px;
 }
 
-/* メッセージ左側 */
+/* メッセージ共通 */
 /* メッセージ右側 */
 
 .chat-messages-right {
@@ -103,41 +90,90 @@
 }
 
 .chat-message-text-right {
-  margin: 20px 20px 20px auto;
-  padding: 10px;
+  margin: 30px 20px 30px auto;
+  padding: 10px 20px;
   background-color: white;
-  box-shadow: 0 1px 10px 0 rgba(200, 200, 200, 0.5);
+  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
   border: solid 1px rgb(185, 185, 185);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-.chat-user-icon-right {
-  background-color: rgb(255, 255, 255);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 50%;
-  margin-right: 60px;
+.chat-send-date {
+  font-size: 8px;
+}
+
+.chat-user-info-right {
+  text-align: center;
+  margin: 10px 60px 0 0;
+}
+
+.message-image-right {
+  display: block;
+  margin: 0 130px 20px auto;
 }
 
 /* メッセージ右側 */
+/* メッセージ左側 */
+
+.chat-messages-left {
+  width: 50%;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.chat-message-text-left {
+  margin: 30px auto 30px 20px;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+  border: solid 1px rgb(185, 185, 185);
+  border-radius: 10px;
+}
+
+.chat-user-info-left {
+  text-align: center;
+  margin: 10px 0 0 60px;
+}
+
+.message-image-left {
+  display: block;
+  margin: 0 auto 20px 130px;
+}
+
+/* メッセージ左側 */
+
 /* メッセージフォーム */
 
-.chat-message-form {
+.message-form {
+  display: block;
+  resize: none;
+  outline: none;
   width: 95%;
-  height: 150px;
-  margin: 0 auto 10px;
+  margin: 0 auto;
+  padding: 15px;
   background-color: white;
   box-shadow: 0 1px 10px 0 rgba(200, 200, 200, 0.5);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 5px;
+  font-size: 13px;
 }
 
-.message-form {
-  resize: none;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+.file-clip-icon {
+  display: block;
+  width: 25px;
+  position: absolute;
+  right: 100px;
+  bottom: 31px;
+  cursor: pointer;
+}
+
+.message-send {
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: 60px;
+  bottom: 30px;
 }
 
 /* メッセージフォーム */

@@ -12,43 +12,65 @@
 
     <div class="chat-room-messages">
 
-      <%# メッセージ左側表示 %>
-      <div class="chat-messages-left">
-        <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-left" %>
-        <div class="chat-message-text-left">
-          テストテストテスト
-        </div>
-      </div>
-      <%# メッセージ左側表示 %>
-
-      <%# メッセージ右側表示 %>
-      <div class="chat-messages-right">
-        <div class="chat-message-text-right">
-          テストテストテストテスト
-        </div>
-        <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-right" %>
-      </div>
-      <div class="chat-messages-right">
-        <div class="chat-message-text-right">
-          テストテストテスト
-        </div>
-        <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-right" %>
-      </div>
-      <%# メッセージ右側表示 %>
-
-      <%# メッセージ左側表示 %>
-      <div class="chat-messages-left">
-        <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-left" %>
-        <div class="chat-message-text-left">
-          テストテストテスト
-        </div>
-      </div>
-      <%# メッセージ左側表示 %>
+      <% @messages.each do |message| %>
+        <% if (employee_signed_in? && message.employee_id == current_employee.id) || (worker_signed_in? && message.worker_id == current_worker.id) %>
+        <%# メッセージ右側表示 %>
+          <div class="chat-messages-right">
+            <div class="chat-message-text-right">
+              <%= simple_format(message.text) %>
+              <p class="chat-send-date"><%= message.created_at %></p>
+            </div>
+            <div class="chat-user-info-right">
+              <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon" %>
+              <% if message.employee.present? %>
+                <p class="chat-user-name"><%= message.employee.name %></p>
+              <% elsif message.worker.present? %>
+                <p class="chat-user-name"><%= message.worker.name %></p>
+              <% else %>
+                <p class="chat-user-name">ユーザーが存在しません</p>
+              <% end %>
+            </div>
+          </div>
+          <% message.message_images.each do |image| %>
+            <%= image_tag image.variant(resize: '300x300'), class: 'message-image-right' %>
+          <% end %>
+        <%# メッセージ右側表示 %>
+        <% else %>
+        <%# メッセージ左側表示 %>
+          <div class="chat-messages-left">
+            <div class="chat-user-info-left">
+              <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon" %>
+              <% if message.employee.present? %>
+                <p class="chat-user-name"><%= message.employee.name %></p>
+              <% elsif message.worker.present? %>
+                <p class="chat-user-name"><%= message.worker.name %></p>
+              <% else %>
+                <p class="chat-user-name">ユーザーが存在しません</p>
+              <% end %>
+            </div>
+            <div class="chat-message-text-left">
+              <%= simple_format(message.text) %>
+              <p class="chat-send-date"><%= message.created_at %></p>
+            </div>
+          </div>
+          <% message.message_images.each do |image| %>
+            <%= image_tag image.variant(resize: '300x300'), class: 'message-image-left' %>
+          <% end %>
+        <%# メッセージ左側表示 %>
+        <% end %>
+      <% end %>
 
     </div>
 
     <div class="chat-message-form">
-      <textarea class="message-form"></textarea>
+      <%= form_with(model: [@chat, @message], local: true) do |f| %>
+        <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"6" %>
+        <%= f.label :message_images do %>
+          <%= image_tag('clip.png', size:"15×15", class:"file-clip-icon") %>
+          <%= f.file_field :message_images, name: 'message[message_images][]', style: "display:none;", multiple: true %>
+        <% end %>
+        <%= image_submit_tag("submit.png", onclick: "submit();", class:"message-send") %>
+      <% end %>
     </div>
 
   </div>

@@ -94,12 +94,13 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "chat_id"
-    t.string "messageable_type"
-    t.bigint "messageable_id"
+    t.bigint "employee_id"
+    t.bigint "worker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
-    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
+    t.index ["employee_id"], name: "index_messages_on_employee_id"
+    t.index ["worker_id"], name: "index_messages_on_worker_id"
   end
 
   create_table "workers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -135,4 +136,6 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
   add_foreign_key "chat_workers", "chats"
   add_foreign_key "chat_workers", "workers"
   add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "employees"
+  add_foreign_key "messages", "workers"
 end

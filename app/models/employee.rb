@@ -22,5 +22,5 @@ class Employee < ApplicationRecord
 
   has_many :chat_employees
   has_many :chats, through: :chat_employees
-  has_many :messages, as: :messageable
+  has_many :messages
 end
