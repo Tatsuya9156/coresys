@@ -4,7 +4,53 @@
 
 <%= render partial:"shared/chat_side_bar" %>
 
-<%= render partial:"shared/chat_main" %>
+<div class="chat-main">
 
+<div class="chat-room-title">
+  <%= @chat.title %>
+</div>
+
+<div class="chat-room-messages">
+
+  <%# メッセージ左側表示 %>
+  <div class="chat-messages-left">
+    <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-left" %>
+    <div class="chat-message-text-left">
+      テストテストテスト
+    </div>
+  </div>
+  <%# メッセージ左側表示 %>
+
+  <%# メッセージ右側表示 %>
+  <div class="chat-messages-right">
+    <div class="chat-message-text-right">
+      テストテストテストテスト
+    </div>
+    <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-right" %>
+  </div>
+  <div class="chat-messages-right">
+    <div class="chat-message-text-right">
+      テストテストテスト
+    </div>
+    <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-right" %>
+  </div>
+  <%# メッセージ右側表示 %>
+
+  <%# メッセージ左側表示 %>
+  <div class="chat-messages-left">
+    <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon-left" %>
+    <div class="chat-message-text-left">
+      テストテストテスト
+    </div>
+  </div>
+  <%# メッセージ左側表示 %>
+
+</div>
+
+<div class="chat-message-form">
+  <textarea class="message-form"></textarea>
+</div>
+
+</div>
 
 </div>
