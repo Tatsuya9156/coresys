@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_30_033711) do
+ActiveRecord::Schema.define(version: 2021_02_01_033249) do
 
   create_table "chat_employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "chat_id"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 2021_01_30_033711) do
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
 
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "chat_id"
+    t.string "messageable_type"
+    t.bigint "messageable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
+  end
+
   create_table "workers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "worker_number", null: false
     t.string "name", null: false
@@ -101,4 +112,5 @@ ActiveRecord::Schema.define(version: 2021_01_30_033711) do
   add_foreign_key "chat_employees", "employees"
   add_foreign_key "chat_workers", "chats"
   add_foreign_key "chat_workers", "workers"
+  add_foreign_key "messages", "chats"
 end

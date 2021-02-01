@@ -37,4 +37,5 @@ class Worker < ApplicationRecord
 
   has_many :chat_workers
   has_many :chats, through: :chat_workers
+  has_many :messages, as: :messageable
 end
