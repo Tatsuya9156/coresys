@@ -33,4 +33,9 @@ class Worker < ApplicationRecord
     validates :password,      format: { with: VALID_PASSWORD_REGEX }
     validates :warehouse_zip, format: { with: VALID_ZIP_REGEX }
   end
+
+
+  has_many :chat_workers
+  has_many :chats, through: :chat_workers
+  has_many :messages
 end

@@ -1,0 +1,59 @@
+<header>
+  <div class="header-logo">
+    <%= link_to image_tag("logo.png", class:"logo-icon"), "/" %>
+  </div>
+  <div class="nav">
+    <ul class="category">
+      <li class="category-list">
+        <%= image_tag "house.png", size: "22x22", class:"tag_icon" %>
+        <%= link_to "物件一覧", "/", class:"nav-list" %>
+      </li>
+      <li class="category-list">
+        <%= image_tag "employee.png", size: "25x25", class:"tag_icon" %>
+        <%= link_to "社員一覧", employees_path, class:"nav-list" %>
+      </li>
+      <li class="category-list">
+        <%= image_tag "worker.png", size: "25x25", class:"tag_icon" %>
+        <%= link_to "職人一覧", workers_path, class:"nav-list" %>
+      </li>
+      <li class="category-list">
+        <%= image_tag "zaiko.png", size: "22x22", class:"tag_icon" %>
+        <%= link_to "在庫管理表", "/", class:"nav-list" %>
+      </li>
+      <li class="category-list">
+      <%= image_tag "chat.png", size: "23x23", class:"tag_icon" %>
+        <%= link_to "チャット", chats_path, class:"nav-list" %>
+      </li>
+      <li class="category-list">
+      <%= image_tag "calender.png", size: "18x18", class:"tag_icon" %>
+        <%= link_to "カレンダー", "/", class:"nav-list" %>
+      </li>
+      <li class="category-list" id="user-pulldown">
+        <% if employee_signed_in? %>
+          <%= current_employee.name %>さん
+        <% elsif worker_signed_in? %>
+          <%= current_worker.name %>さん
+        <% else %>
+          ユーザー名
+        <% end %>
+      </li>
+    </ul>
+    <div class="pulldown-list">
+      <ul class="pulldown-child" id="pulldown-child">
+        <% if employee_signed_in? && (current_employee.admin == true) %>
+          <li class="user-list"><%= link_to "物件新規作成", new_customer_path, class:"user-list-child" %></li>
+          <li class="user-list"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
+          <li class="user-list"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
+          <li class="user-list"><%= link_to "チャット新規登録", new_chat_path, class:"user-list-child" %></li>
+        <% end %>
+        <% if employee_signed_in? %>
+          <li class="user-list"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
+        <% elsif worker_signed_in? %>
+          <li class="user-list"><%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"user-list-child" %></li>
+        <% else %>
+          <li class="user-list"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</header>
