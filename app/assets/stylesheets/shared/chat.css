@@ -89,7 +89,7 @@
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 50%;
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
 /* メッセージ左側 */
@@ -115,7 +115,7 @@
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 50%;
-  margin-right: 40px;
+  margin-right: 60px;
 }
 
 /* メッセージ右側 */
