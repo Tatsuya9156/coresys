@@ -57,9 +57,10 @@
 .chat-room-title {
   width: 90%;
   line-height: 50px;
-  padding-left: 30px;
+  padding: 0 0 5px 30px;
   margin: 0 auto;
   border-bottom: solid 1px rgb(80, 80, 80);
+  font-size: 25px;
 }
 
 .chat-room-messages {
@@ -90,15 +91,16 @@
 }
 
 .chat-message-text-right {
-  margin: 30px 20px 30px auto;
-  padding: 10px 20px;
+  margin: 10px 20px 30px auto;
+  padding: 5px 15px;
   background-color: white;
   box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 10px;
 }
 
-.chat-send-date {
+.chat-send-date-right {
+  text-align: right;
   font-size: 8px;
 }
 
@@ -123,12 +125,17 @@
 }
 
 .chat-message-text-left {
-  margin: 30px auto 30px 20px;
-  padding: 10px 20px;
+  margin: 10px auto 30px 20px;
+  padding: 0 15px;
   background-color: white;
   box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 10px;
+}
+
+.chat-send-date-left {
+  text-align: left;
+  font-size: 8px;
 }
 
 .chat-user-info-left {

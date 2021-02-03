@@ -18,7 +18,7 @@
           <div class="chat-messages-right">
             <div class="chat-message-text-right">
               <%= simple_format(message.text) %>
-              <p class="chat-send-date"><%= message.created_at %></p>
+              <p class="chat-send-date-right"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
             </div>
             <div class="chat-user-info-right">
               <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon" %>
@@ -50,7 +50,7 @@
             </div>
             <div class="chat-message-text-left">
               <%= simple_format(message.text) %>
-              <p class="chat-send-date"><%= message.created_at %></p>
+              <p class="chat-send-date-left"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
             </div>
           </div>
           <% message.message_images.each do |image| %>
