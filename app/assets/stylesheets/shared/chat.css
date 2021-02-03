@@ -106,13 +106,14 @@
 }
 
 .chat-user-info-right {
+  width: 70px;
   text-align: center;
   margin: 10px 60px 0 0;
 }
 
 .message-image-right {
   display: block;
-  margin: 0 130px 20px auto;
+  margin: 0 150px 20px auto;
   box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
   border-radius: 10px;
 }
@@ -142,13 +143,14 @@
 }
 
 .chat-user-info-left {
+  width: 70px;
   text-align: center;
   margin: 10px 0 0 60px;
 }
 
 .message-image-left {
   display: block;
-  margin: 0 auto 20px 130px;
+  margin: 0 auto 20px 150px;
   box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
   border-radius: 10px;
 }
