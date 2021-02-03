@@ -71,7 +71,8 @@
 /* メッセージ共通 */
 
 .chat-user-name {
-  margin-top: -15px;
+  margin-top: -10px;
+  color: rgb(80, 80, 80);
 }
 
 .chat-user-icon {
@@ -93,8 +94,8 @@
 .chat-message-text-right {
   margin: 10px 20px 30px auto;
   padding: 5px 15px;
-  background-color: white;
-  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 10px;
 }
@@ -112,6 +113,8 @@
 .message-image-right {
   display: block;
   margin: 0 130px 20px auto;
+  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
+  border-radius: 10px;
 }
 
 /* メッセージ右側 */
@@ -128,7 +131,7 @@
   margin: 10px auto 30px 20px;
   padding: 0 15px;
   background-color: white;
-  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
   border: solid 1px rgb(185, 185, 185);
   border-radius: 10px;
 }
@@ -146,6 +149,8 @@
 .message-image-left {
   display: block;
   margin: 0 auto 20px 130px;
+  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
+  border-radius: 10px;
 }
 
 /* メッセージ左側 */
