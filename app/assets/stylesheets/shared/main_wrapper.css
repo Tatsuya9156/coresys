@@ -1,14 +1,18 @@
 
-/***** 共通 *****/
+/***** 全体共通 *****/
 
 .main-wrapper {
   width: calc(100vw - 300px);
 }
 
-/***** 共通 *****/
+/***** 全体共通 *****/
 
 
-/***** 社員・職人一覧共通 *****/
+/*****************************************************/
+
+
+/***** 社員・職人一覧ページ *****/
+/***** 共通設定 *****/
 
 .user-wrapper {
   display: flex;
@@ -18,7 +22,7 @@
   padding: 30px;
 }
 
-.user-card {
+.user-card { /* 社員と職人の個別設定あり */
   width: calc((100vw - 300px) / 6);
   background-color: white;
   box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
@@ -38,12 +42,12 @@
   border-radius: 50%;
 }
 
-.user-card-info {
+.user-card-info { /* 職人の個別設定あり */
   margin: 20px auto;
   text-align: left;
 }
 
-/***** 社員・職人一覧共通 *****/
+/***** 共通設定 *****/
 /***** 社員一覧個別設定 *****/
 
 .employee-card {
@@ -62,17 +66,21 @@
 }
 
 /***** 職人一覧個別設定 *****/
+/***** 社員・職人一覧ページ *****/
+
+
+/*****************************************************/
 
 
 /***** チャットルーム *****/
-/***** メッセージ共通 *****/
+/***** 共通設定 *****/
 
 .chat-room-title {
   width: 90%;
   line-height: 50px;
-  padding: 0 0 5px 30px;
+  padding: 10px 0 5px 30px;
   margin: 0 auto;
-  border-bottom: solid 1px rgb(80, 80, 80);
+  border-bottom: solid 2px rgb(80, 80, 80);
   font-size: 25px;
 }
 
@@ -81,94 +89,55 @@
   overflow: scroll;
 }
 
-/* メッセージ共通 */
+/***** 共通設定 *****/
 
-.chat-user-name {
-  margin-top: -10px;
-  color: rgb(80, 80, 80);
+.chat-message {
+  width: 95%;
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 30px;
 }
 
-.chat-user-icon {
-  background-color: rgb(255, 255, 255);
-  border: solid 1px rgb(185, 185, 185);
+.message-icon {
+  width: 80px;
+  height: 100%;
+  margin: 0 0 0 20px;
+}
+
+.message-face-image {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  border: solid 1px rgb(80, 80, 80);
+  margin: 10px 0 0 0;
 }
 
-/* メッセージ共通 */
-/* メッセージ右側表示 */
-
-.chat-messages-right {
-  width: 50%;
-  margin-left: auto;
+.message-data-area {
   display: flex;
-  align-items: center;
 }
 
-.chat-message-text-right {
-  margin: 10px 20px 30px auto;
-  padding: 5px 15px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 10px;
+
+.message-name {
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.chat-send-date-right {
-  text-align: right;
-  font-size: 8px;
+.message-date {
+  margin: 3px 0 0 30px;
+  font-size: 12px;
 }
 
-.chat-user-info-right {
-  width: 70px;
-  text-align: center;
-  margin: 10px 60px 0 0;
+.message-text {
+  padding: 0;
+  font-size: 15px;
 }
 
-.message-image-right {
+.message-image {
   display: block;
-  margin: 0 150px 20px auto;
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+  border-radius: 5px;
 }
-
-/* メッセージ右側表示 */
-/* メッセージ左側表示 */
-
-.chat-messages-left {
-  width: 50%;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-}
-
-.chat-message-text-left {
-  margin: 10px auto 30px 20px;
-  padding: 0 15px;
-  background-color: white;
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 10px;
-}
-
-.chat-send-date-left {
-  text-align: left;
-  font-size: 8px;
-}
-
-.chat-user-info-left {
-  width: 70px;
-  text-align: center;
-  margin: 10px 0 0 60px;
-}
-
-.message-image-left {
-  display: block;
-  margin: 0 auto 20px 150px;
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border-radius: 10px;
-}
-
-/* メッセージ左側表示 */
 
 /* メッセージフォーム */
 
