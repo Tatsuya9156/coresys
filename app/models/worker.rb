@@ -18,21 +18,19 @@ class Worker < ApplicationRecord
     validates :name_kana,     format: { with: VALID_KANA_REGEX }
     validates :phone,         format: { with: VALID_PHONE_REGEX }
     validates :address_zip,   format: { with: VALID_ZIP_REGEX }
-    validates :address
-    validates :trade_name
-  end
-  with_options allow_blank: true do
-    with_options format: { with: VALID_DELICODE_REGEX } do
-      validates :inaba
-      validates :yodo
-      validates :takubo
-      validates :ykkap
-      validates :sankyo
-      validates :lixil
-    end
-    validates :password,      format: { with: VALID_PASSWORD_REGEX }
     validates :warehouse_zip, format: { with: VALID_ZIP_REGEX }
+    validates :trade_name
+    validates :address
+    validates :warehouse
+    validates :warehouse_info
+    validates :inaba
+    validates :yodo
+    validates :takubo
+    validates :ykkap
+    validates :sankyo
+    validates :lixil
   end
+  validates :password,      format: { with: VALID_PASSWORD_REGEX }
 
 
   has_many :chat_workers
