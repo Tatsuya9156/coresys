@@ -18,9 +18,9 @@
           <% if message.employee.present? %>
             <div class="message-icon">
               <% if message.employee.face_image.present? %>
-                <%= image_tag message.employee.face_image.variant(resize: '50x50'), class: 'message-face-image' %>
+                <%= image_tag message.employee.face_image, class: 'message-face-image' %>
               <% else %>
-                <%= image_tag "employee.png", size: "50x50", class:"message-face-image" %>
+                <%= image_tag "employee.png", class:"message-face-image" %>
               <% end %>
             </div>
             <div class="message-area">
@@ -41,9 +41,9 @@
           <% elsif message.worker.present? %>
             <div class="message-icon">
               <% if message.worker.face_image.present? %>
-                <%= image_tag message.worker.face_image.variant(resize: '50x50'), class: 'message-face-image' %>
+                <%= image_tag message.worker.face_image, class: 'message-face-image' %>
               <% else %>
-                <%= image_tag "employee.png", size: "50x50", class:"message-face-image" %>
+                <%= image_tag "employee.png", class:"message-face-image" %>
               <% end %>
             </div>
             <div class="message-area">
@@ -63,7 +63,7 @@
           <%# ユーザーが存在しない(削除されている)場合 %>
           <% else %>
             <div class="message-icon">
-              <%= image_tag "employee.png", size: "50x50", class:"message-face-image" %>
+              <%= image_tag "employee.png", class:"message-face-image" %>
             </div>
             <div class="message-area">
               <div class="message-data-area">

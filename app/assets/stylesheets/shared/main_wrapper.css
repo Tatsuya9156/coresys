@@ -94,7 +94,8 @@
 .chat-message {
   width: 95%;
   display: flex;
-  margin: 0 auto 30px;
+  margin: 0 auto;
+  padding-bottom: 30px;
 }
 
 .message-icon {
@@ -104,6 +105,8 @@
 }
 
 .message-face-image {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: solid 1px rgb(80, 80, 80);
   margin: 10px 0 0 0;
