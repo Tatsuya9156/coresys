@@ -11,55 +11,77 @@
     </div>
 
     <div class="chat-room-messages">
-
       <% @messages.each do |message| %>
-        <% if (employee_signed_in? && message.employee_id == current_employee.id) || (worker_signed_in? && message.worker_id == current_worker.id) %>
-        <%# メッセージ右側表示 %>
-          <div class="chat-messages-right">
-            <div class="chat-message-text-right">
-              <%= simple_format(message.text) %>
-              <p class="chat-send-date-right"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-            </div>
-            <div class="chat-user-info-right">
-              <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon" %>
-              <% if message.employee.present? %>
-                <p class="chat-user-name"><%= message.employee.name %></p>
-              <% elsif message.worker.present? %>
-                <p class="chat-user-name"><%= message.worker.name %></p>
-              <% else %>
-                <p class="chat-user-name">ユーザーが存在しません</p>
-              <% end %>
-            </div>
-          </div>
-          <% message.message_images.each do |image| %>
-            <%= image_tag image.variant(resize: '300x300'), class: 'message-image-right' %>
-          <% end %>
-        <%# メッセージ右側表示 %>
-        <% else %>
-        <%# メッセージ左側表示 %>
-          <div class="chat-messages-left">
-            <div class="chat-user-info-left">
-              <%= image_tag "employee.png", size: "50x50", class:"chat-user-icon" %>
-              <% if message.employee.present? %>
-                <p class="chat-user-name"><%= message.employee.name %></p>
-              <% elsif message.worker.present? %>
-                <p class="chat-user-name"><%= message.worker.name %></p>
-              <% else %>
-                <p class="chat-user-name">ユーザーが存在しません</p>
-              <% end %>
-            </div>
-            <div class="chat-message-text-left">
-              <%= simple_format(message.text) %>
-              <p class="chat-send-date-left"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-            </div>
-          </div>
-          <% message.message_images.each do |image| %>
-            <%= image_tag image.variant(resize: '300x300'), class: 'message-image-left' %>
-          <% end %>
-        <%# メッセージ左側表示 %>
-        <% end %>
-      <% end %>
+        <div class="chat-message">
 
+          <%# 社員の場合 %>
+          <% if message.employee.present? %>
+            <div class="message-icon">
+              <% if message.employee.face_image.present? %>
+                <%= image_tag message.employee.face_image.variant(resize: '50x50'), class: 'message-face-image' %>
+              <% else %>
+                <%= image_tag "employee.png", size: "50x50", class:"message-face-image" %>
+              <% end %>
+            </div>
+            <div class="message-area">
+              <div class="message-data-area">
+                <p class="message-name"><%= message.employee.name %></p>
+                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+              </div>
+              <div class="message-text-area">
+                <p class="message-text"><%= simple_format(message.text) %></p>
+                <% message.message_images.each do |image| %>
+                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
+                <% end %>
+              </div>
+            </div>
+          <%# 社員の場合 %>
+
+          <%# 職人の場合 %>
+          <% elsif message.worker.present? %>
+            <div class="message-icon">
+              <% if message.worker.face_image.present? %>
+                <%= image_tag message.worker.face_image.variant(resize: '50x50'), class: 'message-face-image' %>
+              <% else %>
+                <%= image_tag "employee.png", size: "50x50", class:"message-face-image" %>
+              <% end %>
+            </div>
+            <div class="message-area">
+              <div class="message-data-area">
+                <p class="message-name"><%= message.worker.name %></p>
+                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+              </div>
+              <div class="message-text-area">
+                <p class="message-text"><%= simple_format(message.text) %></p>
+                <% message.message_images.each do |image| %>
+                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
+                <% end %>
+              </div>
+            </div>
+          <%# 職人の場合 %>
+
+          <%# ユーザーが存在しない(削除されている)場合 %>
+          <% else %>
+            <div class="message-icon">
+              <%= image_tag "employee.png", size: "50x50", class:"message-face-image" %>
+            </div>
+            <div class="message-area">
+              <div class="message-data-area">
+                <p class="message-name">ユーザーが存在しません</p>
+                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+              </div>
+              <div class="message-text-area">
+                <p class="message-text"><%= simple_format(message.text) %></p>
+                <% message.message_images.each do |image| %>
+                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <%# ユーザーが存在しない(削除されている)場合 %>
+
+        </div>
+      <% end %>
     </div>
 
     <div class="chat-message-form">

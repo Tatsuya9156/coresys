@@ -78,9 +78,9 @@
 .chat-room-title {
   width: 90%;
   line-height: 50px;
-  padding: 0 0 5px 30px;
+  padding: 10px 0 5px 30px;
   margin: 0 auto;
-  border-bottom: solid 1px rgb(80, 80, 80);
+  border-bottom: solid 2px rgb(80, 80, 80);
   font-size: 25px;
 }
 
@@ -91,92 +91,50 @@
 
 /***** 共通設定 *****/
 
-.chat-user-name {
-  margin-top: -10px;
-  color: rgb(80, 80, 80);
+.chat-message {
+  width: 95%;
+  display: flex;
+  margin: 0 auto 30px;
 }
 
-.chat-user-icon {
-  background-color: rgb(255, 255, 255);
-  border: solid 1px rgb(185, 185, 185);
+.message-icon {
+  width: 80px;
+  height: 100%;
+  margin: 0 0 0 20px;
+}
+
+.message-face-image {
   border-radius: 50%;
+  border: solid 1px rgb(80, 80, 80);
+  margin: 10px 0 0 0;
 }
 
-/* メッセージ共通 */
-/* メッセージ右側表示 */
-
-.chat-messages-right {
-  width: 50%;
-  margin-left: auto;
+.message-data-area {
   display: flex;
-  align-items: center;
 }
 
-.chat-message-text-right {
-  margin: 10px 20px 30px auto;
-  padding: 5px 15px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 10px;
+
+.message-name {
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.chat-send-date-right {
-  text-align: right;
-  font-size: 8px;
+.message-date {
+  margin: 3px 0 0 30px;
+  font-size: 12px;
 }
 
-.chat-user-info-right {
-  width: 70px;
-  text-align: center;
-  margin: 10px 60px 0 0;
+.message-text {
+  padding: 0;
+  font-size: 15px;
 }
 
-.message-image-right {
+.message-image {
   display: block;
-  margin: 0 150px 20px auto;
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+  border-radius: 5px;
 }
-
-/* メッセージ右側表示 */
-/* メッセージ左側表示 */
-
-.chat-messages-left {
-  width: 50%;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-}
-
-.chat-message-text-left {
-  margin: 10px auto 30px 20px;
-  padding: 0 15px;
-  background-color: white;
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 10px;
-}
-
-.chat-send-date-left {
-  text-align: left;
-  font-size: 8px;
-}
-
-.chat-user-info-left {
-  width: 70px;
-  text-align: center;
-  margin: 10px 0 0 60px;
-}
-
-.message-image-left {
-  display: block;
-  margin: 0 auto 20px 150px;
-  box-shadow: 4px 4px 2px 0 rgb(150, 150, 150);
-  border-radius: 10px;
-}
-
-/* メッセージ左側表示 */
 
 /* メッセージフォーム */
 
