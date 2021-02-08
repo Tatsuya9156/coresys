@@ -1,0 +1,54 @@
+/******* 共通 *******/
+
+.side-bar {
+  width: 300px;
+  padding: 30px 0;
+  background-color: rgb(80, 80, 80);
+}
+
+.search-area {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.search-form {
+  width: 80%;
+  height: 30px;
+}
+
+/******* 共通 *******/
+
+/****** 社員一覧 ******/
+
+/****** 社員一覧 ******/
+
+/**** チャットルーム ****/
+
+.chat-room-area {
+  overflow: scroll;
+}
+
+.chat-room-header {
+  text-align: center;
+  color: rgb(249, 249, 249);
+}
+
+.chat-room-index {
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+}
+
+.chat-room-name {
+  text-decoration: none;
+  display: block;
+  color: rgb(249, 249, 249);
+}
+
+.chat-room-name:hover {
+  background-color: rgb(110, 110, 110);
+  transition: 0.2s;
+}
+
+/**** チャットルーム ****/

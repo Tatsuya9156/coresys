@@ -1,58 +1,71 @@
-.chat-wrapper {
+
+/***** 共通 *****/
+
+.main-wrapper {
+  width: calc(100vw - 300px);
+}
+
+/***** 共通 *****/
+
+
+/***** 社員・職人一覧共通 *****/
+
+.user-wrapper {
   display: flex;
-  height: calc(100vh - 50px);
-}
-
-/* サイドバー */
-
-.chat-side-bar {
-  width: 200px;
-  padding: 30px 0;
-  background-color: rgb(80, 80, 80);
-  position: relative;
-  z-index: 9;
-}
-
-.chat-search-area {
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-}
-
-.chat-room-area {
+  flex-wrap: wrap;
+  justify-content: left;
   overflow: scroll;
+  padding: 30px;
 }
 
-.chat-room-header {
+.user-card {
+  width: calc((100vw - 300px) / 6);
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
   text-align: center;
-  color: rgb(249, 249, 249);
 }
 
-.chat-room-index {
-  text-align: center;
-  height: 35px;
-  line-height: 35px;
+.user-face {
+  padding-bottom: 20px;
+  border-bottom: solid 1px black;
 }
 
-.chat-room-name {
-  text-decoration: none;
-  display: block;
-  color: rgb(249, 249, 249);
+.face-image {
+  border-radius: 50%;
 }
 
-.chat-room-name:hover {
-  background-color: rgb(110, 110, 110);
-  transition: 0.2s;
+.user-card-info {
+  margin: 20px auto;
+  text-align: left;
 }
 
-/* サイドバー */
-/******************/
-/* チャットメイン画面 */
+/***** 社員・職人一覧共通 *****/
+/***** 社員一覧個別設定 *****/
 
-.chat-main {
-  width: calc(100vw - 200px);
-  padding-top: 15px;
+.employee-card {
+  height: 400px;
 }
+
+/***** 社員一覧個別設定 *****/
+/***** 職人一覧個別設定 *****/
+
+.worker-card {
+  height: 550px;
+}
+.user-card-info-title {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/***** 職人一覧個別設定 *****/
+
+
+/***** チャットルーム *****/
+/***** メッセージ共通 *****/
 
 .chat-room-title {
   width: 90%;
@@ -191,7 +204,7 @@
 }
 
 /* メッセージフォーム */
-/* チャットメイン画面 */
+/***** チャットルーム *****/
 /******************/
 /* チャット新規作成 */
 
