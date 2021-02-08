@@ -5,33 +5,55 @@
   <div class="nav">
     <ul class="category">
       <li class="category-list">
-        <%= image_tag "house.png", size: "22x22", class:"tag_icon" %>
-        <%= link_to "物件一覧", "/", class:"nav-list" %>
+        <%= link_to "/", class:"nav-list" do %>
+          <%= image_tag "house.png", size: "22x22", class:"tag_icon" %>
+          物件一覧
+        <% end %>
       </li>
       <li class="category-list">
-        <%= image_tag "employee.png", size: "25x25", class:"tag_icon" %>
-        <%= link_to "社員一覧", employees_path, class:"nav-list" %>
+        <%= link_to employees_path, class:"nav-list" do %>
+          <%= image_tag "employee.png", size: "25x25", class:"tag_icon" %>
+          社員一覧
+        <% end %>
       </li>
       <li class="category-list">
-        <%= image_tag "worker.png", size: "25x25", class:"tag_icon" %>
-        <%= link_to "職人一覧", workers_path, class:"nav-list" %>
+        <%= link_to workers_path, class:"nav-list" do %>
+          <%= image_tag "worker.png", size: "25x25", class:"tag_icon" %>
+          職人一覧
+        <% end %>
       </li>
       <li class="category-list">
-        <%= image_tag "zaiko.png", size: "22x22", class:"tag_icon" %>
-        <%= link_to "在庫管理表", "/", class:"nav-list" %>
+        <%= link_to "/", class:"nav-list" do %>
+          <%= image_tag "zaiko.png", size: "22x22", class:"tag_icon" %>
+          在庫管理表(準備中)
+        <% end %>
       </li>
       <li class="category-list">
-      <%= image_tag "chat.png", size: "23x23", class:"tag_icon" %>
-        <%= link_to "チャット", chats_path, class:"nav-list" %>
+        <%= link_to chats_path, class:"nav-list" do %>
+          <%= image_tag "chat.png", size: "23x23", class:"tag_icon" %>
+          チャット
+        <% end %>
       </li>
       <li class="category-list">
-      <%= image_tag "calender.png", size: "18x18", class:"tag_icon" %>
-        <%= link_to "カレンダー", "/", class:"nav-list" %>
+        <%= link_to "/", class:"nav-list" do %>
+          <%= image_tag "calender.png", size: "18x18", class:"tag_icon" %>
+          カレンダー(準備中)
+        <% end %>
       </li>
       <li class="category-list" id="user-pulldown">
         <% if employee_signed_in? %>
+          <% if current_employee.face_image.present? %>
+            <%= image_tag current_employee.face_image.variant(resize: '35x35'), class: 'header-face-image' %>
+          <% else %>
+            <%= image_tag 'face_image_sample', size: "35x35", class: 'header-face-image' %>
+          <% end %>
           <%= current_employee.name %>さん
         <% elsif worker_signed_in? %>
+          <% if current_worker.face_image.present? %>
+            <%= image_tag current_worker.face_image.variant(resize: '35x35'), class: 'header-face-image' %>
+          <% else %>
+            <%= image_tag 'face_image_sample', size: "35x35", class: 'header-face-image' %>
+          <% end %>
           <%= current_worker.name %>さん
         <% else %>
           ユーザー名

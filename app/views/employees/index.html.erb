@@ -1,58 +1,34 @@
 <%= render partial:"shared/header" %>
 
-<div class='registration-header'>
-  <p class='registration-header-text'>社員一覧</p>
-</div>
+<div class="wrapper">
 
-<div class="employees-index-wrapper">
-
-    <div class="employees-sample">
-      <div class="employees-info-sample">
-        <p>社員番号</p>
-      </div>
-      <div class="employees-info-sample">
-        <p>名前(漢字)</p>
-      </div>
-      <div class="employees-info-sample">
-        <p>名前(カナ)</p>
-      </div>
-      <div class="employees-info-sample">
-        <p>電話番号</p>
-      </div>
-      <div class="employees-info-sample">
-        <p>メールアドレス</p>
-      </div>
-      <div class="employees-info-sample">
-        <p>編集(管理者のみ)</p>
-      </div>
+  <div class="side-bar">
+    <div class="search-area">
+      <input type="text" class="search-form" placeholder="フリーワード検索">
     </div>
+  </div>
 
-  <% @employees.each do |employee| %>
-    <div class="employees">
-      <div class="employees-info">
-        <%= employee.employee_number %>
-      </div>
-      <div class="employees-info">
-        <%= employee.name %>
-      </div>
-      <div class="employees-info">
-        <%= employee.name_kana %>
-      </div>
-      <div class="employees-info">
-        <%= employee.phone %>
-      </div>
-      <div class="employees-info">
-        <%= employee.email %>
-      </div>
-      <% if employee_signed_in? && (current_employee.admin == true) %>
-        <div class="employees-info">
-          <%= link_to "編集", edit_employee_path(employee.id), class:"edit-btn" %>
+  <div class="main-wrapper user-wrapper">
+
+    <% @employees.each do |employee| %>
+      <div class="user-card employee-card">
+        <div class="user-face">
+          <% if employee.face_image.present? %>
+            <%= image_tag employee.face_image.variant(resize: '100x100'), class: 'face-image' %>
+          <% else %>
+            <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
+          <% end %>
         </div>
-      <% else %>
-        <div class="employees-info">
-          <p>管理者権限がありません</p>
+        <div class="user-card-info">
+          <p class="user-card-info-child">社員ID：&nbsp;<%= employee.employee_number %></p>
+          <p class="user-card-info-child">名前：&nbsp;&nbsp;&nbsp;&nbsp;<%= employee.name %>(<%= employee.name_kana %>)</p>
+          <p class="user-card-info-child">役職：&nbsp;&nbsp;&nbsp;&nbsp;<%= employee.position %></p>
+          <p class="user-card-info-child">TEL：&nbsp;&nbsp;&nbsp;&nbsp;<%= employee.phone %></p>
+          <p class="user-card-info-child">Email：&nbsp;&nbsp;<%= employee.email %></p>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
 </div>

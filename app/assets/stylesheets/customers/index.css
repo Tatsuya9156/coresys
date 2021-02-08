@@ -8,17 +8,6 @@
   padding: 50px;
 }
 
-.search-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 100px;
-  padding-bottom: 30px;
-  margin: 40px auto;
-  border-bottom: solid 1px black;
-}
-
 .search-text {
   width: 500px;
   height: 35px;

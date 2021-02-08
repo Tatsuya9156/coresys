@@ -1,58 +1,37 @@
 <%= render partial:"shared/header" %>
 
-<div class='registration-header'>
-  <p class='registration-header-text'>職人一覧</p>
-</div>
+<div class="wrapper">
 
-<div class="workers-index-wrapper">
-
-    <div class="workers-sample">
-      <div class="workers-info-sample">
-        <p>職人番号</p>
-      </div>
-      <div class="workers-info-sample">
-        <p>名前(漢字)</p>
-      </div>
-      <div class="workers-info-sample">
-        <p>名前(カナ)</p>
-      </div>
-      <div class="workers-info-sample">
-        <p>電話番号</p>
-      </div>
-      <div class="workers-info-sample">
-        <p>メールアドレス</p>
-      </div>
-      <div class="workers-info-sample">
-        <p>編集(管理者のみ)</p>
-      </div>
+  <div class="side-bar">
+    <div class="search-area">
+      <input type="text" class="search-form" placeholder="フリーワード検索">
     </div>
+  </div>
 
-  <% @workers.each do |worker| %>
-    <div class="workers">
-      <div class="workers-info">
-        <%= worker.worker_number %>
-      </div>
-      <div class="workers-info">
-        <%= worker.name %>
-      </div>
-      <div class="workers-info">
-        <%= worker.name_kana %>
-      </div>
-      <div class="workers-info">
-        <%= worker.phone %>
-      </div>
-      <div class="workers-info">
-        <%= worker.email %>
-      </div>
-      <% if employee_signed_in? && (current_employee.admin == true) %>
-        <div class="workers-info">
-          <%= link_to "編集", edit_worker_path(worker.id), class:"edit-btn" %>
+  <div class="main-wrapper user-wrapper">
+
+    <% @workers.each do |worker| %>
+      <div class="user-card worker-card">
+        <div class="user-face">
+          <% if worker.face_image.present? %>
+            <%= image_tag worker.face_image.variant(resize: '100x100'), class: 'face-image' %>
+          <% else %>
+            <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
+          <% end %>
         </div>
-      <% else %>
-        <div class="workers-info">
-          <p>管理者権限がありません</p>
+        <div class="user-card-info">
+          <p class="user-card-info-child">職人ID：&nbsp;<%= worker.worker_number %></p>
+          <p class="user-card-info-child">屋号：&nbsp;&nbsp;&nbsp;&nbsp;<%= worker.trade_name %></p>
+          <p class="user-card-info-child">名前：&nbsp;&nbsp;&nbsp;&nbsp;<%= worker.name %>(<%= worker.name_kana %>)</p>
+          <p class="user-card-info-child">TEL：&nbsp;&nbsp;&nbsp;&nbsp;<%= worker.phone %></p>
+          <p class="user-card-info-child">Email：&nbsp;&nbsp;<%= worker.email %></p>
+          <p class="user-card-info-child user-card-info-title">ー 住所(居住地) ー</p>
+          <p class="user-card-info-child">〒<%= worker.address_zip %></p>
+          <p class="user-card-info-child"><%= worker.address %></p>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
 </div>
