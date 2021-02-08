@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.string "employee_number", null: false
     t.string "name", null: false
     t.string "name_kana", null: false
-    t.string "position"
+    t.string "position", null: false
     t.string "phone", null: false
     t.boolean "admin", null: false
     t.string "email", default: "", null: false
@@ -113,14 +113,15 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.string "encrypted_password", default: "", null: false
     t.string "address_zip", null: false
     t.string "address", null: false
-    t.string "warehouse_zip"
-    t.string "warehouse"
-    t.string "inaba"
-    t.string "yodo"
-    t.string "takubo"
-    t.string "ykkap"
-    t.string "sankyo"
-    t.string "lixil"
+    t.string "warehouse_zip", null: false
+    t.string "warehouse", null: false
+    t.string "warehouse_info", null: false
+    t.string "inaba", null: false
+    t.string "yodo", null: false
+    t.string "takubo", null: false
+    t.string "ykkap", null: false
+    t.string "sankyo", null: false
+    t.string "lixil", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

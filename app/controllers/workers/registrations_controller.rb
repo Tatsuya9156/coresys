@@ -45,7 +45,7 @@ class Workers::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: [:worker_number, :name, :name_kana, :trade_name, :phone, :address_zip, :address, :warehouse_zip, :warehouse, :inaba,
+                                      keys: [:face_image, :worker_number, :name, :name_kana, :trade_name, :phone, :address_zip, :address, :warehouse_zip, :warehouse, :warehouse_info, :inaba,
                                              :yodo, :takubo, :ykkap, :sankyo, :lixil])
   end
 

@@ -10,6 +10,11 @@
     <div class="main-info">
       <p class="info-title">＜基本情報＞</p>
       <div class="worker-new-field">
+        <%= f.label :face_image, '顔写真', class:"worker-new-label" %>
+        <%= f.file_field :face_image, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
         <%= f.label :worker_number, '職人番号', class:"worker-new-label" %>
         <%= f.text_field :worker_number, class:"worker-new-input", autofocus: true %>
       </div>
@@ -71,6 +76,11 @@
       <div class="worker-new-field">
         <%= f.label :warehouse, '住所', class:"worker-new-label" %>
         <%= f.text_field :warehouse, class:"worker-new-input" %>
+      </div>
+
+      <div class="worker-new-field">
+        <%= f.label :warehouse_info, '倉庫情報', class:"worker-new-label" %>
+        <%= f.text_field :warehouse_info, class:"worker-new-input" %>
       </div>
     </div>
 
