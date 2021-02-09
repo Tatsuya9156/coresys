@@ -17,8 +17,11 @@ class Customer < ApplicationRecord
     validates :name_kana,   format: { with: VALID_KANA_REGEX }
     validates :phone,       format: { with: VALID_PHONE_REGEX }
     validates :email,       format: { with: VALID_EMAIL_REGEX }
-    validates :address_zip, format: { with: VALID_ZIP_REGEX }
     validates :address
+    validates :residence
+    with_options format: { with: VALID_ZIP_REGEX } do
+      validates :address_zip
+      validates :residence_zip
+    end
   end
-  validates :residence_zip, format: { with: VALID_ZIP_REGEX }, allow_blank: true
 end

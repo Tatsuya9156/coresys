@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.string "email", null: false
     t.string "address_zip", null: false
     t.string "address", null: false
-    t.string "residence_zip"
-    t.string "residence"
+    t.string "residence_zip", null: false
+    t.string "residence", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

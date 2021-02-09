@@ -172,10 +172,12 @@
   bottom: 30px;
 }
 
-/* メッセージフォーム */
-/***** チャットルーム *****/
-/******************/
-/* チャット新規作成 */
+/***** メッセージフォーム *****/
+/******* チャットルーム *******/
+
+/************************/
+
+/***** チャット新規作成 *****/
 
 .chat-new-wrapper {
   margin-top: 300px;
@@ -185,3 +187,59 @@
 .chat-new-field {
   margin-bottom: 20px;
 }
+
+/***** チャット新規作成 *****/
+
+/************************/
+
+/***** 顧客詳細ページ *****/
+
+.basic-info-wrapper {
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 10px;
+  width: 95%;
+  height: 350px;
+  margin: 30px auto 0;
+}
+
+.basic-info-wrapper--title {
+  background-color: rgb(110, 110, 110);
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px;
+  padding-left: 30px;
+}
+
+.basic-info-wrapper--detail {
+  display: flex;
+  align-items: center;
+  height: calc(100% - 30px);
+}
+
+.basic-info-wrapper--detail--left, .basic-info-wrapper--detail--center, .basic-info-wrapper--detail--right {
+  width: calc(100% / 3);
+  padding-left: 100px;
+}
+
+.basic-info-wrapper--detail--left {
+  border-right: solid 1px rgb(80, 80, 80);
+}
+
+.basic-info-wrapper--detail--center {
+  border-right: solid 1px rgb(80, 80, 80);
+}
+
+.basic-info-wrapper--detail--child {
+  font-size: 15px;
+}
+
+.basic-info-wrapper--detail--left > .basic-info-wrapper--detail--child, .basic-info-wrapper--detail--center > .basic-info-wrapper--detail--child {
+  margin: 13px 0;
+}
+
+/***** 顧客詳細ページ *****/
