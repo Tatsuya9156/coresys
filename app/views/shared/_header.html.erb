@@ -40,7 +40,7 @@
           カレンダー(準備中)
         <% end %>
       </li>
-      <li class="category-list" id="user-pulldown">
+      <li class="category-list">
         <% if employee_signed_in? %>
           <% if current_employee.face_image.present? %>
             <%= image_tag current_employee.face_image.variant(resize: '35x35'), class: 'header-face-image' %>
@@ -58,24 +58,25 @@
         <% else %>
           ユーザー名
         <% end %>
-      </li>
-    </ul>
-    <div class="pulldown-list">
-      <ul class="pulldown-child" id="pulldown-child">
+
+        <ul class="category-list-pulldown">
         <% if employee_signed_in? && (current_employee.admin == true) %>
-          <li class="user-list"><%= link_to "物件新規作成", new_customer_path, class:"user-list-child" %></li>
-          <li class="user-list"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
-          <li class="user-list"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
-          <li class="user-list"><%= link_to "チャット新規登録", new_chat_path, class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "物件新規作成", new_customer_path, class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "チャット新規登録", new_chat_path, class:"user-list-child" %></li>
         <% end %>
         <% if employee_signed_in? %>
-          <li class="user-list"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
         <% elsif worker_signed_in? %>
-          <li class="user-list"><%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"user-list-child" %></li>
         <% else %>
-          <li class="user-list"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
+          <li class="category-list-pulldown-child"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
         <% end %>
       </ul>
-    </div>
+
+      </li>
+    </ul>
+
   </div>
 </header>
