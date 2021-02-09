@@ -1,6 +1,4 @@
-Employee.create!(
-  [
-    {
+employee = Employee.create!(
       employee_number: "0001",
       name:            "柏木清人",
       name_kana:       "カシワギキヨト",
@@ -9,9 +7,10 @@ Employee.create!(
       admin:           true,
       email:           "test1@example.com",
       password:        "coresys0001",
-      face_image:      File.open(face_image_1.png)
-    },
-    {
+    )
+employee.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_1.jpg')), filename: 'face_image_1.jpg')
+
+employee = Employee.create!(
       employee_number: "0002",
       name:            "井上季里",
       name_kana:       "イノウエリリ",
@@ -20,14 +19,11 @@ Employee.create!(
       admin:           true,
       email:           "test2@example.com",
       password:        "coresys0002",
-      face_image:      File.open(face_image_4.png)
-    }
-  ]
 )
+employee.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_4.jpg')), filename: 'face_image_4.jpg')
 
-Worker.create!(
-  [
-    {
+
+worker = Worker.create!(
       worker_number:  "5001",
       name:           "川上明弥",
       name_kana:      "カワカミアキヤ",
@@ -46,15 +42,16 @@ Worker.create!(
       ykkap:          "172AC3",
       sankyo:         "B3",
       lixil:          "189227"
-      face_image:      File.open(face_image_2.png)
-    },
-    {
+)
+worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_2.jpg')), filename: 'face_image_2.jpg')
+
+worker = Worker.create!(
       worker_number:  "5002",
       name:           "秋元尚行",
       name_kana:      "アキモトナオユキ",
-      trade_name:     "田中工務店",
+      trade_name:     "アキモトエクステリア",
       phone:          "08012345678",
-      email:          "testtest1@example.com",
+      email:          "testtest2@example.com",
       password:       "coresys5002",
       address_zip:    "123-4567",
       address:        "愛知県長久手市宮城2-10",
@@ -67,7 +64,5 @@ Worker.create!(
       ykkap:          "172AE8",
       sankyo:         "B7",
       lixil:          "127611"
-      face_image:      File.open(face_image_3.png)
-    }
-  ]
 )
+worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_3.jpg')), filename: 'face_image_3.jpg')
