@@ -30,8 +30,7 @@ class Worker < ApplicationRecord
     validates :sankyo
     validates :lixil
   end
-  validates :password,      format: { with: VALID_PASSWORD_REGEX }
-
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
 
   has_many :chat_workers
   has_many :chats, through: :chat_workers

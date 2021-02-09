@@ -1,6 +1,5 @@
 class ChatsController < ApplicationController
   def index
-
   end
 
   def new
@@ -23,6 +22,7 @@ class ChatsController < ApplicationController
   end
 
   private
+
   def chat_params
     params.require(:chat).permit(:title, { employee_ids: [] }, { worker_ids: [] })
   end
