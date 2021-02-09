@@ -1,3 +1,6 @@
+
+##### 社員データ
+
 employee = Employee.create!(
       employee_number: "0001",
       name:            "柏木清人",
@@ -7,7 +10,7 @@ employee = Employee.create!(
       admin:           true,
       email:           "test1@example.com",
       password:        "coresys0001",
-    )
+)
 employee.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_1.jpg')), filename: 'face_image_1.jpg')
 
 employee = Employee.create!(
@@ -22,6 +25,8 @@ employee = Employee.create!(
 )
 employee.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_4.jpg')), filename: 'face_image_4.jpg')
 
+
+##### 職人データ
 
 worker = Worker.create!(
       worker_number:  "5001",
@@ -66,3 +71,34 @@ worker = Worker.create!(
       lixil:          "127611"
 )
 worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_3.jpg')), filename: 'face_image_3.jpg')
+
+
+##### 顧客データ
+
+customer = Customer.create!(
+      order_date:    "2021-02-08",
+      store_id:      "7",
+      status_id:     "2",
+      name:          "近藤友将",
+      name_kana:     "コンドウトモマサ"
+      phone:         "07012345678",
+      email:         "kondo@example.com",
+      address_zip:   "430-9911",
+      address:       "岐阜県河内郡上三川町宍道町白石441-7"
+      residence_zip: "455-1900",
+      residence:     "岐阜県佐渡市富浦町豊岡30"
+)
+
+customer = Customer.create!(
+      order_date:    "2021-01-27",
+      store_id:      "1",
+      status_id:     "1",
+      name:          "斎藤祐真",
+      name_kana:     "サイトウユウマ"
+      phone:         "07055298716",
+      email:         "saito@example.com",
+      address_zip:   "510-0001",
+      address:       "愛知県朝倉郡東峰村西が迫4-4-1"
+      residence_zip: "228-9855",
+      residence:     "愛知県都城市新野東22-4"
+)
