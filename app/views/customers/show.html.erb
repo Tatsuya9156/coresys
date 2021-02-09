@@ -1,1 +1,40 @@
 <%= render partial:"shared/header" %>
+
+<div class="wrapper">
+
+  <div class="side-bar">
+    <div class="search-area">
+      <input type="text" class="search-form" placeholder="フリーワード検索">
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="basic-info-wrapper">
+      <div class="basic-info-wrapper--title">
+        基本情報
+      </div>
+      <div class="basic-info-wrapper--detail">
+        <div class="basic-info-wrapper--detail--left">
+          <p class="basic-info-wrapper--detail--child">顧客ID：<%= @customer.id %></p>
+          <p class="basic-info-wrapper--detail--child">受注日：<%= @customer.order_date %></p>
+          <p class="basic-info-wrapper--detail--child">受注店舗：<%= @customer.store.name %></p>
+          <p class="basic-info-wrapper--detail--child">ステータス：<%= @customer.status.name %></p>
+        </div>
+        <div class="basic-info-wrapper--detail--center">
+          <p class="basic-info-wrapper--detail--child">顧客名：<%= @customer.name %></p>
+          <p class="basic-info-wrapper--detail--child">顧客名(カナ)：<%= @customer.name_kana %></p>
+          <p class="basic-info-wrapper--detail--child">電話番号：<%= @customer.phone %></p>
+          <p class="basic-info-wrapper--detail--child">メールアドレス：<%= @customer.email %></p>
+        </div>
+        <div class="basic-info-wrapper--detail--right">
+          <p>ー　居住地　ー</p>
+          <p class="basic-info-wrapper--detail--child">〒<%= @customer.address_zip %></p>
+          <p class="basic-info-wrapper--detail--child"><%= @customer.address %></p>
+          <p>ー　施工先　ー</p>
+          <p class="basic-info-wrapper--detail--child">〒<%= @customer.residence_zip %></p>
+          <p class="basic-info-wrapper--detail--child"><%= @customer.residence %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
