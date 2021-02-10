@@ -12,22 +12,45 @@
 
     <% @workers.each do |worker| %>
       <div class="user-card worker-card">
-        <div class="user-face">
+        <div class="user-card--face">
           <% if worker.face_image.present? %>
             <%= image_tag worker.face_image.variant(resize: '100x100'), class: 'face-image' %>
           <% else %>
             <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
           <% end %>
         </div>
-        <div class="user-card-info">
-          <p class="user-card-info-child">職人ID：&nbsp;<%= worker.worker_number %></p>
-          <p class="user-card-info-child">屋号：&nbsp;&nbsp;&nbsp;&nbsp;<%= worker.trade_name %></p>
-          <p class="user-card-info-child">名前：&nbsp;&nbsp;&nbsp;&nbsp;<%= worker.name %>(<%= worker.name_kana %>)</p>
-          <p class="user-card-info-child">TEL：&nbsp;&nbsp;&nbsp;&nbsp;<%= worker.phone %></p>
-          <p class="user-card-info-child">Email：&nbsp;&nbsp;<%= worker.email %></p>
-          <p class="user-card-info-child user-card-info-title">ー 住所(居住地) ー</p>
-          <p class="user-card-info-child">〒<%= worker.address_zip %></p>
-          <p class="user-card-info-child"><%= worker.address %></p>
+        <div class="user-card--info">
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">職人ID</div>
+            <div class="user-card--info--child--value"><%= worker.worker_number %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">屋号</div>
+            <div class="user-card--info--child--value"><%= worker.trade_name %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">名前</div>
+            <div class="user-card--info--child--value"><%= worker.name %>(<%= worker.name_kana %>)</div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">TEL</div>
+            <div class="user-card--info--child--value"><%= worker.phone %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">Email</div>
+            <div class="user-card--info--child--value"><%= worker.email %></div>
+          </div>
+
+          <div class="user-card-info-child user-card-info-title">ー 住所(居住地) ー</div>
+
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">郵便番号</div>
+            <div class="user-card--info--child--value"><%= worker.address_zip %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">住所</div>
+            <div class="user-card--info--child--value"><%= worker.address %></div>
+          </div>
         </div>
       </div>
     <% end %>
