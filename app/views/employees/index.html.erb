@@ -12,19 +12,34 @@
 
     <% @employees.each do |employee| %>
       <div class="user-card employee-card">
-        <div class="user-face">
+        <div class="user-card--face">
           <% if employee.face_image.present? %>
             <%= image_tag employee.face_image.variant(resize: '100x100'), class: 'face-image' %>
           <% else %>
             <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
           <% end %>
         </div>
-        <div class="user-card-info">
-          <p class="user-card-info-child">社員ID：&nbsp;<%= employee.employee_number %></p>
-          <p class="user-card-info-child">名前：&nbsp;&nbsp;&nbsp;&nbsp;<%= employee.name %>(<%= employee.name_kana %>)</p>
-          <p class="user-card-info-child">役職：&nbsp;&nbsp;&nbsp;&nbsp;<%= employee.position %></p>
-          <p class="user-card-info-child">TEL：&nbsp;&nbsp;&nbsp;&nbsp;<%= employee.phone %></p>
-          <p class="user-card-info-child">Email：&nbsp;&nbsp;<%= employee.email %></p>
+        <div class="user-card--info">
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">社員ID</div>
+            <div class="user-card--info--child--value"><%= employee.employee_number %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">名前</div>
+            <div class="user-card--info--child--value"><%= employee.name %>(<%= employee.name_kana %>)</div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">役職</div>
+            <div class="user-card--info--child--value"><%= employee.position %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">TEL</div>
+            <div class="user-card--info--child--value"><%= employee.phone %></div>
+          </div>
+          <div class="user-card--info--child">
+            <div class="user-card--info--child--tag">Email</div>
+            <div class="user-card--info--child--value"><%= employee.email %></div>
+          </div>
         </div>
       </div>
     <% end %>

@@ -23,7 +23,7 @@
 }
 
 .user-card { /* 社員と職人の個別設定あり */
-  width: calc((100vw - 300px) / 6);
+  width: 300px;
   background-color: white;
   box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
   border: solid 1px rgb(200, 200, 200);
@@ -33,8 +33,8 @@
   text-align: center;
 }
 
-.user-face {
-  padding-bottom: 20px;
+.user-card--face {
+  padding: 20px 0;
   border-bottom: solid 1px black;
 }
 
@@ -42,16 +42,31 @@
   border-radius: 50%;
 }
 
-.user-card-info { /* 職人の個別設定あり */
+.user-card--info { /* 職人の個別設定あり */
+  width: 100%;
+  padding: 20px 0;
+}
+
+.user-card--info--child {
+  width: 100%;
   margin: 20px auto;
-  text-align: left;
+  display: flex;
+}
+
+.user-card--info--child--tag {
+  width: 30%;
+  font-weight: bold;
+}
+
+.user-card--info--child--value {
+  width: 70%;
 }
 
 /***** 共通設定 *****/
 /***** 社員一覧個別設定 *****/
 
 .employee-card {
-  height: 400px;
+  height: 450px;
 }
 
 /***** 社員一覧個別設定 *****/
