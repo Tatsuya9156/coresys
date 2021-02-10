@@ -37,7 +37,7 @@ li {
 }
 
 .category-list {
-  border-bottom: solid 2px rgba(255, 255, 255, 0);
+  border-bottom: solid 1px rgba(255, 255, 255, 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,6 +45,8 @@ li {
   font-size: 13px;
   position: relative;
 }
+
+/***** ユーザー名部分のプルダウン *****/
 
 .category-list-pulldown {
   position: absolute;
@@ -74,8 +76,15 @@ li {
   background-color: rgba(50, 50, 50, 0.7);
 }
 
+/***** ユーザー名部分のプルダウン *****/
+
 .tag-icon {
-  margin-right: 5px;
+  margin-right: 8px;
+  fill: rgb(80, 80, 80);
+}
+
+.tag-icon calender:hover {
+  fill: rgb(255, 25, 0);
 }
 
 .nav-list {
@@ -90,7 +99,7 @@ li {
 }
 
 .category-list:hover {
-  border-bottom: solid 2px black;
+  border-bottom: solid 1px black;
   color: black;
   transition: 0.3s;
 }

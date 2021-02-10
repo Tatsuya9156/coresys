@@ -6,53 +6,53 @@
     <ul class="category">
       <li class="category-list">
         <%= link_to "/", class:"nav-list" do %>
-          <%= image_tag "house.png", size: "22x22", class:"tag-icon" %>
+          <%= embedded_svg "home.svg", class:"tag-icon home" %>
           物件一覧
         <% end %>
       </li>
       <li class="category-list">
         <%= link_to employees_path, class:"nav-list" do %>
-          <%= image_tag "employee.png", size: "25x25", class:"tag-icon" %>
+          <%= embedded_svg "employee.svg", class:"tag-icon employee" %>
           社員一覧
         <% end %>
       </li>
       <li class="category-list">
         <%= link_to workers_path, class:"nav-list" do %>
-          <%= image_tag "worker.png", size: "25x25", class:"tag-icon" %>
+          <%= embedded_svg "worker.svg", class:"tag-icon worker" %>
           職人一覧
         <% end %>
       </li>
       <li class="category-list">
         <%= link_to "/", class:"nav-list" do %>
-          <%= image_tag "zaiko.png", size: "22x22", class:"tag-icon" %>
-          在庫管理表(準備中)
+          <%= embedded_svg "zaiko.svg", class:"tag-icon zaiko" %>
+          在庫管理(準備中)
         <% end %>
       </li>
       <li class="category-list">
         <%= link_to chats_path, class:"nav-list" do %>
-          <%= image_tag "chat.png", size: "23x23", class:"tag-icon" %>
+          <%= embedded_svg "chat.svg", class:"tag-icon chat" %>
           チャット
         <% end %>
       </li>
       <li class="category-list">
         <%= link_to "/", class:"nav-list" do %>
-          <%= image_tag "calender.png", size: "18x18", class:"tag-icon" %>
+          <%= embedded_svg "calender.svg", class:"tag-icon calender" %>
           カレンダー(準備中)
         <% end %>
       </li>
       <li class="category-list">
         <% if employee_signed_in? %>
           <% if current_employee.face_image.present? %>
-            <%= image_tag current_employee.face_image.variant(resize: '35x35'), class: 'header-face-image' %>
+            <%= image_tag current_employee.face_image.variant(resize: '30x30'), class: 'header-face-image' %>
           <% else %>
-            <%= image_tag 'face_image_sample', size: "35x35", class: 'header-face-image' %>
+            <%= image_tag 'face_image_sample', size: "30x30", class: 'header-face-image' %>
           <% end %>
           <%= current_employee.name %>さん
         <% elsif worker_signed_in? %>
           <% if current_worker.face_image.present? %>
-            <%= image_tag current_worker.face_image.variant(resize: '35x35'), class: 'header-face-image' %>
+            <%= image_tag current_worker.face_image.variant(resize: '30x30'), class: 'header-face-image' %>
           <% else %>
-            <%= image_tag 'face_image_sample', size: "35x35", class: 'header-face-image' %>
+            <%= image_tag 'face_image_sample', size: "30x30", class: 'header-face-image' %>
           <% end %>
           <%= current_worker.name %>さん
         <% else %>
