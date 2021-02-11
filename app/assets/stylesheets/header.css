@@ -55,36 +55,6 @@ li {
   fill: rgb(80, 80, 80);
 }
 
-/******** 物件一覧にhover ********/
-.category-list:hover .home {
-  fill: rgb(220, 140, 50);
-}
-
-/******** 社員一覧にhover ********/
-.category-list:hover .employee {
-  fill: #3c7fcc;
-}
-
-/******** 職人一覧にhover ********/
-.category-list:hover .worker {
-  fill: rgb(223, 184, 59);
-}
-
-/******** 在庫管理にhover ********/
-.category-list:hover .zaiko {
-  fill: rgb(190, 52, 184);
-}
-
-/******** チャットにhover ********/
-.category-list:hover .chat {
-  fill: rgb(64, 185, 34);
-}
-
-/******** カレンダーにhover ********/
-.category-list:hover .calender {
-  fill: rgb(250, 115, 100);
-}
-
 /*********************************/
 /*********************************/
 
