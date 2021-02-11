@@ -44,16 +44,9 @@
             <div class="user-card--info--child--tag">Email</div>
             <div class="user-card--info--child--value"><%= worker.email %></div>
           </div>
-
-          <div class="user-card-info-child user-card-info-title">ー 住所(居住地) ー</div>
-
           <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">郵便番号</div>
-            <div class="user-card--info--child--value"><%= worker.address_zip %></div>
-          </div>
-          <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">住所</div>
-            <div class="user-card--info--child--value"><%= worker.address %></div>
+            <div class="user-card--info--child--tag">居住地</div>
+            <div class="user-card--info--child--value">〒<%= worker.address_zip %></br><%= worker.address %></div>
           </div>
         </div>
       </div>

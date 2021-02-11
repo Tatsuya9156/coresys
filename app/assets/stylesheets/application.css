@@ -16,7 +16,7 @@
 
 /***** リセットCSS *****/
 body {
-  font-size: 14px;
+  font-size: 11px;
   color: #333;
   margin: 0 auto;
   background-color: rgb(249, 249, 249);
@@ -36,11 +36,13 @@ ul,li {
   box-sizing: border-box;
 }
 
+
+/***** エラー表示によるレイアウト崩れの防止 *****/
+
 .field_with_errors {
   display: contents;
 }
 
-/***** リセットCSS *****/
 
 /***** サイドバーとメイン画面の振り分け *****/
 
@@ -49,4 +51,9 @@ ul,li {
   height: calc(100vh - 50px);
 }
 
-/***** サイドバーとメイン画面の振り分け *****/
+
+/***** フォントの指定 *****/
+
+* {
+  font-family: "ヒラギノ丸ゴ Pro W4","Hiragino Maru Gothic Pro";
+}
