@@ -10,13 +10,13 @@
           物件一覧
         <% end %>
       </li>
-      <li class="category-list">
+      <li class="category-list list-employee">
         <%= link_to employees_path, class:"nav-list" do %>
           <%= embedded_svg "employee.svg", class:"tag-icon employee" %>
           社員一覧
         <% end %>
       </li>
-      <li class="category-list">
+      <li class="category-list list-worker">
         <%= link_to workers_path, class:"nav-list" do %>
           <%= embedded_svg "worker.svg", class:"tag-icon worker" %>
           職人一覧
@@ -28,7 +28,7 @@
           在庫管理(準備中)
         <% end %>
       </li>
-      <li class="category-list">
+      <li class="category-list list-chat">
         <%= link_to chats_path, class:"nav-list" do %>
           <%= embedded_svg "chat.svg", class:"tag-icon chat" %>
           チャット
