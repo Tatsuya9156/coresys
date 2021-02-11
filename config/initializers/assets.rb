@@ -12,6 +12,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+#個別ページでのCSSファイル読み込みのためのプリコンパイル
 Rails.application.config.assets.precompile += %w( header_icons/employee )
 Rails.application.config.assets.precompile += %w( header_icons/worker )
 Rails.application.config.assets.precompile += %w( header_icons/chat )
