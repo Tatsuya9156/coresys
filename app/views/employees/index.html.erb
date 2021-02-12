@@ -56,4 +56,61 @@
     <% end %>
   </div>
 
+  <div class="modal-window">
+    <%= form_with(model: @employee, method: :POST, local: true) do |f| %>
+      <div class="modal-window--card">
+        <div class="modal-window--card--header"></div>
+        <%= embedded_svg "close.svg", class:"close-icon" %>
+        <div class="modal-window--card--title">社員新規登録</div>
+        <div class="modal-window--card--info">
+          <div class="modal-window--card--info--child">
+            <%= f.label :face_image, '顔写真', class:"modal-window--card--info--child--tag" %>
+            <%= f.file_field :face_image, class:"modal-window--card--info--child--value image-select" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :employee_number, '社員ID', class:"modal-window--card--info--child--tag" %>
+            <%= f.text_field :employee_number, autofocus: true, class:"modal-window--card--info--child--value", placeholder:"1234" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :name, '名前', class:"modal-window--card--info--child--tag" %>
+            <%= f.text_field :name, class:"modal-window--card--info--child--value", placeholder:"山田太郎" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :name_kana, '名前(カナ)', class:"modal-window--card--info--child--tag" %>
+            <%= f.text_field :name_kana, class:"modal-window--card--info--child--value", placeholder:"ヤマダタロウ" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :position, '役職', class:"modal-window--card--info--child--tag" %>
+            <%= f.text_field :position, class:"modal-window--card--info--child--value", placeholder:"チーフ" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :phone, 'TEL', class:"modal-window--card--info--child--tag" %>
+            <%= f.text_field :phone, class:"modal-window--card--info--child--value", placeholder:"09012345678" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :email, 'Email', class:"modal-window--card--info--child--tag" %>
+            <%= f.email_field :email, autocomplete: "email", class:"modal-window--card--info--child--value", placeholder:"test@example.com" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <%= f.label :password, 'パスワード', class:"modal-window--card--info--child--tag" %>
+            <%= f.email_field :password, autocomplete: "new-password", class:"modal-window--card--info--child--value", placeholder:"半角英数字混合" %>
+          </div>
+          <div class="modal-window--card--info--child modal-window--card--info--child--bottom">
+            <%= f.label :password_confirmation, 'パスワード再入力', class:"modal-window--card--info--child--tag" %>
+            <%= f.email_field :password_confirmation, autocomplete: "new-password", class:"modal-window--card--info--child--value", placeholder:"test@example.com" %>
+          </div>
+          <div class="modal-window--card--info--child">
+            <div class="modal-window--card--info--child--checkbox">
+              <%= f.label :admin, '管理者権限', class:"admin-check-label" %>
+              <%= f.check_box :admin, class:"admin-check-box" %>
+            </div>
+            <div class="modal-window--card--info--child--btn">
+              <%= f.button "登録", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>
