@@ -14,12 +14,13 @@
  *= require_self
  */
 
+
+
 /***** リセットCSS *****/
 body {
-  font-size: 11px;
+  font-size: 14px;
   color: #333;
   margin: 0 auto;
-  background-color: rgb(249, 249, 249);
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -32,28 +33,34 @@ ul,li {
   margin: 0;
 }
 
+/***** ボックスサイズ設定 *****/
 * {
   box-sizing: border-box;
 }
 
+/***** フォント設定 *****/
+body {
+  font-size: 11px;
+  font-family: "ヒラギノ丸ゴ Pro W4","Hiragino Maru Gothic Pro";
+}
+
+/***** カラー設定 *****/
+body {
+  background-color: rgb(249, 249, 249);
+}
 
 /***** エラー表示によるレイアウト崩れの防止 *****/
-
 .field_with_errors {
   display: contents;
 }
 
-
 /***** サイドバーとメイン画面の振り分け *****/
-
 .wrapper {
   display: flex;
   height: calc(100vh - 50px);
 }
 
-
-/***** フォントの指定 *****/
-
-* {
-  font-family: "ヒラギノ丸ゴ Pro W4","Hiragino Maru Gothic Pro";
+/***** 非表示設定 *****/
+.hidden {
+  display: none;
 }
