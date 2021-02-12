@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :employees, only: [:index, :edit, :update]
   resources :workers, only: [:index, :edit, :update]
   resources :customers
-  resources :chats do
+  resources :chats, only: [:index, :create, :show] do
     resources :messages, only: [:create]
   end
 end
