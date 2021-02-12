@@ -2,18 +2,25 @@
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/employee", :media => "all" %>
 
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
 <div class="wrapper">
 
+<%# サイドバー %>
   <div class="side-bar">
+    <div class="create-area">
+      <p class="form-open-btn">社員新規登録</p>
+    </div>
     <div class="search-area">
       <input type="text" class="search-form" placeholder="フリーワード検索">
     </div>
   </div>
 
+<%# メイン画面 %>
   <div class="main-wrapper user-wrapper">
 
+    <%# ユーザー情報カード %>
     <% @employees.each do |employee| %>
       <div class="user-card employee-card">
         <div class="user-card--face">
@@ -47,7 +54,6 @@
         </div>
       </div>
     <% end %>
-
   </div>
 
 </div>
