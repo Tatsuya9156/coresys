@@ -1,7 +1,7 @@
+
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
-<div class='registration-header'>
-  <p class='registration-header-text'>社員情報編集</p>
-</div>
 
-<%= render partial: "shared/employee_form", locals: { employee: @employee} %>
+<%# 入力フォーム部分テンプレートの読み込み %>
+<%= render partial: "shared/employee_form", locals: { employee: @employee } %>
