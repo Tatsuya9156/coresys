@@ -18,9 +18,9 @@
       <div class="user-card worker-card">
         <div class="user-card--face">
           <% if worker.face_image.present? %>
-            <%= image_tag worker.face_image.variant(resize: '100x100'), class: 'face-image' %>
+            <%= image_tag worker.face_image.variant(resize: '90x90'), class: 'face-image' %>
           <% else %>
-            <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
+            <%= image_tag 'face_image_sample', size: "90x90", class: 'face-image' %>
           <% end %>
         </div>
         <div class="user-card--info">

@@ -25,9 +25,9 @@
       <div class="user-card employee-card">
         <div class="user-card--face">
           <% if employee.face_image.present? %>
-            <%= image_tag employee.face_image.variant(resize: '100x100'), class: 'face-image' %>
+            <%= image_tag employee.face_image.variant(resize: '90x90'), class: 'face-image' %>
           <% else %>
-            <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
+            <%= image_tag 'face_image_sample', size: "90x90", class: 'face-image' %>
           <% end %>
         </div>
         <div class="user-card--info">
@@ -56,7 +56,7 @@
     <% end %>
   </div>
 
-  <div class="modal-window">
+  <div class="modal-window hidden">
     <%= form_with(model: @employee, method: :POST, local: true) do |f| %>
       <div class="modal-window--card">
         <div class="modal-window--card--header"></div>
