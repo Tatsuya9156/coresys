@@ -11,7 +11,7 @@
   <div class="main-wrapper">
 
     <div class="chat-room-title">
-      <%= @chat.title %>
+      <%= @chat_show.title %>
     </div>
 
     <div class="chat-room-messages">
@@ -89,7 +89,7 @@
     </div>
 
     <div class="chat-message-form">
-      <%= form_with(model: [@chat, @message], local: true) do |f| %>
+      <%= form_with(model: [@chat_show, @message], local: true) do |f| %>
         <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"6" %>
         <%= f.label :message_images do %>
           <%= image_tag('clip.png', size:"15×15", class:"file-clip-icon") %>
