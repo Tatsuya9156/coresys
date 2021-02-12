@@ -2,18 +2,26 @@
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
 
+
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
 <div class="wrapper">
 
+
+<%# サイドバーテンプレートの読み込み %>
 <%= render partial:"shared/chat_side_bar" %>
 
   <div class="main-wrapper">
 
+
+    <%# チャットルームタイトルと編集アイコン %>
     <div class="chat-room-title">
       <%= @chat_show.title %>
+      <%= image_tag "edit.png", class:"edit-icon", id:"chat-edit-btn" %>
     </div>
 
+    <%# メッセージ表示 %>
     <div class="chat-room-messages">
       <% @messages.each do |message| %>
         <div class="chat-message">
@@ -39,7 +47,6 @@
                 <% end %>
               </div>
             </div>
-          <%# 社員の場合 %>
 
           <%# 職人の場合 %>
           <% elsif message.worker.present? %>
@@ -62,7 +69,6 @@
                 <% end %>
               </div>
             </div>
-          <%# 職人の場合 %>
 
           <%# ユーザーが存在しない(削除されている)場合 %>
           <% else %>
@@ -82,12 +88,12 @@
               </div>
             </div>
           <% end %>
-          <%# ユーザーが存在しない(削除されている)場合 %>
 
         </div>
       <% end %>
     </div>
 
+    <%# メッセージ投稿フォーム %>
     <div class="chat-message-form">
       <%= form_with(model: [@chat_show, @message], local: true) do |f| %>
         <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"6" %>
