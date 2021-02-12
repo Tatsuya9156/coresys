@@ -3,7 +3,7 @@
 <%# チャットページ %>
 <%# 新規作成ボタン %>
   <div class="create-btn-area">
-    <p class="to-create-btn">チャット作成</p>
+    <p class="to-create-btn" id="chat-create-btn">チャット作成</p>
   </div>
 
 <%# 検索フォーム %>
@@ -32,12 +32,13 @@
 
 
 <%# モーダルウィンドウ %>
-<div class="modal-window-chat">
+<div class="modal-window-chat hidden" id="chat-modal">
   <div class="modal-window-chat--card">
 
     <%# ヘッダーとタイトル %>
     <div class="modal-window-chat--card--header"></div>
-    <%= embedded_svg "close.svg", class:"close-icon" %>
+    <%= image_tag "close.png", class:"close-icon", id:"chat-close-btn" %>
+
     <div class="modal-window-chat--card--title">新規チャット作成</div>
 
     <%# 入力フォーム %>
