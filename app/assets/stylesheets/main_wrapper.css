@@ -5,8 +5,6 @@
   width: calc(100vw - 250px);
 }
 
-/***** 全体共通 *****/
-
 
 /*****************************************************/
 /***** 社員・職人一覧ページ *****/
@@ -28,6 +26,7 @@
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
+  position: relative;
 }
 
 /* 社員カード個別設定 */
@@ -40,6 +39,13 @@
   height: 440px;
 }
 
+.user-edit-btn {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 120px;
+  right: 25px;
+}
 
 .user-card--face {
   padding: 15px 0;

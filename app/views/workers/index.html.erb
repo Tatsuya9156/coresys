@@ -2,6 +2,7 @@
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/worker", :media => "all" %>
 
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
 <div class="wrapper">
@@ -16,6 +17,9 @@
 
     <% @workers.each do |worker| %>
       <div class="user-card worker-card">
+        <%= link_to edit_worker_path(worker.id) do %>
+          <%= image_tag "edit.png", class:"user-edit-btn" %>
+        <% end %>
         <div class="user-card--face">
           <% if worker.face_image.present? %>
             <%= image_tag worker.face_image.variant(resize: '90x90'), class: 'face-image' %>
