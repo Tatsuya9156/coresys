@@ -1,19 +1,16 @@
 
-<%# 個別CSSの読み込み %>
-<%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
-
-
 <%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
-<div class="wrapper">
+<%# 個別CSSの読み込み %>
+<%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
 
+<div class="wrapper">
 
 <%# サイドバーテンプレートの読み込み %>
 <%= render partial:"shared/chat_side_bar" %>
 
   <div class="main-wrapper">
-
 
     <%# チャットルームタイトルと編集アイコン %>
     <div class="chat-room-title">
