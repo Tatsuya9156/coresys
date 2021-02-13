@@ -3,4 +3,4 @@
 <%= stylesheet_link_tag "form_header_color/employee", :media => "all" %>
 
 <%# ログインフォームの部分テンプレート呼び出し %>
-<%= render partial: "shared/session", locals: { user: @employee, title: "社員ログインページ", another_user_name: "職人", user_session_path: employee_session_path, another_user_session_path: worker_session_path } %>
+<%= render partial: "shared/user_form/session", locals: { user: @employee, title: "社員ログインページ", another_user_name: "職人", user_session_path: employee_session_path, another_user_session_path: worker_session_path } %>
