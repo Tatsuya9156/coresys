@@ -2,6 +2,8 @@
 <%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
+<%# 個別CSSの読み込み %>
+<%= stylesheet_link_tag "header_icons/employee", :media => "all" %>
 
 <%# 入力フォーム部分テンプレートの読み込み %>
 <%= render partial: "shared/employee_form", locals: { employee: @employee } %>
