@@ -1,127 +1,204 @@
-<div class='registration-header'>
-  <p class='registration-header-text'><%= title %></p>
-</div>
 
+<%# 職人登録フォーム %>
+<%# モーダルウィンドウにて画面切り替え %>
 <%= form_with(model: worker, local: true) do |f| %>
 
-<div class="worker-new-wrapper">
+  <%# 情報入力フォーム No.1 %>
+  <div class="user-sign" id="first-info">
+    <div class="user-sign--card">
 
-  <div class="worker-info">
-    <div class="main-info">
-      <p class="info-title">＜基本情報＞</p>
-      <div class="worker-new-field">
-        <%= f.label :face_image, '顔写真', class:"worker-new-label" %>
-        <%= f.file_field :face_image, class:"worker-new-input" %>
-      </div>
+      <%# ヘッダーとタイトル %>
+      <div class="user-sign--card--header"></div>
+      <div class="user-sign--card--title"><%= title %> ／ 基本情報1</div>
 
-      <div class="worker-new-field">
-        <%= f.label :worker_number, '職人番号', class:"worker-new-label" %>
-        <%= f.text_field :worker_number, class:"worker-new-input", autofocus: true %>
-      </div>
+      <%# 入力フォーム %>
+      <div class="user-sign--card--info">
 
-      <div class="worker-new-field">
-        <%= f.label :name, '名前(漢字)', class:"worker-new-label" %>
-        <%= f.text_field :name, class:"worker-new-input" %>
-      </div>
+        <%# 顔写真 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :face_image, '顔写真', class:"user-sign--card--info--child--tag" %>
+          <%= f.file_field :face_image, class:"user-sign--card--info--child--value image-select" %>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :name_kana, '名前(カナ)', class:"worker-new-label" %>
-        <%= f.text_field :name_kana, class:"worker-new-input" %>
-      </div>
+        <%# 職人ID %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :worker_number, '職人ID', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :worker_number, autofocus: true, class:"user-sign--card--info--child--value", placeholder:"1234" %>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :trade_name, '屋号', class:"worker-new-label" %>
-        <%= f.text_field :trade_name, class:"worker-new-input" %>
-      </div>
+        <%# 名前(漢字) %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :name, '名前', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :name, class:"user-sign--card--info--child--value", placeholder:"山田太郎" %>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :phone, '電話番号', class:"worker-new-label" %>
-        <%= f.text_field :phone, class:"worker-new-input" %>
-      </div>
+        <%# 名前(カナ) %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :name_kana, '名前(カナ)', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :name_kana, class:"user-sign--card--info--child--value", placeholder:"ヤマダタロウ" %>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :email, 'メールアドレス', class:"worker-new-label" %>
-        <%= f.email_field :email, class:"worker-new-input", autocomplete: "email" %>
-      </div>
+        <%# 屋号 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :trade_name, '屋号', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :trade_name, class:"user-sign--card--info--child--value", placeholder:"チーフ" %>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :password, 'パスワード', class:"worker-new-label" %>
-        <%= f.password_field :password, class:"worker-new-input", autocomplete: "new-password" %>
-      </div>
+        <%# パスワード %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :password, 'パスワード', class:"user-sign--card--info--child--tag" %>
+          <%= f.password_field :password, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"半角英数字混合" %>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :password_confirmation, 'パスワード確認', class:"worker-new-label" %>
-        <%= f.password_field :password_confirmation, class:"worker-new-input", autocomplete: "new-password" %>
-      </div>
-    </div>
+        <%# パスワード再入力 %>
+        <div class="user-sign--card--info--child user-sign--card--info--child--bottom">
+          <%= f.label :password_confirmation, 'パスワード再入力', class:"user-sign--card--info--child--tag" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"パスワードを再入力してください" %>
+        </div>
 
-    <div class="sub-info-left">
-      <p class="info-title">＜居住地＞</p>
-      <div class="worker-new-field">
-        <%= f.label :address_zip, '郵便番号', class:"worker-new-label" %>
-        <%= f.text_field :address_zip, class:"worker-new-input" %>
-      </div>
+        <%# ページ遷移 %>
+        <div class="user-sign--card--info--child">
+          <div class="sign-nav">
+            <div class="nav--left"></div>
+            <div class="nav--center">1 / 3</div>
+            <div class="nav--right"><p id="first-to-second">次へ >></p></div>
+          </div>
+        </div>
 
-      <div class="worker-new-field">
-        <%= f.label :address, '住所', class:"worker-new-label" %>
-        <%= f.text_field :address, class:"worker-new-input" %>
-      </div>
-
-      <p class="info-title">＜倉庫住所＞</p>
-      <div class="worker-new-field">
-        <%= f.label :warehouse_zip, '郵便番号', class:"worker-new-label" %>
-        <%= f.text_field :warehouse_zip, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :warehouse, '住所', class:"worker-new-label" %>
-        <%= f.text_field :warehouse, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :warehouse_info, '倉庫情報', class:"worker-new-label" %>
-        <%= f.text_field :warehouse_info, class:"worker-new-input" %>
-      </div>
-    </div>
-
-    <div class="sub-info-right">
-      <p class="info-title">＜直送コード＞</p>
-      <div class="worker-new-field">
-        <%= f.label :inaba, 'イナバ物置', class:"worker-new-label" %>
-        <%= f.text_field :inaba, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :yodo, 'ヨド物置', class:"worker-new-label" %>
-        <%= f.text_field :yodo, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :takubo, 'タクボ物置', class:"worker-new-label" %>
-        <%= f.text_field :takubo, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :ykkap, 'YKKAP', class:"worker-new-label" %>
-        <%= f.text_field :ykkap, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :sankyo, '三協アルミ', class:"worker-new-label" %>
-        <%= f.text_field :sankyo, class:"worker-new-input" %>
-      </div>
-
-      <div class="worker-new-field">
-        <%= f.label :lixil, 'LIXIL', class:"worker-new-label" %>
-        <%= f.text_field :lixil, class:"worker-new-input" %>
       </div>
     </div>
   </div>
 
-  <div class="worker-new-actions">
-    <%= f.button "登録", type: 'button', onclick: 'submit();', class:"signup-btn" %>
+
+  <%# 情報入力フォーム No.2 %>
+  <div class="user-sign hidden" id="second-info">
+    <div class="user-sign--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="user-sign--card--header"></div>
+      <div class="user-sign--card--title"><%= title %> ／ 基本情報2</div>
+
+      <%# 入力フォーム %>
+      <div class="user-sign--card--info">
+
+        <%# 電話番号 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :phone, 'TEL', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :phone, class:"user-sign--card--info--child--value", placeholder:"09012345678" %>
+        </div>
+
+        <%# メールアドレス %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :email, 'Email', class:"user-sign--card--info--child--tag" %>
+          <%= f.email_field :email, autocomplete: "email", class:"user-sign--card--info--child--value", placeholder:"test@example.com" %>
+        </div>
+
+        <%# 居住地(郵便番号) %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :address_zip, '郵便番号', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :address_zip, class:"user-sign--card--info--child--value", placeholder:"123-4567" %>
+        </div>
+
+        <%# 居住地(住所) %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :address, '住所', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :address, class:"user-sign--card--info--child--value", placeholder:"愛知県名古屋市浮橋3-3-1" %>
+        </div>
+
+        <%# 倉庫(郵便番号) %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :warehouse_zip, '郵便番号(倉庫)', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :warehouse_zip, class:"user-sign--card--info--child--value", placeholder:"123-4567" %>
+        </div>
+
+        <%# 倉庫(住所) %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :warehouse, '住所(倉庫)', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :warehouse, class:"user-sign--card--info--child--value", placeholder:"愛知県名古屋市浮橋3-3-1" %>
+        </div>
+
+        <%# 倉庫(住所) %>
+        <div class="user-sign--card--info--child user-sign--card--info--child--bottom">
+          <%= f.label :warehouse_info, '倉庫情報', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :warehouse_info, class:"user-sign--card--info--child--value", placeholder:"鍵番号など" %>
+        </div>
+
+        <%# ページ遷移 %>
+        <div class="user-sign--card--info--child">
+          <div class="sign-nav">
+            <div class="nav--left"><p id="second-to-first"><< 前へ</p></div>
+            <div class="nav--center">２ / 3</div>
+            <div class="nav--right"><p id="second-to-third">次へ >></p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-</div>
 
+  <%# 情報入力フォーム No.3 %>
+  <div class="user-sign hidden" id="third-info">
+    <div class="user-sign--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="user-sign--card--header"></div>
+      <div class="user-sign--card--title"><%= title %> ／ 直送コード</div>
+
+      <%# 入力フォーム %>
+      <div class="user-sign--card--info">
+
+        <%# イナバ物置 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :inaba, 'イナバ物置', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :inaba, class:"user-sign--card--info--child--value", placeholder:"" %>
+        </div>
+
+        <%# ヨド物置 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :yodo, 'ヨド物置', class:"user-sign--card--info--child--tag" %>
+          <%= f.email_field :yodo, autocomplete: "email", class:"user-sign--card--info--child--value", placeholder:"" %>
+        </div>
+
+        <%# タクボ物置 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :takubo, 'タクボ物置', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :takubo, class:"user-sign--card--info--child--value", placeholder:"" %>
+        </div>
+
+        <%# YKKAP %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :ykkap, 'YKKAP', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :ykkap, class:"user-sign--card--info--child--value", placeholder:"" %>
+        </div>
+
+        <%# 三協アルミ %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :sankyo, '三協アルミ', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :sankyo, class:"user-sign--card--info--child--value", placeholder:"" %>
+        </div>
+
+        <%# LIXIL %>
+        <div class="user-sign--card--info--child user-sign--card--info--child--bottom">
+          <%= f.label :lixil, 'LIXIL', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :lixil, class:"user-sign--card--info--child--value", placeholder:"" %>
+        </div>
+        
+        <%# 登録ボタン %>
+        <div class="user-sign--card--info--child">
+            <%= f.button "登録", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
+        </div>
+
+        <%# ページ遷移 %>
+        <div class="user-sign--card--info--child">
+          <div class="sign-nav">
+            <div class="nav--left"><p id="third-to-second"><< 戻る</p></div>
+            <div class="nav--center">3 / 3</div>
+            <div class="nav--right"><p id="third-to-first">最初へ >></p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 <% end %>
