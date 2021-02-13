@@ -1,95 +1,32 @@
 
+<%# ヘッダー部分テンプレートの読み込み %>
+<%= render partial:"shared/header" %>
+
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
 
-<%= render partial:"shared/header" %>
-
 <div class="wrapper">
 
+<%# サイドバーテンプレートの読み込み %>
 <%= render partial:"shared/chat_side_bar" %>
 
   <div class="main-wrapper">
 
+    <%# チャットルームタイトルと編集アイコン %>
     <div class="chat-room-title">
-      <%= @chat.title %>
+      <%= @chat_show.title %>
+      <%= image_tag "edit.png", class:"edit-icon", id:"chat-edit-btn" %>
     </div>
 
+    <%# メッセージ表示 %>
     <div class="chat-room-messages">
-      <% @messages.each do |message| %>
-        <div class="chat-message">
-
-          <%# 社員の場合 %>
-          <% if message.employee.present? %>
-            <div class="message-icon">
-              <% if message.employee.face_image.present? %>
-                <%= image_tag message.employee.face_image, class: 'message-face-image' %>
-              <% else %>
-                <%= image_tag "employee.png", class:"message-face-image" %>
-              <% end %>
-            </div>
-            <div class="message-area">
-              <div class="message-data-area">
-                <p class="message-name"><%= message.employee.name %></p>
-                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              </div>
-              <div class="message-text-area">
-                <p class="message-text"><%= simple_format(message.text) %></p>
-                <% message.message_images.each do |image| %>
-                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-                <% end %>
-              </div>
-            </div>
-          <%# 社員の場合 %>
-
-          <%# 職人の場合 %>
-          <% elsif message.worker.present? %>
-            <div class="message-icon">
-              <% if message.worker.face_image.present? %>
-                <%= image_tag message.worker.face_image, class: 'message-face-image' %>
-              <% else %>
-                <%= image_tag "employee.png", class:"message-face-image" %>
-              <% end %>
-            </div>
-            <div class="message-area">
-              <div class="message-data-area">
-                <p class="message-name"><%= message.worker.name %></p>
-                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              </div>
-              <div class="message-text-area">
-                <p class="message-text"><%= simple_format(message.text) %></p>
-                <% message.message_images.each do |image| %>
-                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-                <% end %>
-              </div>
-            </div>
-          <%# 職人の場合 %>
-
-          <%# ユーザーが存在しない(削除されている)場合 %>
-          <% else %>
-            <div class="message-icon">
-              <%= image_tag "employee.png", class:"message-face-image" %>
-            </div>
-            <div class="message-area">
-              <div class="message-data-area">
-                <p class="message-name">ユーザーが存在しません</p>
-                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              </div>
-              <div class="message-text-area">
-                <p class="message-text"><%= simple_format(message.text) %></p>
-                <% message.message_images.each do |image| %>
-                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-          <%# ユーザーが存在しない(削除されている)場合 %>
-
-        </div>
-      <% end %>
+      <%# メッセージ一覧の部分テンプレート呼び出し %>
+      <%= render partial:"shared/chat_room/messages", collection: @messages, as: "message" %>
     </div>
 
+    <%# メッセージ投稿フォーム %>
     <div class="chat-message-form">
-      <%= form_with(model: [@chat, @message], local: true) do |f| %>
+      <%= form_with(model: [@chat_show, @message], local: true) do |f| %>
         <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"6" %>
         <%= f.label :message_images do %>
           <%= image_tag('clip.png', size:"15×15", class:"file-clip-icon") %>

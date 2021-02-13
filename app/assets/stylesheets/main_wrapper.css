@@ -2,17 +2,12 @@
 /***** 全体共通 *****/
 
 .main-wrapper {
-  width: calc(100vw - 300px);
+  width: calc(100vw - 250px);
 }
-
-/***** 全体共通 *****/
 
 
 /*****************************************************/
-
-
 /***** 社員・職人一覧ページ *****/
-/***** 共通設定 *****/
 
 .user-wrapper {
   display: flex;
@@ -22,18 +17,38 @@
   padding: 30px;
 }
 
-.user-card { /* 社員と職人の個別設定あり */
-  width: 300px;
+/* 社員と職人の個別設定あり */
+.user-card {
+  width: 280px;
   background-color: white;
   box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
   border: solid 1px rgb(200, 200, 200);
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
+  position: relative;
+}
+
+/* 社員カード個別設定 */
+.employee-card {
+  height: 380px;
+}
+
+/* 職人カード個別設定 */
+.worker-card {
+  height: 440px;
+}
+
+.user-edit-btn {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 120px;
+  right: 25px;
 }
 
 .user-card--face {
-  padding: 20px 0;
+  padding: 15px 0;
   border-bottom: solid 1px black;
   text-align: center;
 }
@@ -42,9 +57,9 @@
   border-radius: 50%;
 }
 
-.user-card--info { /* 職人の個別設定あり */
+.user-card--info {
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .user-card--info--child {
@@ -63,32 +78,8 @@
   width: 70%;
 }
 
-/***** 共通設定 *****/
-/***** 社員一覧個別設定 *****/
-
-.employee-card {
-  height: 420px;
-}
-
-/***** 社員一覧個別設定 *****/
-/***** 職人一覧個別設定 *****/
-
-.worker-card {
-  height: 470px;
-}
-.user-card-info-title {
-  font-weight: bold;
-  padding-top: 20px;
-  text-align: center;
-}
-
-/***** 職人一覧個別設定 *****/
-/***** 社員・職人一覧ページ *****/
-
 
 /*****************************************************/
-
-
 /***** チャットルーム *****/
 /***** 共通設定 *****/
 
@@ -98,7 +89,13 @@
   padding: 10px 0 5px 30px;
   margin: 0 auto;
   border-bottom: solid 2px rgb(80, 80, 80);
-  font-size: 25px;
+  font-size: 20px;
+}
+
+.edit-icon {
+  width: 15px;
+  margin-left: 3px;
+  cursor: pointer;
 }
 
 .chat-room-messages {
@@ -144,9 +141,12 @@
   font-size: 12px;
 }
 
+.message-text-area {
+  font-size: 14px;
+}
+
 .message-text {
   padding: 0;
-  font-size: 15px;
 }
 
 .message-image {

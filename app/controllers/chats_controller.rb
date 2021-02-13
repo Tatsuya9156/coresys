@@ -1,24 +1,22 @@
 class ChatsController < ApplicationController
   def index
-  end
-
-  def new
     @chat = Chat.new
   end
 
   def create
     @chat = Chat.new(chat_params)
     if @chat.save
-      redirect_to root_path
+      redirect_to index
     else
-      render :new
+      render :index
     end
   end
 
   def show
-    @chat = Chat.find(params[:id])
+    @chat = Chat.new
+    @chat_show = Chat.find(params[:id])
     @message = Message.new
-    @messages = @chat.messages.includes(:employee, :worker)
+    @messages = @chat_show.messages.includes(:employee, :worker)
   end
 
   private

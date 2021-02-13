@@ -2,51 +2,23 @@
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/employee", :media => "all" %>
 
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
 <div class="wrapper">
 
+  <%# サイドバー %>
   <div class="side-bar">
     <div class="search-area">
       <input type="text" class="search-form" placeholder="フリーワード検索">
     </div>
   </div>
 
+  <%# メイン画面 %>
   <div class="main-wrapper user-wrapper">
 
-    <% @employees.each do |employee| %>
-      <div class="user-card employee-card">
-        <div class="user-card--face">
-          <% if employee.face_image.present? %>
-            <%= image_tag employee.face_image.variant(resize: '100x100'), class: 'face-image' %>
-          <% else %>
-            <%= image_tag 'face_image_sample', size: "100x100", class: 'face-image' %>
-          <% end %>
-        </div>
-        <div class="user-card--info">
-          <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">社員ID</div>
-            <div class="user-card--info--child--value"><%= employee.employee_number %></div>
-          </div>
-          <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">名前</div>
-            <div class="user-card--info--child--value"><%= employee.name %>(<%= employee.name_kana %>)</div>
-          </div>
-          <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">役職</div>
-            <div class="user-card--info--child--value"><%= employee.position %></div>
-          </div>
-          <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">TEL</div>
-            <div class="user-card--info--child--value"><%= employee.phone %></div>
-          </div>
-          <div class="user-card--info--child">
-            <div class="user-card--info--child--tag">Email</div>
-            <div class="user-card--info--child--value"><%= employee.email %></div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%# 社員一覧の部分テンプレート呼び出し %>
+    <%= render partial:"shared/user_index/employee", collection: @employees, as: "employee" %>
 
   </div>
 
