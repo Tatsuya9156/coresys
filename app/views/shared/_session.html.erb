@@ -1,27 +1,38 @@
-<div class='session-header'>
-  <%= image_tag("logo.png", class:"session-logo-icon") %>
-  <p class='session-header-text'><%= user_name %>ログインページ</p>
-</div>
 
-<div class="session-wrapper"> 
+<%# 社員登録フォーム %>
+<%= form_with model: user, url: user_session_path, method: :POST, local: true do |f| %>
+  <div class="user-sign">
+    <div class="user-sign--card">
 
-  <%= form_with model: user, url: user_session_path, method: :post, class: 'session-main', local: true do |f| %>
+      <%# ヘッダーとタイトル %>
+      <div class="user-sign--card--header"></div>
+      <div class="user-sign--card--logo"><%= image_tag("logo.png", class:"session-logo-icon") %></div>
+      <div class="user-sign--card--title"><%= title %></div>
 
-    <div class="session-field">
-      <%= f.label :email, 'メールアドレス', class:"session-label" %></br>
-      <%= f.email_field :email, class:"session-input", autofocus: true, autocomplete: "email", placeholder:"メールアドレス" %>
+      <%# 入力フォーム %>
+      <div class="user-sign--card--info">
+
+        <%# メールアドレス %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :email, 'Email', class:"user-sign--card--info--child--tag" %>
+          <%= f.email_field :email, autocomplete: "email", class:"user-sign--card--info--child--value", placeholder:"test@example.com" %>
+        </div>
+
+        <%# パスワード %>
+        <div class="user-sign--card--info--child user-sign--card--info--child--bottom">
+          <%= f.label :password, 'パスワード', class:"user-sign--card--info--child--tag" %>
+          <%= f.password_field :password, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"半角英数字混合" %>
+        </div>
+
+        <%# 登録ボタン %>
+        <div class="user-sign--card--info--child">
+          <%= f.button "ログイン", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
+        </div>
+
+      </div>
+
+      <%= link_to "--- #{ another_user_name }の方はこちらへ ---", another_user_session_path, class:"to-login" %>
+
     </div>
-
-    <div class="session-field">
-      <%= f.label :password, 'パスワード', class:"session-label" %></br>
-      <%= f.password_field :password, class:"session-input", autocomplete: "current-password", placeholder:"パスワード" %>
-    </div>
-
-    <div class="session-actions">
-      <%= f.button "ログイン", type: 'button', onclick: 'submit();', class:"login-btn" %>
-    </div>
-
-  <% end %>
-
-  <%= link_to "--- #{ another_user_name }の方はこちらへ ---", another_user_session_path, class:"to-login" %>
-</div>
+  </div>
+<% end %>

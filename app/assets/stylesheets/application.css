@@ -49,6 +49,12 @@ body {
   background-color: rgb(249, 249, 249);
 }
 
+/***** a要素のアンダーバーとフォントカラーの設定 *****/
+a {
+  text-decoration: none;
+  color: rgb(80, 80, 80);
+}
+
 /***** エラー表示によるレイアウト崩れの防止 *****/
 .field_with_errors {
   display: contents;

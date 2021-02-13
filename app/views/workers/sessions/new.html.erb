@@ -1,1 +1,6 @@
-<%= render partial: "shared/session", locals: { user: @worker, user_name: "職人", another_user_name: "社員", user_session_path: worker_session_path, another_user_session_path: employee_session_path } %>
+
+<%# 個別CSSの読み込み %>
+<%= stylesheet_link_tag "form_header_color/worker", :media => "all" %>
+
+<%# ログインフォームの部分テンプレート呼び出し %>
+<%= render partial: "shared/session", locals: { user: @worker, title: "職人ログインページ", another_user_name: "社員", user_session_path: worker_session_path, another_user_session_path: employee_session_path } %>
