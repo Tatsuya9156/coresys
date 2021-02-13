@@ -1,4 +1,4 @@
-function modal() {
+function chatCreate() {
   const open = document.getElementById("chat-create-btn");
   const modal = document.getElementById("chat-modal");
   const close = document.getElementById("chat-close-btn");
@@ -16,5 +16,5 @@ function modal() {
       modal.classList.add("hidden");
     }
   });
-}
-window.addEventListener('load', modal);
+};
+window.addEventListener('load', chatCreate);
