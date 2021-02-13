@@ -1,5 +1,15 @@
 
-.employee-signup--card {
+/***** 共通設定 *****/
+
+.user-sign {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.user-sign--card {
   position: absolute;
   top: 12%;
   right: 0;
@@ -13,7 +23,7 @@
   border-radius: 10px;
 }
 
-.employee-signup--card--header {
+.user-sign--card--header {
   height: 10px;
   width: 100%;
   margin-bottom: 30px;
@@ -30,7 +40,7 @@
   fill: rgb(80, 80, 80);
 }
 
-.employee-signup--card--title {
+.user-sign--card--title {
   width: 70%;
   height: 50px;
   margin: 0 auto 40px;
@@ -40,28 +50,30 @@
   text-align: center;
 }
 
-.employee-signup--card--info {
+.user-sign--card--info {
   width: 75%;
   margin: 0 auto;
   font-size: 13px;
 }
 
-.employee-signup--card--info--child {
+.user-sign--card--info--child {
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   margin-bottom: 25px;
 }
 
-.employee-signup--card--info--child--bottom {
+.user-sign--card--info--child--bottom {
   margin-bottom: 45px;
 }
 
-.employee-signup--card--info--child--tag {
+.user-sign--card--info--child--tag {
   width: 35%;
   line-height: 30px;
 }
 
-.employee-signup--card--info--child--value {
+.user-sign--card--info--child--value {
   width: 65%;
   margin: auto;
   padding: 7px 12px;
@@ -77,11 +89,11 @@
   outline: none;
 }
 
-.employee-signup--card--info--child--checkbox, .employee-signup--card--info--child--btn {
+.user-sign--card--info--child--checkbox, .user-sign--card--info--child--btn {
   width: 50%;
 }
 
-.employee-signup--card--info--child--checkbox {
+.user-sign--card--info--child--checkbox {
   margin: 0 auto;
   padding-left: 30px;
   display: flex;
@@ -89,7 +101,7 @@
   align-items: center;
 }
 
-.employee-signup--card--info--child--btn {
+.user-sign--card--info--child--btn {
   padding-right: 30px;
 }
 
@@ -123,4 +135,36 @@
   box-shadow: none;
   position: relative;
   top: 2px;
+}
+
+.sign-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  line-height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.nav--center {
+  width: 10%;
+  text-align: center;
+}
+
+.nav--left, .nav--right {
+  width: 45%;
+}
+
+.nav--left {
+  padding-left: 30px;
+}
+
+.nav--right {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.nav--left > p, .nav--right > p {
+  display: inline;
+  cursor: pointer;
 }
