@@ -20,74 +20,8 @@
 
     <%# メッセージ表示 %>
     <div class="chat-room-messages">
-      <% @messages.each do |message| %>
-        <div class="chat-message">
-
-          <%# 社員の場合 %>
-          <% if message.employee.present? %>
-            <div class="message-icon">
-              <% if message.employee.face_image.present? %>
-                <%= image_tag message.employee.face_image, class: 'message-face-image' %>
-              <% else %>
-                <%= image_tag "employee.png", class:"message-face-image" %>
-              <% end %>
-            </div>
-            <div class="message-area">
-              <div class="message-data-area">
-                <p class="message-name"><%= message.employee.name %></p>
-                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              </div>
-              <div class="message-text-area">
-                <p class="message-text"><%= simple_format(message.text) %></p>
-                <% message.message_images.each do |image| %>
-                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-                <% end %>
-              </div>
-            </div>
-
-          <%# 職人の場合 %>
-          <% elsif message.worker.present? %>
-            <div class="message-icon">
-              <% if message.worker.face_image.present? %>
-                <%= image_tag message.worker.face_image, class: 'message-face-image' %>
-              <% else %>
-                <%= image_tag "employee.png", class:"message-face-image" %>
-              <% end %>
-            </div>
-            <div class="message-area">
-              <div class="message-data-area">
-                <p class="message-name"><%= message.worker.name %></p>
-                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              </div>
-              <div class="message-text-area">
-                <p class="message-text"><%= simple_format(message.text) %></p>
-                <% message.message_images.each do |image| %>
-                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-                <% end %>
-              </div>
-            </div>
-
-          <%# ユーザーが存在しない(削除されている)場合 %>
-          <% else %>
-            <div class="message-icon">
-              <%= image_tag "employee.png", class:"message-face-image" %>
-            </div>
-            <div class="message-area">
-              <div class="message-data-area">
-                <p class="message-name">ユーザーが存在しません</p>
-                <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-              </div>
-              <div class="message-text-area">
-                <p class="message-text"><%= simple_format(message.text) %></p>
-                <% message.message_images.each do |image| %>
-                  <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
-        </div>
-      <% end %>
+      <%# メッセージ一覧の部分テンプレート呼び出し %>
+      <%= render partial:"shared/chat_room/messages", collection: @messages, as: "message" %>
     </div>
 
     <%# メッセージ投稿フォーム %>
