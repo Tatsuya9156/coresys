@@ -3,8 +3,8 @@
 <%= render partial:"shared/header" %>
 
 <%# 個別CSSの読み込み %>
-<%= stylesheet_link_tag "form_header_color/worker", :media => "all" %>
 <%= stylesheet_link_tag "header_icons/worker", :media => "all" %>
+<%= stylesheet_link_tag "form_header_color/worker", :media => "all" %>
 
 <%# 入力フォーム部分テンプレートの読み込み %>
 <%= render partial: "shared/worker_form", locals: { worker: @worker, title: "職人新規登録" } %>
