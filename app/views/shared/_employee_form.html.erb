@@ -1,56 +1,83 @@
 
-<%# 入力フォーム %>
+<%# 社員登録フォーム %>
 <%= form_with(model: employee, local: true) do |f| %>
   <div class="employee-signup">
     <div class="employee-signup--card">
+
+      <%# ヘッダーとタイトル %>
       <div class="employee-signup--card--header"></div>
       <div class="employee-signup--card--title">社員新規登録</div>
+
+      <%# 入力フォーム %>
       <div class="employee-signup--card--info">
+
+        <%# 顔写真 %>
         <div class="employee-signup--card--info--child">
           <%= f.label :face_image, '顔写真', class:"employee-signup--card--info--child--tag" %>
           <%= f.file_field :face_image, class:"employee-signup--card--info--child--value image-select" %>
         </div>
+
+        <%# 社員ID %>
         <div class="employee-signup--card--info--child">
           <%= f.label :employee_number, '社員ID', class:"employee-signup--card--info--child--tag" %>
           <%= f.text_field :employee_number, autofocus: true, class:"employee-signup--card--info--child--value", placeholder:"1234" %>
         </div>
+
+        <%# 名前(漢字) %>
         <div class="employee-signup--card--info--child">
           <%= f.label :name, '名前', class:"employee-signup--card--info--child--tag" %>
           <%= f.text_field :name, class:"employee-signup--card--info--child--value", placeholder:"山田太郎" %>
         </div>
+
+        <%# 名前(カナ) %>
         <div class="employee-signup--card--info--child">
           <%= f.label :name_kana, '名前(カナ)', class:"employee-signup--card--info--child--tag" %>
           <%= f.text_field :name_kana, class:"employee-signup--card--info--child--value", placeholder:"ヤマダタロウ" %>
         </div>
+
+        <%# 役職 %>
         <div class="employee-signup--card--info--child">
           <%= f.label :position, '役職', class:"employee-signup--card--info--child--tag" %>
           <%= f.text_field :position, class:"employee-signup--card--info--child--value", placeholder:"チーフ" %>
         </div>
+
+        <%# 電話番号 %>
         <div class="employee-signup--card--info--child">
           <%= f.label :phone, 'TEL', class:"employee-signup--card--info--child--tag" %>
           <%= f.text_field :phone, class:"employee-signup--card--info--child--value", placeholder:"09012345678" %>
         </div>
+
+        <%# メールアドレス %>
         <div class="employee-signup--card--info--child">
           <%= f.label :email, 'Email', class:"employee-signup--card--info--child--tag" %>
           <%= f.email_field :email, autocomplete: "email", class:"employee-signup--card--info--child--value", placeholder:"test@example.com" %>
         </div>
+
+        <%# パスワード %>
         <div class="employee-signup--card--info--child">
           <%= f.label :password, 'パスワード', class:"employee-signup--card--info--child--tag" %>
           <%= f.password_field :password, autocomplete: "new-password", class:"employee-signup--card--info--child--value", placeholder:"半角英数字混合" %>
         </div>
+
+        <%# パスワード再入力 %>
         <div class="employee-signup--card--info--child employee-signup--card--info--child--bottom">
           <%= f.label :password_confirmation, 'パスワード再入力', class:"employee-signup--card--info--child--tag" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"employee-signup--card--info--child--value", placeholder:"パスワードを再入力してください" %>
         </div>
+
+        <%# 管理者権限と登録ボタン %>
         <div class="employee-signup--card--info--child">
+          <%# 管理者権限 %>
           <div class="employee-signup--card--info--child--checkbox">
             <%= f.label :admin, '管理者権限', class:"admin-check-label" %>
             <%= f.check_box :admin, class:"admin-check-box" %>
           </div>
+          <%# 登録ボタン %>
           <div class="employee-signup--card--info--child--btn">
             <%= f.button "登録", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
           </div>
         </div>
+
       </div>
     </div>
   </div>
