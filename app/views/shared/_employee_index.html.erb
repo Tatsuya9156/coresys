@@ -1,0 +1,43 @@
+
+<%# 職人カード %>
+<div class="user-card employee-card">
+
+  <%# 編集ページへのリンク %>
+  <%= link_to edit_employee_path(employee.id) do %>
+    <%= image_tag "edit.png", class:"user-edit-btn" %>
+  <% end %>
+
+  <%# 顔写真 %>
+  <div class="user-card--face">
+    <% if employee.face_image.present? %>
+      <%= image_tag employee.face_image.variant(resize: '90x90'), class: 'face-image' %>
+    <% else %>
+      <%= image_tag 'face_image_sample', size: "90x90", class: 'face-image' %>
+    <% end %>
+  </div>
+
+  <%# 情報一覧 %>
+  <div class="user-card--info">
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">社員ID</div>
+      <div class="user-card--info--child--value"><%= employee.employee_number %></div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">名前</div>
+      <div class="user-card--info--child--value"><%= employee.name %>(<%= employee.name_kana %>)</div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">役職</div>
+      <div class="user-card--info--child--value"><%= employee.position %></div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">TEL</div>
+      <div class="user-card--info--child--value"><%= employee.phone %></div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">Email</div>
+      <div class="user-card--info--child--value"><%= employee.email %></div>
+    </div>
+  </div>
+  
+</div>

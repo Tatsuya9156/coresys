@@ -7,17 +7,19 @@
 
 <div class="wrapper">
 
+  <%# サイドバー %>
   <div class="side-bar">
     <div class="search-area">
       <input type="text" class="search-form" placeholder="フリーワード検索">
     </div>
   </div>
 
+  <%# メイン画面 %>
   <div class="main-wrapper user-wrapper">
 
     <%# 職人一覧の部分テンプレート呼び出し %>
     <%= render partial:"shared/worker_index", collection: @workers, as: "worker" %>
-    
+
   </div>
 
 </div>
