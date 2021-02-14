@@ -1,0 +1,131 @@
+
+<%# モーダルウィンドウ %>
+<% if employee_signed_in? %>
+
+  <%# 1ページ目 %>
+  <div class="modal-window hidden" id="customer-create-first">
+    <div class="modal-window--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --customer"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"chat-create-close-btn" %>
+      <div class="modal-window--card--title">新規物件作成</div>
+
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
+        <%= form_with model: @customer, url: customers_path, method: :post, local: true do |f| %>
+
+          <%# 受注日 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :order_date, '受注日', class:"modal-window--card--form--field--tag" %>
+            <%= f.date_field :order_date, class:"modal-window--card--form--field--value", autofocus: true %>
+          </div>
+
+          <%# 受注店舗 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :store_id, '受注店舗', class:"modal-window--card--form--field--tag" %>
+            <%= f.collection_select(:store_id, Store.all, :id, :name, {}, {class:"modal-window--card--form--field--value"}) %>
+          </div>
+
+          <%# 名前 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :name, '名前', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :name, class:"modal-window--card--form--field--value", placeholder:"山田太郎" %>
+          </div>
+
+          <%# 名前(カナ) %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :name_kana, '名前(カナ)', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :name_kana, class:"modal-window--card--form--field--value", placeholder:"ヤマダタロウ" %>
+          </div>
+
+          <%# 電話番号 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :phone, 'TEL', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :phone, class:"modal-window--card--form--field--value", placeholder:"09012345678" %>
+          </div>
+
+          <%# メールアドレス %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :email, 'Email', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :email, class:"modal-window--card--form--field--value", placeholder:"test@example.com" %>
+          </div>
+
+          <%# ページ遷移 %>
+          <div class="modal-window--card--form--field">
+            <div class="page-nav">
+              <div class="nav--left"></div>
+              <div class="nav--center">1 / 2</div>
+              <div class="nav--right"><p id="to-second">次へ >></p></div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <%# 2ページ目 %>
+  <div class="modal-window hidden" id="customer-create-second">
+    <div class="modal-window--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --customer"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"chat-create-close-btn" %>
+      <div class="modal-window--card--title">新規物件作成</div>
+
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
+        <%= form_with model: @customer, url: customers_path, method: :post, local: true do |f| %>
+
+          <%# 担当者 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :employee_id, '担当者', class:"modal-window--card--form--field--tag" %>
+            <%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"modal-window--card--form--field--value"}) %>
+          </div>
+
+          <%# 居住地(郵便番号) %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :address_zip, '居住地(郵便番号)', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :address_zip, class:"modal-window--card--form--field--value", placeholder:"123-4567" %>
+          </div>
+
+          <%# 居住地(住所) %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :address, '居住地(住所)', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :address, class:"modal-window--card--form--field--value", placeholder:"愛知県名古屋市浮橋3-3-1" %>
+          </div>
+
+          <%# 施工先(郵便番号) %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :residence_zip, '施工先(郵便番号)', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :residence_zip, class:"modal-window--card--form--field--value", placeholder:"123-4567" %>
+          </div>
+
+          <%# 施工先(住所) %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :residence, '施工先(住所)', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :residence, class:"modal-window--card--form--field--value", placeholder:"愛知県名古屋市浮橋3-3-1" %>
+          </div>
+
+          <%# 作成ボタン %>
+          <div class="modal-window--card--form--field--btn --customer">
+            <%= f.button "作成", type: "button", onclick: 'submit();', class: "modal-create-btn" %>
+          </div>
+
+          <%# ページ遷移 %>
+          <div class="modal-window--card--form--field">
+            <div class="page-nav">
+              <div class="nav--left"><p id="to-first"><< 前へ</p></div>
+              <div class="nav--center">2 / 2</div>
+              <div class="nav--right"></div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

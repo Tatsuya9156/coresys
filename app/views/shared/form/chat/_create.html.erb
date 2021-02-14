@@ -1,29 +1,29 @@
 
 <%# モーダルウィンドウ %>
 <% if employee_signed_in? %>
-  <div class="modal-window-chat hidden" id="chat-create-modal">
-    <div class="modal-window-chat--card">
+  <div class="modal-window hidden" id="chat-create-modal">
+    <div class="modal-window--card">
 
       <%# ヘッダーとタイトル %>
-      <div class="modal-window-chat--card--header"></div>
+      <div class="modal-window--card--header --chat"></div>
       <%= image_tag "close.png", class:"close-icon", id:"chat-create-close-btn" %>
 
-      <div class="modal-window-chat--card--title">新規チャット作成</div>
+      <div class="modal-window--card--title">新規チャット作成</div>
 
       <%# 入力フォーム %>
-      <div class="modal-window-chat--card--form">
+      <div class="modal-window--card--form">
         <%= form_with model: @chat, url: chats_path, method: :post, local: true do |f| %>
 
           <%# チャット名入力 %>
-          <div class="modal-window-chat--card--form--field">
-            <%= f.label :title, 'チャット名', class:"modal-window-chat--card--form--field--tag" %>
-            <%= f.text_field :title, class:"modal-window-chat--card--form--field--value", autofocus: true, placeholder:"テストルーム" %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :title, 'チャット名', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_field :title, class:"modal-window--card--form--field--value", autofocus: true, placeholder:"テストルーム" %>
           </div>
 
           <%# 社員選択 %>
-          <div class="modal-window-chat--card--form--field --user--area">
-            <%= f.label :employee_ids, '社員選択', class:"modal-window-chat--card--form--field--tag" %>
-            <div class="modal-window-chat--card--form--field--value --check--area">
+          <div class="modal-window--card--form--field --user--area">
+            <%= f.label :employee_ids, '社員選択', class:"modal-window--card--form--field--tag" %>
+            <div class="modal-window--card--form--field--value --check--area">
               <%= f.collection_check_boxes :employee_ids, Employee.where.not(id: current_employee.id), :id, :name do |e| %>
                 <div class="--check--area--child">
                   <%= e.check_box class:"--check--area--child--form --box" %>
@@ -35,9 +35,9 @@
           </div>
 
           <%# 職人選択 %>
-          <div class="modal-window-chat--card--form--field --user--area">
-            <%= f.label :worker_ids, '職人選択', class:"modal-window-chat--card--form--field--tag" %>
-            <div class="modal-window-chat--card--form--field--value --check--area">
+          <div class="modal-window--card--form--field --user--area">
+            <%= f.label :worker_ids, '職人選択', class:"modal-window--card--form--field--tag" %>
+            <div class="modal-window--card--form--field--value --check--area">
               <%= f.collection_check_boxes :worker_ids, Worker.all, :id, :name do |e| %>
                 <div class="--check--area--child">
                   <%= e.check_box class:"--check--area--child--form --box" %>
@@ -48,7 +48,7 @@
           </div>
 
           <%# 作成ボタン %>
-          <div class="modal-window-chat--card--form--field--btn">
+          <div class="modal-window--card--form--field--btn">
             <%= f.button "作成", type: "button", onclick: 'submit();', class: "modal-create-btn" %>
           </div>
 
