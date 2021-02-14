@@ -108,7 +108,7 @@
 .chat-message {
   width: 95%;
   display: flex;
-  margin: 0 auto;
+  margin: 15px auto 0;
   padding-bottom: 30px;
 }
 

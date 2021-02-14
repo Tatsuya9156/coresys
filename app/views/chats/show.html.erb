@@ -4,11 +4,14 @@
 
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
+<%= stylesheet_link_tag "create_btn/chat", :media => "all" %>
 
 <div class="wrapper">
 
-<%# サイドバーテンプレートの読み込み %>
-<%= render partial:"shared/chat_side_bar" %>
+  <%# サイドバー部分テンプレートの読み込み %>
+  <div class="side-bar">
+    <%= render partial:"shared/chat_side_bar" %>
+  </div>
 
   <div class="main-wrapper">
 

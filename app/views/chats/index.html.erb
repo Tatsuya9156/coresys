@@ -1,13 +1,17 @@
 
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
+<%= stylesheet_link_tag "create_btn/chat", :media => "all" %>
 
 <%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
 <div class="wrapper">
 
-<%# サイドバーテンプレートの読み込み %>
-<%= render partial:"shared/chat_side_bar" %>
+  <%# サイドバー %>
+  <div class="side-bar">
+    <%# サイドバー部分テンプレートの読み込み %>
+    <%= render partial:"shared/chat_side_bar" %>
+  </div>
 
 </div>
