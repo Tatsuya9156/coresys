@@ -4,12 +4,12 @@
 
 <div class="wrapper">
 
+  <%# サイドバー部分テンプレートの読み込み %>
   <div class="side-bar">
-    <div class="search-area">
-      <input type="text" class="search-form" placeholder="フリーワード検索">
-    </div>
+    <%= render partial:"shared/side_bar/customer" %>
   </div>
 
+  <%# メイン画面 %>
   <div class="main-wrapper">
     <div class="basic-info-wrapper">
       <div class="basic-info-wrapper--title">

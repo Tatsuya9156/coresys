@@ -55,19 +55,19 @@
   top: 2px;
 }
 
+.chat-room-header {
+  text-align: center;
+  line-height: 40px;
+  color: rgb(249, 249, 249);
+}
+
 .chat-room-area {
   overflow: scroll;
 }
 
-.chat-room-header {
-  text-align: center;
-  color: rgb(249, 249, 249);
-}
-
 .chat-room-index {
   text-align: center;
-  height: 35px;
-  line-height: 35px;
+  line-height: 40px;
   font-size: 13px;
 }
 

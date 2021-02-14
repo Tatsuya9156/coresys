@@ -1,10 +1,16 @@
 
-<%# ヘッダー部分テンプレートの読み込み %>
-<%= render partial:"shared/header" %>
-
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/chat", :media => "all" %>
 <%= stylesheet_link_tag "create_btn/chat", :media => "all" %>
+
+<%# ヘッダー部分テンプレートの読み込み %>
+<%= render partial:"shared/header" %>
+
+<%# チャットグループ作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/chat/create" %>
+
+<%# チャットグループ編集の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/chat/edit" %>
 
 <div class="wrapper">
 
