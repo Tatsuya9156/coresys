@@ -13,9 +13,14 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-#個別ページでのCSSファイル読み込みのためのプリコンパイル
+### 個別ページでのCSSファイル読み込みのためのプリコンパイル
+# ヘッダーアイコン
 Rails.application.config.assets.precompile += %w( header_icons/employee )
 Rails.application.config.assets.precompile += %w( header_icons/worker )
 Rails.application.config.assets.precompile += %w( header_icons/chat )
+# フォームヘッダーカラー
 Rails.application.config.assets.precompile += %w( form_header_color/employee )
 Rails.application.config.assets.precompile += %w( form_header_color/worker )
+# 新規作成ボタン
+Rails.application.config.assets.precompile += %w( create_btn/chat )
+Rails.application.config.assets.precompile += %w( create_btn/customer )
