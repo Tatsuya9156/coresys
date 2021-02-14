@@ -3,10 +3,6 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
-  def new
-    @customer = Customer.new
-  end
-
   def create
     @customer = Customer.new(customer_params)
     if @customer.save

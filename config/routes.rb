@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root to: 'customers#index'
   resources :employees, only: [:index, :edit, :update]
   resources :workers, only: [:index, :edit, :update]
-  resources :customers
+  resources :customers, only: [:index, :create, :show]
   resources :chats, only: [:index, :create, :show, :update] do
     resources :messages, only: [:create]
   end
