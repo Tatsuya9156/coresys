@@ -30,7 +30,7 @@
         <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"6" %>
         <%= f.label :message_images do %>
           <%= image_tag('clip.png', size:"15×15", class:"file-clip-icon") %>
-          <%= f.file_field :message_images, name: 'message[message_images][]', style: "display:none;", multiple: true %>
+          <%= f.file_field :message_images, name: 'message[message_images][]', class: "hidden", multiple: true %>
         <% end %>
         <%= image_submit_tag("submit.png", onclick: "submit();", class:"message-send") %>
       <% end %>
