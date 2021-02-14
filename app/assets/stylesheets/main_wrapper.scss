@@ -1,23 +1,22 @@
 
-/***** 全体共通 *****/
+/**************** 全体共通 ****************/
 
 .main-wrapper {
   width: calc(100vw - 250px);
+  // 社員・職人ページ個別設定
+  &.user-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    overflow: scroll;
+    padding: 30px;
+  }
 }
 
 
-/*****************************************************/
-/***** 社員・職人一覧ページ *****/
+/************ 社員・職人一覧ページ ************/
 
-.user-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  overflow: scroll;
-  padding: 30px;
-}
 
-/* 社員と職人の個別設定あり */
 .user-card {
   width: 280px;
   background-color: white;
@@ -27,16 +26,14 @@
   margin: 20px;
   padding: 20px;
   position: relative;
-}
-
-/* 社員カード個別設定 */
-.employee-card {
-  height: 380px;
-}
-
-/* 職人カード個別設定 */
-.worker-card {
-  height: 440px;
+  /* 社員カード個別設定 */
+  &.employee-card {
+    height: 380px;
+  }
+  /* 職人カード個別設定 */
+  &.worker-card {
+    height: 440px;
+  }
 }
 
 .user-edit-btn {
@@ -206,78 +203,83 @@
 
 /***** チャット新規作成 *****/
 
-/************************/
 
-/***** 顧客詳細ページ *****/
-
-.customer-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  overflow: scroll;
-  padding: 50px;
-}
+/************** 顧客詳細ページ *************/
 
 .customer-info-wrapper {
-  width: calc((100vw - 250px - 100px - 30px) / 2);
-  height: 350px;
+  width: 95%;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
   background-color: white;
   box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
   border: solid 1px rgb(200, 200, 200);
   border-radius: 10px;
+  // ヘッダーカラー
+  .customer-info-wrapper--header {
+    height: 10px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(200, 230, 150);
+  }
+  // ステータスバー
+  .customer-info-wrapper--status--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    .--status {
+      background-color: rgb(240, 240, 240);
+      &.--box {
+        width: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 11px;
+      }
+      &.--bar {
+        width: 80px;
+        height: 4px;
+      }
+    }
+  }
+  // 基本情報
+  .customer-info-wrapper--detail {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0 30px;
+    .customer-info-wrapper--detail--half {
+      width: 48%;
+      .customer-info-wrapper--detail--child {
+        display: flex;
+        width: 100%;
+        border: {
+          top: solid 1px rgb(80, 80, 80);
+          left: solid 1px rgb(80, 80, 80);
+          right: solid 1px rgb(80, 80, 80);
+        }
+        &.--child--bottom {
+          border-bottom: solid 1px rgb(80, 80, 80);
+        }
+        .detail--child {
+          height: 100%;
+          padding: 10px 20px;
+          &.--tag {
+            width: 20%;
+            background-color: rgb(220, 220, 220);
+            border-right: solid 1px rgb(80, 80, 80);
+          }
+          &.--value {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
 }
 
-.left-wrapper {
-  margin-right: 30px;
-}
 
-.customer-info-wrapper--title {
-  background-color: rgb(110, 110, 110);
-  color: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 22px;
-  line-height: 22px;
-  padding-left: 30px;
-}
 
-.detail--child--status {
-  background-color: chocolate;
-  text-align: center;
-  width: 100px;
-  padding: 10px 15px;
-  margin: 20px 0 0 50px;
-  border-radius: 10px;
-}
 
-.customer-info-wrapper--detail {
-  width: 100%;
-  padding-top: 30px; 
-  font-size: 13px;
-  display: flex;
-}
-
-.customer-info-wrapper--detail--left, .customer-info-wrapper--detail--right {
-  width: 50%;
-}
-
-.customer-info-wrapper--detail--left {
-  border-right: solid 1px rgb(80, 80, 80);
-}
-
-.customer-info-wrapper--detail--child {
-  display: flex;
-  width: 100%;
-  padding: 0 40px;
-  margin-bottom: 10px;
-}
-
-.detail--child--tag {
-  width: 35%;
-}
-
-.detail--child--value {
-  width: 65%;
-}
 
 /***** 顧客詳細ページ *****/

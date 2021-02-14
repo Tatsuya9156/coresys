@@ -175,7 +175,8 @@ customer = Customer.create!(
       address_zip:   "430-9911",
       address:       "岐阜県河内郡上三川町宍道町白石441-7",
       residence_zip: "455-1900",
-      residence:     "岐阜県佐渡市富浦町豊岡30"
+      residence:     "岐阜県佐渡市富浦町豊岡30",
+      employee_id:   "1"
 )
 
 customer = Customer.create!(
@@ -189,5 +190,21 @@ customer = Customer.create!(
       address_zip:   "510-0001",
       address:       "愛知県朝倉郡東峰村西が迫4-4-1",
       residence_zip: "228-9855",
-      residence:     "愛知県都城市新野東22-4"
+      residence:     "愛知県都城市新野東22-4",
+      employee_id:   "2"
+)
+
+customer = Customer.create!(
+      order_date:    "2021-02-01",
+      store_id:      "4",
+      status_id:     "4",
+      name:          "今野絵理",
+      name_kana:     "コンノエリ",
+      phone:         "09000591827",
+      email:         "konno@example.com",
+      address_zip:   "561-0001",
+      address:       "愛知県習志野市国分北30-22-2",
+      residence_zip: "207-1923",
+      residence:     "愛知県宮津市嵐山虚空蔵山町331",
+      employee_id:   "3"
 )
