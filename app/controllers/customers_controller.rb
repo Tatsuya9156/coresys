@@ -17,7 +17,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = Customer.new
+    @customer_show = Customer.find(params[:id])
   end
 
   private
