@@ -26,8 +26,8 @@
             <div class="modal-window-chat--card--form--field--value --check--area">
               <%= f.collection_check_boxes :employee_ids, Employee.where.not(id: current_employee.id), :id, :name do |e| %>
                 <div class="--check--area--child">
-                  <%= e.check_box class:"--check--area--child--box" %>
-                  <%= e.label class:"--check--area--child--label" %>
+                  <%= e.check_box class:"--check--area--child--form --box" %>
+                  <%= e.label class:"--check--area--child--form --label" %>
                 </div>
               <% end%>
             </div>
@@ -40,8 +40,8 @@
             <div class="modal-window-chat--card--form--field--value --check--area">
               <%= f.collection_check_boxes :worker_ids, Worker.all, :id, :name do |e| %>
                 <div class="--check--area--child">
-                  <%= e.check_box class:"--check--area--child--box" %>
-                  <%= e.label class:"--check--area--child--label" %>
+                  <%= e.check_box class:"--check--area--child--form --box" %>
+                  <%= e.label class:"--check--area--child--form --label" %>
                 </div>
               <% end%>
             </div>
