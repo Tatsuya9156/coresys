@@ -16,7 +16,9 @@
   <%# メイン画面 %>
   <div class="main-wrapper">
     <div class="customer-info-wrapper">
+      <%# ヘッダーカラー %>
       <div class="customer-info-wrapper--header"></div>
+      <%# ステータスバー %>
       <div class="customer-info-wrapper--status--icon">
         <div class="--status --box">受注</div>
         <div class="--status --bar"></div>
@@ -34,7 +36,7 @@
         <div class="--status --bar"></div>
         <div class="--status --box">完了</div>
       </div>
-
+      <%# 基本情報(左側) %>
       <div class="customer-info-wrapper--detail">
         <div class="customer-info-wrapper--detail--half">
           <div class="customer-info-wrapper--detail--child">
@@ -58,7 +60,7 @@
             <div class="detail--child --value"><%= @customer.name_kana %></div>
           </div>
         </div>
-
+        <%# 基本情報(右側) %>
         <div class="customer-info-wrapper--detail--half">
           <div class="customer-info-wrapper--detail--child">
             <div class="detail--child --tag">担当者</div>
@@ -81,10 +83,6 @@
             <div class="detail--child --value">〒<%= @customer.residence_zip %> <%= @customer.residence %></div>
           </div>
         </div>
-
       </div>
-
-
   </div>
-
 </div>
