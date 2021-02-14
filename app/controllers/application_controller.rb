@@ -1,4 +1,12 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_employee!
-  before_action :authenticate_worker!
+  before_action :authenticate_user!
+
+  private
+  def authenticate_user!
+    if employee_signed_in? || worker_signed_in?
+      true
+    else
+      authenticate_employee!
+    end
+  end
 end
