@@ -210,17 +210,28 @@
 
 /***** 顧客詳細ページ *****/
 
-.basic-info-wrapper {
+.customer-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  overflow: scroll;
+  padding: 50px;
+}
+
+.customer-info-wrapper {
+  width: calc((100vw - 250px - 100px - 30px) / 2);
+  height: 350px;
   background-color: white;
   box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
   border: solid 1px rgb(200, 200, 200);
   border-radius: 10px;
-  width: 95%;
-  height: 300px;
-  margin: 30px auto 0;
 }
 
-.basic-info-wrapper--title {
+.left-wrapper {
+  margin-right: 30px;
+}
+
+.customer-info-wrapper--title {
   background-color: rgb(110, 110, 110);
   color: white;
   border-top-left-radius: 10px;
@@ -230,27 +241,43 @@
   padding-left: 30px;
 }
 
-.basic-info-wrapper--detail {
+.detail--child--status {
+  background-color: chocolate;
+  text-align: center;
+  width: 100px;
+  padding: 10px 15px;
+  margin: 20px 0 0 50px;
+  border-radius: 10px;
+}
+
+.customer-info-wrapper--detail {
+  width: 100%;
+  padding-top: 30px; 
+  font-size: 13px;
   display: flex;
-  align-items: center;
-  height: calc(100% - 30px);
 }
 
-.basic-info-wrapper--detail--left, .basic-info-wrapper--detail--center, .basic-info-wrapper--detail--right {
-  width: calc(100% / 3);
-  padding-left: 100px;
+.customer-info-wrapper--detail--left, .customer-info-wrapper--detail--right {
+  width: 50%;
 }
 
-.basic-info-wrapper--detail--left {
+.customer-info-wrapper--detail--left {
   border-right: solid 1px rgb(80, 80, 80);
 }
 
-.basic-info-wrapper--detail--center {
-  border-right: solid 1px rgb(80, 80, 80);
+.customer-info-wrapper--detail--child {
+  display: flex;
+  width: 100%;
+  padding: 0 40px;
+  margin-bottom: 10px;
 }
 
-.basic-info-wrapper--detail--left > .basic-info-wrapper--detail--child, .basic-info-wrapper--detail--center > .basic-info-wrapper--detail--child {
-  margin: 13px 0;
+.detail--child--tag {
+  width: 35%;
+}
+
+.detail--child--value {
+  width: 65%;
 }
 
 /***** 顧客詳細ページ *****/
