@@ -22,6 +22,3 @@ Rails.application.config.assets.precompile += %w( header_icons/customer )
 # フォームヘッダーカラー
 Rails.application.config.assets.precompile += %w( form_header_color/employee )
 Rails.application.config.assets.precompile += %w( form_header_color/worker )
-# 新規作成ボタン
-Rails.application.config.assets.precompile += %w( create_btn/chat )
-Rails.application.config.assets.precompile += %w( create_btn/customer )

@@ -1,7 +1,6 @@
 
 <%# 個別CSSの読み込み %>
 <%= stylesheet_link_tag "header_icons/customer", :media => "all" %>
-<%= stylesheet_link_tag "create_btn/customer", :media => "all" %>
 
 <%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
@@ -23,23 +22,24 @@
       <div class="customer-info-wrapper--header"></div>
       <%# ステータスバー %>
       <div class="customer-info-wrapper--status--icon">
-        <div class="--status --box">受注</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">現地調査</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">見積作成</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">検討中</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">成約</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">商品手配</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">工事</div>
-        <div class="--status --bar"></div>
-        <div class="--status --box">完了</div>
+        <div class="--status--box before-color" id="one">受注</div>
+        <div class="--status--bar before-color" id="to-two"></div>
+        <div class="--status--box before-color" id="two">現地調査</div>
+        <div class="--status--bar before-color" id="to-three"></div>
+        <div class="--status--box before-color" id="three">見積作成</div>
+        <div class="--status--bar before-color" id="to-four"></div>
+        <div class="--status--box before-color" id="four">検討中</div>
+        <div class="--status--bar before-color" id="to-five"></div>
+        <div class="--status--box before-color" id="five">成約</div>
+        <div class="--status--bar before-color" id="to-six"></div>
+        <div class="--status--box before-color" id="six">商品手配</div>
+        <div class="--status--bar before-color" id="to-seven"></div>
+        <div class="--status--box before-color" id="seven">工事</div>
+        <div class="--status--bar before-color" id="to-eight"></div>
+        <div class="--status--box before-color" id="eight">完了</div>
       </div>
-      <div class="customer-status hidden"><%= @customer_show.status.id %></div>
+      <%# ステータス取得のための記述 %>
+      <div class="hidden" id="customer-status"><%= @customer_show.status.id %></div>
       <%# 基本情報(左側) %>
       <div class="customer-info-wrapper--detail">
         <div class="customer-info-wrapper--detail--half">
