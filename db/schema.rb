@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.string "employee_number", null: false
     t.string "name", null: false
     t.string "name_kana", null: false
+    t.string "section", null: false
     t.string "position", null: false
     t.string "phone", null: false
     t.boolean "admin", null: false

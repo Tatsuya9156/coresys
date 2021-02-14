@@ -35,6 +35,12 @@
           <%= f.text_field :name_kana, class:"user-sign--card--info--child--value", placeholder:"ヤマダタロウ" %>
         </div>
 
+        <%# 所属 %>
+        <div class="user-sign--card--info--child">
+          <%= f.label :section, '所属', class:"user-sign--card--info--child--tag" %>
+          <%= f.text_field :section, class:"user-sign--card--info--child--value", placeholder:"受発注" %>
+        </div>
+
         <%# 役職 %>
         <div class="user-sign--card--info--child">
           <%= f.label :position, '役職', class:"user-sign--card--info--child--tag" %>

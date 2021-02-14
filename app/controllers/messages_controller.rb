@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
       if @message.save
         redirect_to chat_path(params[:chat_id])
       else
-        @chat = Chat.find(params[:chat_id])
+        @chat_show = Chat.find(params[:chat_id])
         render 'chats/show'
       end
     elsif worker_signed_in?
@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       if @message.save
         redirect_to chat_path(params[:chat_id])
       else
-        @chat = Chat.find(params[:chat_id])
+        @chat_show = Chat.find(params[:chat_id])
         render 'chats/show'
       end
     end
@@ -28,4 +28,5 @@ class MessagesController < ApplicationController
   def worker_message_params
     params.require(:message).permit(:text, message_images: []).merge(worker_id: current_worker.id, chat_id: params[:chat_id])
   end
+
 end

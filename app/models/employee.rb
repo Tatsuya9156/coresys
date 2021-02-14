@@ -15,6 +15,7 @@ class Employee < ApplicationRecord
     validates :name,            format: { with: VALID_NAME_REGEX }
     validates :name_kana,       format: { with: VALID_KANA_REGEX }
     validates :phone,           format: { with: VALID_PHONE_REGEX }
+    validates :section
     validates :position
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX }
