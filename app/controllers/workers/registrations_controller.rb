@@ -55,7 +55,7 @@ class Workers::RegistrationsController < Devise::RegistrationsController
   # end
 
   def current_employee_is_admin?
-    current_employee.admin == true
+    worker_signed_in? == false && current_employee.admin == true
   end
 
   def sign_up(resource_name, resource)

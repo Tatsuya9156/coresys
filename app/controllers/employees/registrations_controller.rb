@@ -45,7 +45,7 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: [:face_image, :employee_number, :name, :name_kana, :position, :phone, :admin])
+                                      keys: [:face_image, :employee_number, :name, :name_kana, :section, :position, :phone, :admin])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -54,7 +54,7 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # end
 
   def current_employee_is_admin?
-    current_employee.admin == true
+    worker_signed_in? == false && current_employee.admin == true
   end
 
   def sign_up(resource_name, resource)
