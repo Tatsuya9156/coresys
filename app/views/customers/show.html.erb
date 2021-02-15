@@ -22,21 +22,10 @@
       <div class="customer-info-wrapper--header"></div>
       <%# ステータスバー %>
       <div class="customer-info-wrapper--status--icon">
-        <div class="--status--box before-color" id="one">受注</div>
-        <div class="--status--bar before-color" id="to-two"></div>
-        <div class="--status--box before-color" id="two">現地調査</div>
-        <div class="--status--bar before-color" id="to-three"></div>
-        <div class="--status--box before-color" id="three">見積作成</div>
-        <div class="--status--bar before-color" id="to-four"></div>
-        <div class="--status--box before-color" id="four">検討中</div>
-        <div class="--status--bar before-color" id="to-five"></div>
-        <div class="--status--box before-color" id="five">成約</div>
-        <div class="--status--bar before-color" id="to-six"></div>
-        <div class="--status--box before-color" id="six">商品手配</div>
-        <div class="--status--bar before-color" id="to-seven"></div>
-        <div class="--status--box before-color" id="seven">工事</div>
-        <div class="--status--bar before-color" id="to-eight"></div>
-        <div class="--status--box before-color" id="eight">完了</div>
+        <% Status.all.each.with_index(1) do |status, index| %>
+          <div class="--status--bar before-color" id="bar-<%= index %>"></div>
+          <div class="--status--box before-color" id="box-<%= index %>"><%= status.name %></div>
+        <% end %>
       </div>
       <%# ステータス取得のための記述 %>
       <div class="hidden" id="customer-status"><%= @customer_show.status.id %></div>

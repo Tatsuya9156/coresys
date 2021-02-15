@@ -3,21 +3,21 @@ function statusColor() {
   const status = document.getElementById("customer-status");
   const statusValue = status.innerHTML;
   // ステータスと中間のバー
-  const one = document.getElementById("one");
-  const toTwo = document.getElementById("to-two");
-  const two = document.getElementById("two");
-  const toThree = document.getElementById("to-three");
-  const three = document.getElementById("three");
-  const toFour = document.getElementById("to-four");
-  const four = document.getElementById("four");
-  const toFive = document.getElementById("to-five");
-  const five = document.getElementById("five");
-  const toSix = document.getElementById("to-six");
-  const six = document.getElementById("six");
-  const toSeven = document.getElementById("to-seven");
-  const seven = document.getElementById("seven");
-  const toEight = document.getElementById("to-eight");
-  const eight = document.getElementById("eight");
+  const one = document.getElementById("box-1");
+  const toTwo = document.getElementById("bar-2");
+  const two = document.getElementById("box-2");
+  const toThree = document.getElementById("bar-3");
+  const three = document.getElementById("box-3");
+  const toFour = document.getElementById("bar-4");
+  const four = document.getElementById("box-4");
+  const toFive = document.getElementById("bar-5");
+  const five = document.getElementById("box-5");
+  const toSix = document.getElementById("bar-6");
+  const six = document.getElementById("box-6");
+  const toSeven = document.getElementById("bar-7");
+  const seven = document.getElementById("box-7");
+  const toEight = document.getElementById("bar-8");
+  const eight = document.getElementById("box-8");
   // ステータスが1〜8のときそれぞれの処理を行う
   switch (statusValue) {
     case "1":
