@@ -23,4 +23,9 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(:order_date, :store_id, :name, :name_kana, :phone, :email, :address_zip, :address,
                                      :residence_zip, :residence, :status_id)
   end
+
+  # ログインユーザーが社員でなければroot_pathへリダイレクトされる
+  def current_user_is_employee?
+    redirect_to root_path if !employee_signed_in?
+  end
 end

@@ -25,10 +25,12 @@ class EmployeesController < ApplicationController
                                      :password)
   end
 
+    # 管理者権限を持っている
   def current_employee_is_admin?
     worker_signed_in? == false && current_employee.admin == true
   end
 
+    # 管理者権限を持つ社員でなければroot_pathへリダイレクトされる
   def updatable?
     redirect_to root_path if !current_employee_is_admin?
   end
