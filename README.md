@@ -61,23 +61,23 @@ URL:https://t-coresys.com
 - Q&Aページ
 
 # 📖使用技術
-## フロントエンド
+### フロントエンド
  - HTML
  - CSS(SCSS)
  - JavaScript
-## バックエンド
+### バックエンド
  - Ruby 2.6.5
  - Ruby on Rails 6.0.3.4
-## データベース
+### データベース
  - MySQL2
-## テスト
+### テスト
  - RSpec
  - FactoryBot
  - Faker
  - Gimei
-## 開発環境
+### 開発環境
  - RuboCop
-## 本番環境
+### 本番環境
  - AWS(VPC, EC2, S3, Route53, ACM, ALB)
  - Nginx, Unicorn, MariaDB
 
