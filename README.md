@@ -61,4 +61,4 @@ URL:https://t-coresys.com
 - Q&Aページ
 
 # ER図
-/Users/hamamototatsuya/projects/coresys/app/assets/images/ER.png
+![ER図](images/ER.png "ER")
