@@ -1,0 +1,12 @@
+
+/***** 物件に関するページのみ適用 *****/
+
+.nav-customer {
+  color: rgb(200, 230, 150);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.customer {
+  fill: rgb(200, 230, 150);
+}

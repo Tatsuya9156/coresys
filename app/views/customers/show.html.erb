@@ -1,40 +1,81 @@
+
+<%# 個別CSSの読み込み %>
+<%= stylesheet_link_tag "header_icons/customer", :media => "all" %>
+
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
+
+<%# 物件グループ作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/create" %>
 
 <div class="wrapper">
 
+  <%# サイドバー部分テンプレートの読み込み %>
   <div class="side-bar">
-    <div class="search-area">
-      <input type="text" class="search-form" placeholder="フリーワード検索">
-    </div>
+    <%= render partial:"shared/side_bar/customer" %>
   </div>
 
+  <%# メイン画面 %>
   <div class="main-wrapper">
-    <div class="basic-info-wrapper">
-      <div class="basic-info-wrapper--title">
-        基本情報
+    <div class="customer-info-wrapper">
+      <%# ヘッダーカラー %>
+      <div class="customer-info-wrapper--header"></div>
+      <%# ステータスバー %>
+      <div class="customer-info-wrapper--status--icon">
+        <% Status.all.each.with_index(1) do |status, index| %>
+          <div class="--status--bar before-color" id="bar-<%= index %>"></div>
+          <div class="--status--box before-color" id="box-<%= index %>"><%= status.name %></div>
+        <% end %>
       </div>
-      <div class="basic-info-wrapper--detail">
-        <div class="basic-info-wrapper--detail--left">
-          <p class="basic-info-wrapper--detail--child">顧客ID：<%= @customer.id %></p>
-          <p class="basic-info-wrapper--detail--child">受注日：<%= @customer.order_date %></p>
-          <p class="basic-info-wrapper--detail--child">受注店舗：<%= @customer.store.name %></p>
-          <p class="basic-info-wrapper--detail--child">ステータス：<%= @customer.status.name %></p>
+      <%# ステータス取得のための記述 %>
+      <div class="hidden" id="customer-status"><%= @customer_show.status.id %></div>
+      <%# 基本情報(左側) %>
+      <div class="customer-info-wrapper--detail">
+        <div class="customer-info-wrapper--detail--half">
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">顧客ID</div>
+            <div class="detail--child --value"><%= @customer_show.id %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">受注日</div>
+            <div class="detail--child --value"><%= @customer_show.order_date %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">受注店舗</div>
+            <div class="detail--child --value"><%= @customer_show.store.name %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">名前</div>
+            <div class="detail--child --value"><%= @customer_show.name %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child --child--bottom">
+            <div class="detail--child --tag">名前(カナ)</div>
+            <div class="detail--child --value"><%= @customer_show.name_kana %></div>
+          </div>
         </div>
-        <div class="basic-info-wrapper--detail--center">
-          <p class="basic-info-wrapper--detail--child">顧客名：<%= @customer.name %></p>
-          <p class="basic-info-wrapper--detail--child">顧客名(カナ)：<%= @customer.name_kana %></p>
-          <p class="basic-info-wrapper--detail--child">電話番号：<%= @customer.phone %></p>
-          <p class="basic-info-wrapper--detail--child">メールアドレス：<%= @customer.email %></p>
-        </div>
-        <div class="basic-info-wrapper--detail--right">
-          <p>ー　居住地　ー</p>
-          <p class="basic-info-wrapper--detail--child">〒<%= @customer.address_zip %></p>
-          <p class="basic-info-wrapper--detail--child"><%= @customer.address %></p>
-          <p>ー　施工先　ー</p>
-          <p class="basic-info-wrapper--detail--child">〒<%= @customer.residence_zip %></p>
-          <p class="basic-info-wrapper--detail--child"><%= @customer.residence %></p>
+        <%# 基本情報(右側) %>
+        <div class="customer-info-wrapper--detail--half">
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">担当者</div>
+            <div class="detail--child --value"><%= @customer_show.employee.name %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">TEL</div>
+            <div class="detail--child --value"><%= @customer_show.phone %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">Email</div>
+            <div class="detail--child --value"><%= @customer_show.email %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child">
+            <div class="detail--child --tag">居住地</div>
+            <div class="detail--child --value">〒<%= @customer_show.address_zip %> <%= @customer_show.address %></div>
+          </div>
+          <div class="customer-info-wrapper--detail--child --child--bottom">
+            <div class="detail--child --tag">施工先</div>
+            <div class="detail--child --value">〒<%= @customer_show.residence_zip %> <%= @customer_show.residence %></div>
+          </div>
         </div>
       </div>
-    </div>
   </div>
 </div>

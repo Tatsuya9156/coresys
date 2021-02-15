@@ -3,10 +3,6 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
-  def new
-    @customer = Customer.new
-  end
-
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
@@ -17,7 +13,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = Customer.new
+    @customer_show = Customer.find(params[:id])
   end
 
   private

@@ -23,6 +23,7 @@ class Employee < ApplicationRecord
 
   has_many :chat_employees
   has_many :chats, through: :chat_employees
+  has_many :customers
   has_many :messages
   has_one_attached :face_image
 end

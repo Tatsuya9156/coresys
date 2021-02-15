@@ -1,19 +1,39 @@
 function chatCreate() {
-  const open = document.getElementById("chat-create-btn");
-  const modal = document.getElementById("chat-modal");
-  const close = document.getElementById("chat-close-btn");
+  // 新規作成の場合
+  const createOpen = document.getElementById("chat-create-btn");
+  const createModal = document.getElementById("chat-create-modal");
+  const createClose = document.getElementById("chat-create-close-btn");
   // チャット作成をクリックしたらモーダルウィンドウが表示される
-  open.addEventListener("click", function() {
-    modal.classList.remove("hidden");
+  createOpen.addEventListener("click", function() {
+    createModal.classList.remove("hidden");
   });
   // 右上の×ボタンを押したらモーダルウィンドウを閉じる
-  close.addEventListener("click", function() {
-    modal.classList.add("hidden");
+  createClose.addEventListener("click", function() {
+    createModal.classList.add("hidden");
   });
   // モーダルウィンドウ外のグレー部分を押してもモーダルウィンドウを閉じることができる
-  modal.addEventListener("click", function(e) {
-    if (e.target == modal) {
-      modal.classList.add("hidden");
+  createModal.addEventListener("click", function(e) {
+    if (e.target == createModal) {
+      createModal.classList.add("hidden");
+    }
+  });
+
+  // 編集の場合
+  const editOpen = document.getElementById("chat-edit-btn");
+  const editModal = document.getElementById("chat-edit-modal");
+  const editClose = document.getElementById("chat-edit-close-btn");
+  // チャット名前横の編集ボタンをクリックしたらモーダルウィンドウが表示される
+  editOpen.addEventListener("click", function() {
+    editModal.classList.remove("hidden");
+  });
+  // 右上の×ボタンを押したらモーダルウィンドウを閉じる
+  editClose.addEventListener("click", function() {
+    editModal.classList.add("hidden");
+  });
+  // モーダルウィンドウ外のグレー部分を押してもモーダルウィンドウを閉じることができる
+  editModal.addEventListener("click", function(e) {
+    if (e.target == editModal) {
+      editModal.classList.add("hidden");
     }
   });
 };

@@ -2,10 +2,10 @@ class MessagesController < ApplicationController
   def create
       @message = Message.new(employee_message_params) if employee_signed_in?
       @message = Message.new(worker_message_params) if worker_signed_in?
+      @chat_show = Chat.find(params[:chat_id])
       if @message.save
         redirect_to chat_path(params[:chat_id])
       else
-        @chat_show = Chat.find(params[:chat_id])
         render 'chats/show'
       end
   end

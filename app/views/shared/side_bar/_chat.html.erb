@@ -1,0 +1,28 @@
+
+<%# 新規作成ボタン %>
+<div class="create-btn-area">
+  <p class="to-create-btn --chat" id="chat-create-btn">チャット作成</p>
+</div>
+
+<%# 検索フォーム %>
+<div class="search-area">
+  <input type="text" class="search-form" placeholder="フリーワード検索">
+</div>
+
+<%# チャット一覧 %>
+<p class="chat-room-header">チャットルーム一覧 ▼</p>
+<div class="chat-room-area">
+  <div class="chat-room-index">
+    <% if employee_signed_in? %>
+      <% current_employee.chats.each do |chat| %>
+        <%= link_to chat.title, chat_path(chat.id), class:"chat-room-name" %>
+      <% end %>
+    <% elsif worker_signed_in? %>
+      <% current_worker.chats.each do |chat| %>
+        <%= link_to chat.title, chat_path(chat.id), class:"chat-room-name" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

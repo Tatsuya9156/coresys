@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("modal_window/chat_create")
 require("modal_window/worker_create")
+require("modal_window/customer_create")
+require("customer/status_color")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

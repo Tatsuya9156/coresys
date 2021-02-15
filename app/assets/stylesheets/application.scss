@@ -16,11 +16,15 @@
 
 
 
-/***** リセットCSS *****/
+/***** リセットCSS,基本設定 *****/
 body {
-  font-size: 14px;
   color: #333;
+  background-color: rgb(249, 249, 249);
   margin: 0 auto;
+  font: {
+    size: 12px;
+    family: "ヒラギノ丸ゴ Pro W4","Hiragino Maru Gothic Pro";
+  }
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -36,17 +40,6 @@ ul,li {
 /***** ボックスサイズ設定 *****/
 * {
   box-sizing: border-box;
-}
-
-/***** フォント設定 *****/
-body {
-  font-size: 12px;
-  font-family: "ヒラギノ丸ゴ Pro W4","Hiragino Maru Gothic Pro";
-}
-
-/***** カラー設定 *****/
-body {
-  background-color: rgb(249, 249, 249);
 }
 
 /***** a要素のアンダーバーとフォントカラーの設定 *****/

@@ -5,9 +5,14 @@
 <%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
+<%# チャットグループ作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/chat/create" %>
+
 <div class="wrapper">
 
-<%# サイドバーテンプレートの読み込み %>
-<%= render partial:"shared/chat_side_bar" %>
+  <%# サイドバー部分テンプレートの読み込み %>
+  <div class="side-bar">
+    <%= render partial:"shared/side_bar/chat" %>
+  </div>
 
 </div>

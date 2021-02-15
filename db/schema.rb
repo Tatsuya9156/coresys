@@ -69,8 +69,10 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.string "address", null: false
     t.string "residence_zip", null: false
     t.string "residence", null: false
+    t.bigint "employee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_customers_on_employee_id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -137,6 +139,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
   add_foreign_key "chat_employees", "employees"
   add_foreign_key "chat_workers", "chats"
   add_foreign_key "chat_workers", "workers"
+  add_foreign_key "customers", "employees"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "employees"
   add_foreign_key "messages", "workers"

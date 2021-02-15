@@ -4,9 +4,9 @@
   </div>
   <div class="nav">
     <ul class="category">
-      <li class="category-list">
-        <%= link_to "/", class:"nav-list" do %>
-          <%= embedded_svg "home.svg", class:"tag-icon home" %>
+      <li class="category-list list-customer">
+        <%= link_to "/", class:"nav-list nav-customer" do %>
+          <%= embedded_svg "home.svg", class:"tag-icon customer" %>
           物件一覧
         <% end %>
       </li>
@@ -61,7 +61,6 @@
 
         <ul class="category-list-pulldown">
         <% if employee_signed_in? && (current_employee.admin == true) %>
-          <li class="category-list-pulldown-child"><%= link_to "物件新規作成", new_customer_path, class:"user-list-child" %></li>
           <li class="category-list-pulldown-child"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
           <li class="category-list-pulldown-child"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
         <% end %>

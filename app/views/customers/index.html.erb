@@ -1,35 +1,49 @@
+
+<%# 個別CSSの読み込み %>
+<%= stylesheet_link_tag "header_icons/customer", :media => "all" %>
+
+<%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
-<div class="list-wrapper">
+<%# 物件グループ作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/create" %>
 
-  <div class="page-link">
-    <%= link_to image_tag("left.png", class:"before-page"), "/" %>
-    <p>2／10</p>
-    <%= link_to image_tag("right.png", class:"after-page"), "/" %>
+<div class="wrapper">
+
+  <%# サイドバー部分テンプレートの読み込み %>
+  <div class="side-bar">
+    <%= render partial:"shared/side_bar/customer" %>
   </div>
 
-  <% @customers.each do |customer| %>
-    <%= link_to customer_path(customer.id), class:"customer" do %>
-    <div class="customer-info">
-      <div class="info-left">
-        <div class="status">
-          <p><%= customer.status.name %></p>
-        </div>
-        <div class="order">受注日：<%= customer.order_date %></div>
-        <div class="store"><%= customer.store.name %></div>
-        <div class="name"><%= customer.name %></div>
-      </div>
-      <div class="info-right">
-        <div class="update">更新日：<%= customer.created_at %></div>
-      </div>
+  <%# メイン画面 %>
+  <div class="main-wrapper">
+
+    <%# ページ遷移リンク %>
+    <div class="page-link">
+      <%= link_to image_tag("left.png", class:"before-page"), "/" %>
+      <p>2／10</p>
+      <%= link_to image_tag("right.png", class:"after-page"), "/" %>
     </div>
-    <% end %>
-  <% end %>
 
-  <div class="page-link">
-    <%= link_to image_tag("left.png", class:"before-page"), "/" %>
-    <p>2／10</p>
-    <%= link_to image_tag("right.png", class:"after-page"), "/" %>
+    <div class="customer-index">
+      <% @customers.each do |customer| %>
+        <%= link_to customer_path(customer.id), class:"customer" do %>
+        <div class="customer-info">
+          <div class="info-left">
+            <div class="status">
+              <p><%= customer.status.name %></p>
+            </div>
+            <div class="order">受注日：<%= customer.order_date %></div>
+            <div class="store"><%= customer.store.name %></div>
+            <div class="name"><%= customer.name %></div>
+          </div>
+          <div class="info-right">
+            <div class="update">更新日：<%= customer.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
-
 </div>

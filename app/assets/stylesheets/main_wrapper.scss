@@ -1,0 +1,285 @@
+
+/**************** 全体共通 ****************/
+
+.main-wrapper {
+  width: calc(100vw - 250px);
+  // 社員・職人一覧ページ個別設定
+  &.user-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    overflow: scroll;
+    padding: 30px;
+  }
+}
+
+/************ 社員・職人一覧ページ ************/
+
+// ユーザー別紹介カード
+.user-card {
+  width: 280px;
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+  // 職人カード個別設定
+    &.worker-card {
+    height: 460px;
+  }
+  // 編集ボタン
+  .user-edit-btn {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    top: 120px;
+    right: 25px;
+  }
+  // 顔写真エリア
+  .user-card--face {
+    padding: 15px 0;
+    border-bottom: solid 1px black;
+    text-align: center;
+    // 顔写真
+    .face-image {
+      border-radius: 50%;
+    }
+  }
+  // ユーザー情報
+  .user-card--info {
+    width: 100%;
+    padding: 10px 0;
+    // 情報別ブロック
+    .user-card--info--child {
+      width: 100%;
+      margin: 20px auto;
+      display: flex;
+      // タグ
+      .user-card--info--child--tag {
+        width: 30%;
+        padding-left: 10px;
+        font-weight: bold;
+      }
+      // 内容
+      .user-card--info--child--value {
+        width: 70%;
+      }
+    }
+  }
+}
+
+/*****************************************************/
+/***** チャットルーム *****/
+/***** 共通設定 *****/
+
+.chat-room-title {
+  width: 90%;
+  line-height: 50px;
+  padding: 10px 0 5px 30px;
+  margin: 0 auto;
+  border-bottom: solid 2px rgb(80, 80, 80);
+  font-size: 20px;
+}
+
+.edit-icon {
+  width: 15px;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+.chat-room-messages {
+  height: calc(100vh - 65px - 50px - 150px - 10px);
+  overflow: scroll;
+}
+
+/***** 共通設定 *****/
+
+.chat-message {
+  width: 95%;
+  display: flex;
+  margin: 15px auto 0;
+  padding-bottom: 30px;
+}
+
+.message-icon {
+  width: 80px;
+  height: 100%;
+  margin: 0 0 0 20px;
+}
+
+.message-face-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 10px 0 0 0;
+}
+
+.message-data-area {
+  display: flex;
+}
+
+
+.message-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.message-date {
+  margin: 3px 0 0 30px;
+  font-size: 12px;
+}
+
+.message-text-area {
+  font-size: 14px;
+}
+
+.message-text {
+  padding: 0;
+}
+
+.message-image {
+  display: block;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+  border-radius: 5px;
+}
+
+/* メッセージフォーム */
+
+.message-form {
+  display: block;
+  resize: none;
+  outline: none;
+  width: 95%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(200, 200, 200, 0.5);
+  border: solid 1px rgb(185, 185, 185);
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.file-clip-icon {
+  display: block;
+  width: 25px;
+  position: absolute;
+  right: 100px;
+  bottom: 31px;
+  cursor: pointer;
+}
+
+.message-send {
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: 60px;
+  bottom: 30px;
+}
+
+/***** メッセージフォーム *****/
+/******* チャットルーム *******/
+
+/************************/
+
+/***** チャット新規作成 *****/
+
+.chat-new-wrapper {
+  margin-top: 300px;
+  text-align: center;
+}
+
+.chat-new-field {
+  margin-bottom: 20px;
+}
+
+/***** チャット新規作成 *****/
+
+
+/************** 顧客詳細ページ *************/
+
+.customer-info-wrapper {
+  width: 95%;
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 10px;
+  // ヘッダーカラー
+  .customer-info-wrapper--header {
+    height: 10px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(200, 230, 150);
+  }
+  // ステータスバー
+  .customer-info-wrapper--status--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    .--status--bar {
+      width: 80px;
+      height: 4px;
+    }
+    // 1番目のbarのみ非表示にする
+    #bar-1 {
+      display: none;
+    }
+    .--status--box {
+      width: 55px;
+      line-height: 55px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 11px;
+      color: white;
+    }
+  }
+  // 基本情報
+  .customer-info-wrapper--detail {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0 30px;
+    .customer-info-wrapper--detail--half {
+      width: 48%;
+      .customer-info-wrapper--detail--child {
+        display: flex;
+        width: 100%;
+        border: {
+          top: solid 1px rgb(80, 80, 80);
+          left: solid 1px rgb(80, 80, 80);
+          right: solid 1px rgb(80, 80, 80);
+        }
+        &.--child--bottom {
+          border-bottom: solid 1px rgb(80, 80, 80);
+        }
+        .detail--child {
+          height: 100%;
+          padding: 10px 20px;
+          &.--tag {
+            width: 20%;
+            background-color: rgb(220, 220, 220);
+            border-right: solid 1px rgb(80, 80, 80);
+          }
+          &.--value {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}
+// ステータスカラー変更用の設定(JavaScriptで使用)
+.before-color {
+  background-color: rgb(240, 240, 240);
+}
+.after-color {
+  background-color: rgb(200, 230, 150);
+  text-shadow: 0 0 5px rgb(80, 80, 80);
+}
+
+/************** 顧客詳細ページ *************/

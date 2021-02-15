@@ -44,10 +44,16 @@
   padding: 0;
   font-size: 13px;
   color: white;
-  background-color: rgb(65, 185, 35);
   box-shadow: 0 2px 0 0 rgba(50, 50, 50, 1);
+  text-shadow: 0 0 5px rgb(80, 80, 80);
   border-radius: 8px;
   cursor: pointer;
+  &.--customer {
+    background-color: rgb(200, 230, 150);
+  }
+  &.--chat {
+    background-color: rgb(65, 185, 35);
+  }
 }
 
 .to-create-btn:active{
@@ -56,19 +62,19 @@
   top: 2px;
 }
 
+.chat-room-header {
+  text-align: center;
+  line-height: 40px;
+  color: rgb(249, 249, 249);
+}
+
 .chat-room-area {
   overflow: scroll;
 }
 
-.chat-room-header {
-  text-align: center;
-  color: rgb(249, 249, 249);
-}
-
 .chat-room-index {
   text-align: center;
-  height: 35px;
-  line-height: 35px;
+  line-height: 40px;
   font-size: 13px;
 }
 
