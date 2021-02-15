@@ -1,4 +1,6 @@
 class WorkersController < ApplicationController
+  before_action :updatable?, only: [:edit, :update]
+  
   def index
     @workers = Worker.all
   end
@@ -22,4 +24,13 @@ class WorkersController < ApplicationController
     params.require(:worker).permit(:face_image, :worker_number, :name, :name_kana, :trade_name, :phone, :email, :password, :address_zip,
                                    :address, :warehouse_zip, :warehouse, :warehouse_info, :inaba, :yodo, :takubo, :ykkap, :sankyo, :lixil)
   end
+
+  def current_employee_is_admin?
+    worker_signed_in? == false && current_employee.admin == true
+  end
+
+  def updatable?
+    redirect_to root_path if !current_employee_is_admin?
+  end
+
 end
