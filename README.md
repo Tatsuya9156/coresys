@@ -52,13 +52,13 @@ URL:https://t-coresys.com
  - チャット新規作成、編集、投稿
 
 # ⛏実装予定
-### カレンダー機能
-### 在庫管理機能
-### タスク管理機能
-### 検索機能
-### 見積作成機能
-### 発注管理機能
-### Q&Aページ
+ - カレンダー機能
+ - 在庫管理機能
+ - タスク管理機能
+ - 検索機能
+ - 見積作成機能
+ - 発注管理機能
+ - Q&Aページ
 
 # 📖使用技術
 ### フロントエンド
@@ -82,4 +82,4 @@ URL:https://t-coresys.com
  - Nginx, Unicorn, MariaDB
 
 # 🗂ER図
-(../assets/images/ER.png)
+![ER](https://user-images.githubusercontent.com/75982790/107915511-f70d5600-6fa7-11eb-95ab-97031e67114e.png)
