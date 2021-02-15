@@ -59,11 +59,11 @@ class Workers::RegistrationsController < Devise::RegistrationsController
   end
 
   def sign_up(resource_name, resource)
-    sign_in(resource_name, resource) unless current_employee_is_admin?
+    sign_in(resource_name, resource) if !current_employee_is_admin?
   end
 
   def creatable?
-    redirect_to root_path unless current_employee_is_admin?
+    redirect_to root_path if !current_employee_is_admin?
   end
 
   # The path used after sign up.
