@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :current_user_is_employee?, only: [:index, :create, :show]
+
   def index
     @customers = Customer.all
   end
@@ -6,7 +8,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      redirect_to root_path
+      redirect_to customers_path
     else
       render :new
     end
