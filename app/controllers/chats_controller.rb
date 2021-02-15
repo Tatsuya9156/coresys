@@ -30,6 +30,7 @@ class ChatsController < ApplicationController
 
   private
 
+  # ストロングパラメーター
   def chat_params
     params.require(:chat).permit(:title, { employee_ids: [] }, { worker_ids: [] })
   end

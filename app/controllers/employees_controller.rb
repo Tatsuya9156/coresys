@@ -19,6 +19,7 @@ class EmployeesController < ApplicationController
 
   private
 
+  # ストロングパラメーター
   def employee_params
     params.require(:employee).permit(:face_image, :employee_number, :name, :name_kana, :section, :position, :phone, :admin, :email,
                                      :password)
