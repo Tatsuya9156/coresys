@@ -1,38 +1,41 @@
 <header>
+  <%# ヘッダーロゴ %>
   <div class="header-logo">
     <%= link_to image_tag("logo.png", class:"logo-icon"), "/" %>
   </div>
+
+  <%# ナビリスト %>
   <div class="nav">
     <ul class="category">
       <%# 物件一覧、社員一覧、職人一覧ページへのリンクは社員にのみ表示 %>
       <% if employee_signed_in?  %>
-        <li class="category-list list-customer">
+        <li class="category-list">
           <%= link_to "/", class:"nav-list --customer" do %>
             <%= embedded_svg "home.svg", class:"tag-icon --customer" %>
             物件一覧
           <% end %>
         </li>
-        <li class="category-list list-employee">
+        <li class="category-list">
           <%= link_to employees_path, class:"nav-list --employee" do %>
             <%= embedded_svg "employee.svg", class:"tag-icon --employee" %>
             社員一覧
           <% end %>
         </li>
-        <li class="category-list list-worker">
+        <li class="category-list">
           <%= link_to workers_path, class:"nav-list --worker" do %>
             <%= embedded_svg "worker.svg", class:"tag-icon --worker" %>
             職人一覧
           <% end %>
         </li>
       <% end %>
-      <%# 在庫管理、チャット、カレンダーページへのリンクは社員にのみ表示 %>
+      <%# 在庫管理、チャット、カレンダーページへのリンクは職人にも表示 %>
       <li class="category-list">
         <%= link_to "/", class:"nav-list" do %>
           <%= embedded_svg "zaiko.svg", class:"tag-icon zaiko" %>
           在庫管理(準備中)
         <% end %>
       </li>
-      <li class="category-list list-chat">
+      <li class="category-list">
         <%= link_to chats_path, class:"nav-list --chat" do %>
           <%= embedded_svg "chat.svg", class:"tag-icon --chat" %>
           チャット
@@ -45,6 +48,7 @@
         <% end %>
       </li>
       <li class="category-list">
+        <%# ログインユーザーが社員の場合 %>
         <% if employee_signed_in? %>
           <% if current_employee.face_image.present? %>
             <%= image_tag current_employee.face_image.variant(resize: '30x30'), class: 'header-face-image' %>
@@ -52,6 +56,7 @@
             <%= image_tag 'face_image_sample', size: "30x30", class: 'header-face-image' %>
           <% end %>
           <%= current_employee.name %>さん
+        <%# ログインユーザーが職人の場合 %>
         <% elsif worker_signed_in? %>
           <% if current_worker.face_image.present? %>
             <%= image_tag current_worker.face_image.variant(resize: '30x30'), class: 'header-face-image' %>
@@ -59,26 +64,23 @@
             <%= image_tag 'face_image_sample', size: "30x30", class: 'header-face-image' %>
           <% end %>
           <%= current_worker.name %>さん
-        <% else %>
-          ユーザー名
         <% end %>
 
+        <%# ユーザー部分プルダウンリスト %>
         <ul class="category-list-pulldown">
-        <% if employee_signed_in? && (current_employee.admin == true) %>
-          <li class="category-list-pulldown-child"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
-          <li class="category-list-pulldown-child"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
-        <% end %>
-        <% if employee_signed_in? %>
-          <li class="category-list-pulldown-child"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
-        <% elsif worker_signed_in? %>
-          <li class="category-list-pulldown-child"><%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"user-list-child" %></li>
-        <% else %>
-          <li class="category-list-pulldown-child"><%= link_to "ログアウト", "/", class:"user-list-child" %></li>
-        <% end %>
-      </ul>
+          <%# ユーザー登録へのリンクは管理者のみ表示 %>
+          <% if employee_signed_in? && (current_employee.admin == true) %>
+            <li class="category-list-pulldown-child"><%= link_to "社員新規登録", new_employee_registration_path, class:"user-list-child" %></li>
+            <li class="category-list-pulldown-child"><%= link_to "職人新規登録", new_worker_registration_path, class:"user-list-child" %></li>
+          <% end %>
+          <%# ログアウトボタン %>
+          <% if employee_signed_in? %>
+            <li class="category-list-pulldown-child"><%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class:"user-list-child" %></li>
+          <% elsif worker_signed_in? %>
+            <li class="category-list-pulldown-child"><%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class:"user-list-child" %></li>
+          <% end %>
+        </ul>
 
-      </li>
     </ul>
-
   </div>
 </header>
