@@ -62,24 +62,24 @@ URL:https://t-coresys.com
 
 # 📖使用技術
 - フロントエンド
- * HTML
- * CSS(SCSS)
- * JavaScript
+ - HTML
+ - CSS(SCSS)
+ - JavaScript
 - バックエンド
- * Ruby 2.6.5
- * Ruby on Rails 6.0.3.4
+ - Ruby 2.6.5
+ - Ruby on Rails 6.0.3.4
 - データベース
- * MySQL2
+ - MySQL2
 - テスト
- * RSpec
- * FactoryBot
- * Faker
- * Gimei
+ - RSpec
+ - FactoryBot
+ - Faker
+ - Gimei
 - 開発環境
- * RuboCop
+ - RuboCop
 - 本番環境
- * AWS(VPC, EC2, S3, Route53, ACM, ALB)
- * Nginx, Unicorn, MariaDB
+ - AWS(VPC, EC2, S3, Route53, ACM, ALB)
+ - Nginx, Unicorn, MariaDB
 
 # 🗂ER図
 ![ER図](../assets/images/ER.png)
