@@ -4,24 +4,28 @@
   </div>
   <div class="nav">
     <ul class="category">
-      <li class="category-list list-customer">
-        <%= link_to "/", class:"nav-list nav-customer" do %>
-          <%= embedded_svg "home.svg", class:"tag-icon customer" %>
-          物件一覧
-        <% end %>
-      </li>
-      <li class="category-list list-employee">
-        <%= link_to employees_path, class:"nav-list nav-employee" do %>
-          <%= embedded_svg "employee.svg", class:"tag-icon employee" %>
-          社員一覧
-        <% end %>
-      </li>
-      <li class="category-list list-worker">
-        <%= link_to workers_path, class:"nav-list nav-worker" do %>
-          <%= embedded_svg "worker.svg", class:"tag-icon worker" %>
-          職人一覧
-        <% end %>
-      </li>
+      <%# 物件一覧、社員一覧、職人一覧ページへのリンクは社員にのみ表示 %>
+      <% if employee_signed_in?  %>
+        <li class="category-list list-customer">
+          <%= link_to "/", class:"nav-list --customer" do %>
+            <%= embedded_svg "home.svg", class:"tag-icon --customer" %>
+            物件一覧
+          <% end %>
+        </li>
+        <li class="category-list list-employee">
+          <%= link_to employees_path, class:"nav-list --employee" do %>
+            <%= embedded_svg "employee.svg", class:"tag-icon --employee" %>
+            社員一覧
+          <% end %>
+        </li>
+        <li class="category-list list-worker">
+          <%= link_to workers_path, class:"nav-list --worker" do %>
+            <%= embedded_svg "worker.svg", class:"tag-icon --worker" %>
+            職人一覧
+          <% end %>
+        </li>
+      <% end %>
+      <%# 在庫管理、チャット、カレンダーページへのリンクは社員にのみ表示 %>
       <li class="category-list">
         <%= link_to "/", class:"nav-list" do %>
           <%= embedded_svg "zaiko.svg", class:"tag-icon zaiko" %>
@@ -29,8 +33,8 @@
         <% end %>
       </li>
       <li class="category-list list-chat">
-        <%= link_to chats_path, class:"nav-list nav-chat" do %>
-          <%= embedded_svg "chat.svg", class:"tag-icon chat" %>
+        <%= link_to chats_path, class:"nav-list --chat" do %>
+          <%= embedded_svg "chat.svg", class:"tag-icon --chat" %>
           チャット
         <% end %>
       </li>
