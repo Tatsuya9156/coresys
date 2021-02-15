@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-02-15T07:13:01.904Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="AObRnJDzGDxjwVgP5y9Y" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-15T16:03:47.795Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="qe51B5vVyWEX1j3ruRA4" version="14.2.4" type="embed">
     <diagram id="HBBoJEqQbI67x2nuvv9k" name="ページ1">
-        <mxGraphModel dx="3645" dy="2343" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#EEEEEE" math="0" shadow="1">
+        <mxGraphModel dx="1663" dy="1177" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#EEEEEE" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -938,7 +938,7 @@
                 <mxCell id="546" value="顧客ID (customers)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="544" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="600" value="現調テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fillColor=#F5AB50;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="1" vertex="1">
+                <mxCell id="600" value="現調(meetings)テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fillColor=#F5AB50;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="800" y="680" width="320" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="601" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="600" vertex="1">
@@ -950,22 +950,22 @@
                 <mxCell id="603" value="内容" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;fontStyle=1;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="601" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="440" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="600" vertex="1">
-                    <mxGeometry y="60" width="320" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="441" value="employee_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="440" vertex="1">
-                    <mxGeometry width="160" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="442" value="担当者 (employees)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="440" vertex="1">
-                    <mxGeometry x="160" width="160" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="623" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="600" vertex="1">
-                    <mxGeometry y="90" width="320" height="30" as="geometry"/>
+                    <mxGeometry y="60" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="624" value="customer_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="623" vertex="1">
                     <mxGeometry width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="625" value="顧客 (employees)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="623" vertex="1">
+                <mxCell id="625" value="顧客 (customers)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="623" vertex="1">
+                    <mxGeometry x="160" width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="440" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="600" vertex="1">
+                    <mxGeometry y="90" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="441" value="worker_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="440" vertex="1">
+                    <mxGeometry width="160" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="442" value="職人 (workers)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="440" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="128" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="600" vertex="1">
@@ -977,7 +977,7 @@
                 <mxCell id="130" value="現調日" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="128" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="610" value="工事テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fillColor=#F5AB50;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="1" vertex="1">
+                <mxCell id="610" value="工事(construntions)テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fillColor=#F5AB50;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="960" y="920" width="320" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="611" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="610" vertex="1">
@@ -1025,7 +1025,7 @@
                 <mxCell id="148" value="完了日" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="146" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="626" value="発注テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fillColor=#F5AB50;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="1" vertex="1">
+                <mxCell id="626" value="発注(orders)テーブル" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;rounded=1;fillColor=#F5AB50;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="1" vertex="1">
                     <mxGeometry x="1040" y="1180" width="320" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="627" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="626" vertex="1">
@@ -1040,10 +1040,10 @@
                 <mxCell id="636" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="626" vertex="1">
                     <mxGeometry y="60" width="320" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="637" value="quotatipn-id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="636" vertex="1">
+                <mxCell id="637" value="quotation-id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="636" vertex="1">
                     <mxGeometry width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="638" value="見積番号" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="636" vertex="1">
+                <mxCell id="638" value="見積ID (quotations)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=center;spacingLeft=6;overflow=hidden;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="636" vertex="1">
                     <mxGeometry x="160" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="137" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=1;strokeColor=#909090;fontColor=#1A1A1A;sketch=1;" parent="626" vertex="1">
@@ -1161,7 +1161,7 @@
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="757" value="" style="endArrow=ERzeroToOne;html=1;startArrow=none;startFill=0;endSize=15;startSize=20;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#182E3E;labelBackgroundColor=#EEEEEE;fontColor=#1A1A1A;sketch=1;curved=1;" parent="1" source="437" target="623" edge="1">
+                <mxCell id="757" value="" style="endArrow=ERzeroToOne;html=1;startArrow=none;startFill=0;endSize=15;startSize=20;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#182E3E;labelBackgroundColor=#EEEEEE;fontColor=#1A1A1A;sketch=1;curved=1;" parent="1" source="437" target="440" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="510" y="860" as="sourcePoint"/>
                         <mxPoint x="1110" y="860" as="targetPoint"/>
