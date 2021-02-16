@@ -1,0 +1,17 @@
+
+/***** 社員に関するページのみ適用 *****/
+
+.nav-list {
+  &.--employee {
+    color: rgb(60, 130, 200);
+    font: {
+      size: 13px;
+      weight: bold;
+    }
+  }
+  .tag-icon {
+    &.--employee {
+      fill: rgb(60, 130, 200);
+    }
+  }
+}

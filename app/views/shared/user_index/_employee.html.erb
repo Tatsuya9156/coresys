@@ -2,9 +2,11 @@
 <%# 職人カード %>
 <div class="user-card">
 
-  <%# 編集ページへのリンク %>
-  <%= link_to edit_employee_path(employee.id) do %>
-    <%= image_tag "edit.png", class:"user-edit-btn" %>
+  <%# 編集ページへのリンク／管理者権限を持つ社員のみ表示 %>
+  <% if employee_signed_in? && current_employee.admin == true %>
+    <%= link_to edit_employee_path(employee.id) do %>
+      <%= image_tag "edit.png", class:"user-edit-btn" %>
+    <% end %>
   <% end %>
 
   <%# 顔写真 %>

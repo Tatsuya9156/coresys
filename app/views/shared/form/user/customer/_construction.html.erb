@@ -1,0 +1,36 @@
+
+<%# モーダルウィンドウ %>
+<div class="modal-window hidden" id="construction-modal-create">
+  <div class="modal-window--card">
+
+    <%# ヘッダーとタイトル %>
+    <div class="modal-window--card--header --customer"></div>
+    <%= image_tag "close.png", class:"close-icon", id:"construction-close-btn" %>
+    <div class="modal-window--card--title">工事情報登録</div>
+
+    <%# 入力フォーム %>
+    <div class="modal-window--card--form">
+      <%= form_with model: @construction, url: customer_constructions_path(@customer_show), method: :post, local: true do |f| %>
+
+        <%# 現調担当 %>
+        <div class="modal-window--card--form--field">
+          <%= f.label :worker_id, '工事担当', class:"modal-window--card--form--field--tag" %>
+          <%= f.collection_select(:worker_id, Worker.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
+        </div>
+
+        <%# 現調日時 %>
+        <div class="modal-window--card--form--field">
+          <%= f.label :construction_datetime, '着工日時', class:"modal-window--card--form--field--tag" %>
+          <%= f.datetime_field :construction_datetime, class:"modal-window--card--form--field--value --select" %>
+        </div>
+
+        <%# 作成ボタン %>
+        <div class="modal-window--card--form--field--btn --customer">
+          <%= f.button "登録", type: "button", onclick: 'submit();', class: "modal-create-btn" %>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>

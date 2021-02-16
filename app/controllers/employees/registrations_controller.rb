@@ -45,7 +45,7 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: [:face_image, :employee_number, :name, :name_kana, :position, :phone, :admin])
+                                      keys: [:face_image, :employee_number, :name, :name_kana, :section, :position, :phone, :admin])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -53,16 +53,19 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
+  # 管理者権限を持っている
   def current_employee_is_admin?
-    current_employee.admin == true
+    worker_signed_in? == false && current_employee.admin == true
   end
 
+  # 管理者権限を持つ社員でのみユーザー新規登録が可能
   def sign_up(resource_name, resource)
-    sign_in(resource_name, resource) unless current_employee_is_admin?
+    sign_in(resource_name, resource) if !current_employee_is_admin?
   end
 
+  # 管理者権限を持つ社員でなければroot_pathへリダイレクトされる
   def creatable?
-    redirect_to root_path unless current_employee_is_admin?
+    redirect_to root_path if !current_employee_is_admin?
   end
 
   # The path used after sign up.

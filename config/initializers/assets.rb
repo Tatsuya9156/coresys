@@ -15,10 +15,15 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 ### 個別ページでのCSSファイル読み込みのためのプリコンパイル
 # ヘッダーアイコン
-Rails.application.config.assets.precompile += %w( header_icons/employee )
-Rails.application.config.assets.precompile += %w( header_icons/worker )
-Rails.application.config.assets.precompile += %w( header_icons/chat )
-Rails.application.config.assets.precompile += %w( header_icons/customer )
+Rails.application.config.assets.precompile += %w( 
+  header_icons/employee.css
+  header_icons/worker.css
+  header_icons/chat.css
+  header_icons/customer.css
+)
+
 # フォームヘッダーカラー
-Rails.application.config.assets.precompile += %w( form_header_color/employee )
-Rails.application.config.assets.precompile += %w( form_header_color/worker )
+Rails.application.config.assets.precompile += %w( 
+  form_header_color/employee.css
+  form_header_color/worker.css
+)

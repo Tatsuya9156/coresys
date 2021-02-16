@@ -1,0 +1,17 @@
+
+/***** 職人に関するページのみ適用 *****/
+
+.nav-list {
+  &.--worker {
+    color: rgb(255, 220, 130);
+    font: {
+      size: 13px;
+      weight: bold;
+    }
+  }
+  .tag-icon {
+    &.--worker {
+      fill: rgb(255, 220, 130);
+    }
+  }
+}

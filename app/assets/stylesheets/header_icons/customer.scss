@@ -1,0 +1,17 @@
+
+/***** 物件に関するページのみ適用 *****/
+
+.nav-list {
+  &.--customer {
+    color: rgb(200, 230, 150);
+    font: {
+      size: 13px;
+      weight: bold;
+    }
+  }
+  .tag-icon {
+    &.--customer {
+      fill: rgb(200, 230, 150);
+    }
+  }
+}

@@ -4,14 +4,19 @@
 .main-wrapper {
   width: calc(100vw - 250px);
   // 社員・職人一覧ページ個別設定
-  &.user-wrapper {
+  &.--user {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
     overflow: scroll;
     padding: 30px;
   }
+  &.--customer {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
+
 
 /************ 社員・職人一覧ページ ************/
 
@@ -32,10 +37,9 @@
   // 編集ボタン
   .user-edit-btn {
     position: absolute;
-    width: 13px;
-    height: 13px;
-    top: 120px;
-    right: 25px;
+    width: 18px;
+    top: 115px;
+    right: 20px;
   }
   // 顔写真エリア
   .user-card--face {
@@ -70,6 +74,212 @@
   }
 }
 
+
+/*************** 顧客詳細ページ **************/
+
+// 各ウィンドウ振り分け
+.customer-wrapper {
+  &.--left {
+    width: 77%;
+    .--left--bottom {
+      display: flex;
+      justify-content: space-between;
+      .--bottom {
+        width: 49%;
+      }
+    }
+  }
+  &.--right {
+    width: 17%;
+  }
+}
+
+// 各ウィンドウの構成
+.customer-info-wrapper {
+  width: 100%;
+  margin: 30px auto 0;
+  padding-bottom: 40px;
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
+  border: solid 1px rgb(200, 200, 200);
+  border-radius: 10px;
+  &.--left--bottom {
+    height: 419px;
+  }
+  &.--right {
+    height: 93%;
+  }
+  // ヘッダーカラー
+  .customer-info-wrapper--header {
+    height: 10px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(200, 230, 150);
+  }
+  // タイトル
+  .customer-info-wrapper--title {
+    width: 70%;
+    height: 30px;
+    margin: 0 auto 20px;
+    padding: 20px 0;
+    text-align: center;
+    font: {
+      size: 14px;
+      weight: bold;
+    }
+  }
+  // コメントフォーム
+  .customer-info-wrapper--form {
+    position: relative;
+    // 入力フォーム
+    .comment-form {
+      width: 92%;
+      height: 100px;
+      display: block;
+      resize: none;
+      outline: none;
+      margin: 0 auto;
+      padding: 10px 15px;
+      box-shadow: 0 1px 5px 0 rgba(200, 200, 200, 0.5) inset;
+      border: solid 1px rgb(185, 185, 185);
+      border-radius: 5px;
+      font-size: 13px;
+    }
+    // 送信ボタン
+    .comment-send {
+      display: block;
+      width: 25px;
+      position: absolute;
+      right: 14px;
+      bottom: 1px;
+    }
+  }
+  // ステータスバー
+  .customer-info-wrapper--status--icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 40px 0;
+    .--status--bar {
+      width: 80px;
+      height: 4px;
+    }
+    // 1番目のbarのみ非表示にする
+    #bar-1 {
+      display: none;
+    }
+    .--status--box {
+      width: 55px;
+      line-height: 55px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 11px;
+      color: white;
+    }
+  }
+}
+
+// 各ウィンドウ内の顧客情報
+.customer-info-wrapper--detail {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 0 30px;
+  .customer-info-wrapper--detail--area {
+    &.--half {
+      width: 48%;
+    }
+    &.--max {
+      width: 96%;
+    }
+    .customer-info-wrapper--detail--child {
+      display: flex;
+      width: 100%;
+      border: {
+        top: solid 1px rgb(80, 80, 80);
+        left: solid 1px rgb(80, 80, 80);
+        right: solid 1px rgb(80, 80, 80);
+      }
+      &.--child--bottom {
+        border-bottom: solid 1px rgb(80, 80, 80);
+      }
+      .detail--child {
+        height: 100%;
+        padding: 10px 20px;
+        &.--tag {
+          width: 20%;
+          background-color: rgb(220, 220, 220);
+          border-right: solid 1px rgb(80, 80, 80);
+        }
+        &.--value {
+          width: 80%;
+        }
+      }
+    }
+    // 現調、工事情報が未登録の場合に表示する登録ボタン
+    .customer-info-wrapper--detail--create {
+      width: 150px;
+      margin: 10px auto 0;
+      padding: 10px 5px;
+      text-align: center;
+      background-color: white;
+      box-shadow: 0 2px 0 0 rgba(40, 40, 40, 0.5);
+      border: solid 1px rgb(80, 80, 80);
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+      &:active {
+        box-shadow: none;
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+}
+
+// コメント一覧
+.customer-info-wrapper--comment {
+  height: calc(100% - 10px - 30px - 30px - 30px - 80px);
+  margin: 30px 0;
+  overflow: scroll;
+  // 各コメント
+  .comment-area {
+    margin-top: 30px 0;
+    // 上段／名前と投稿日
+    .comment-top {
+      width: 85%;
+      margin: 0 auto 5px;
+      display: flex;
+      .comment {
+        &.--user {
+          font-size: 13px;
+          margin-right: 10px;
+        }
+        &.--create {
+          font-size: 10px;
+        }
+      }
+    }
+    // 下段／投稿内容
+    .comment-bottom {
+      width: 85%;
+      margin: 0 auto 30px;
+    }
+  }
+}
+
+// ステータスカラー変更用の設定(JavaScriptで使用)
+.before-color {
+  background-color: rgb(240, 240, 240);
+}
+.after-color {
+  background-color: rgb(200, 230, 150);
+  text-shadow: 0 0 5px rgb(80, 80, 80);
+}
+
+/************** 顧客詳細ページ *************/
+
+
 /*****************************************************/
 /***** チャットルーム *****/
 /***** 共通設定 *****/
@@ -84,8 +294,9 @@
 }
 
 .edit-icon {
-  width: 15px;
-  margin-left: 3px;
+  width: 18px;
+  margin-left: 13px;
+  vertical-align: middle;
   cursor: pointer;
 }
 
@@ -198,88 +409,3 @@
 /***** チャット新規作成 *****/
 
 
-/************** 顧客詳細ページ *************/
-
-.customer-info-wrapper {
-  width: 95%;
-  margin: 40px auto 0;
-  padding-bottom: 40px;
-  background-color: white;
-  box-shadow: 0 1px 10px 0 rgba(189, 189, 189, 0.5);
-  border: solid 1px rgb(200, 200, 200);
-  border-radius: 10px;
-  // ヘッダーカラー
-  .customer-info-wrapper--header {
-    height: 10px;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-    background-color: rgb(200, 230, 150);
-  }
-  // ステータスバー
-  .customer-info-wrapper--status--icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px 0;
-    .--status--bar {
-      width: 80px;
-      height: 4px;
-    }
-    // 1番目のbarのみ非表示にする
-    #bar-1 {
-      display: none;
-    }
-    .--status--box {
-      width: 55px;
-      line-height: 55px;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 11px;
-      color: white;
-    }
-  }
-  // 基本情報
-  .customer-info-wrapper--detail {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 0 30px;
-    .customer-info-wrapper--detail--half {
-      width: 48%;
-      .customer-info-wrapper--detail--child {
-        display: flex;
-        width: 100%;
-        border: {
-          top: solid 1px rgb(80, 80, 80);
-          left: solid 1px rgb(80, 80, 80);
-          right: solid 1px rgb(80, 80, 80);
-        }
-        &.--child--bottom {
-          border-bottom: solid 1px rgb(80, 80, 80);
-        }
-        .detail--child {
-          height: 100%;
-          padding: 10px 20px;
-          &.--tag {
-            width: 20%;
-            background-color: rgb(220, 220, 220);
-            border-right: solid 1px rgb(80, 80, 80);
-          }
-          &.--value {
-            width: 80%;
-          }
-        }
-      }
-    }
-  }
-}
-// ステータスカラー変更用の設定(JavaScriptで使用)
-.before-color {
-  background-color: rgb(240, 240, 240);
-}
-.after-color {
-  background-color: rgb(200, 230, 150);
-  text-shadow: 0 0 5px rgb(80, 80, 80);
-}
-
-/************** 顧客詳細ページ *************/

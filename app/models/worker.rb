@@ -4,6 +4,13 @@ class Worker < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :chat_workers
+  has_many :chats, through: :chat_workers
+  has_many :messages
+  has_many :meetings
+  has_many :constructions
+  has_one_attached :face_image
+
   VALID_NUM_REGEX      = /\A[0-9]{4}\z/.freeze
   VALID_NAME_REGEX     = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
   VALID_KANA_REGEX     = /\A[ァ-ヶー－]+\z/.freeze
@@ -31,9 +38,4 @@ class Worker < ApplicationRecord
     validates :lixil
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX }
-
-  has_many :chat_workers
-  has_many :chats, through: :chat_workers
-  has_many :messages
-  has_one_attached :face_image
 end

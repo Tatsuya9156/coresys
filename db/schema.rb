@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_055248) do
+ActiveRecord::Schema.define(version: 2021_02_16_065347) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,27 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "employee_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_comments_on_customer_id"
+    t.index ["employee_id"], name: "index_comments_on_employee_id"
+  end
+
+  create_table "constructions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "construction_datetime"
+    t.date "completion_date"
+    t.bigint "customer_id"
+    t.bigint "worker_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_constructions_on_customer_id"
+    t.index ["worker_id"], name: "index_constructions_on_worker_id"
+  end
+
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "order_date", null: false
     t.integer "store_id", null: false
@@ -92,6 +113,16 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
+  end
+
+  create_table "meetings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "meeting_datetime"
+    t.bigint "customer_id"
+    t.bigint "worker_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_meetings_on_customer_id"
+    t.index ["worker_id"], name: "index_meetings_on_worker_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -139,7 +170,13 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
   add_foreign_key "chat_employees", "employees"
   add_foreign_key "chat_workers", "chats"
   add_foreign_key "chat_workers", "workers"
+  add_foreign_key "comments", "customers"
+  add_foreign_key "comments", "employees"
+  add_foreign_key "constructions", "customers"
+  add_foreign_key "constructions", "workers"
   add_foreign_key "customers", "employees"
+  add_foreign_key "meetings", "customers"
+  add_foreign_key "meetings", "workers"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "employees"
   add_foreign_key "messages", "workers"

@@ -1,8 +1,11 @@
 
 <%# 新規作成ボタン %>
-<div class="create-btn-area">
-  <p class="to-create-btn --chat" id="chat-create-btn">チャット作成</p>
-</div>
+<%# 社員のみ新規作成ボタンを表示 %>
+<% if employee_signed_in? %>
+  <div class="create-btn-area">
+    <p class="to-create-btn --chat" id="chat-create-btn">チャット作成</p>
+  </div>
+<% end %>
 
 <%# 検索フォーム %>
 <div class="search-area">

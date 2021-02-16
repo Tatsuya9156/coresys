@@ -1,6 +1,7 @@
 
 /********** チャット作成 **********/
 /*********** 物件作成 ***********/
+/********* 現調情報登録 *********/
 
 // バックグラウンド
 .modal-window {
@@ -18,8 +19,7 @@
     right: 0;
     left: 0;
     width: 500px;
-    height: 580px;
-    padding-bottom: 15px;
+    padding-bottom: 40px;
     margin: auto;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 4px 1px rgba(40, 40, 40, 0.5);
@@ -85,6 +85,9 @@
           border: solid 1px rgb(80, 80, 80);
           border-radius: 5px;
           outline: none;
+          &.--select {
+            cursor: pointer;
+          }
           // チェックボックス部分
           &.--check--area {
             height: 120px;

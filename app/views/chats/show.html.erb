@@ -23,7 +23,10 @@
     <%# チャットルームタイトルと編集アイコン %>
     <div class="chat-room-title">
       <%= @chat_show.title %>
-      <%= image_tag "edit.png", class:"edit-icon", id:"chat-edit-btn" %>
+      <%# 社員のみ編集ボタンを表示 %>
+      <% if employee_signed_in? %>
+        <%= image_tag "edit.png", class:"edit-icon", id:"chat-edit-btn" %>
+      <% end %>
     </div>
 
     <%# メッセージ表示 %>

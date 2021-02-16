@@ -1,0 +1,17 @@
+
+/***** チャットに関するページのみ適用 *****/
+
+.nav-list {
+  &.--chat {
+    color: rgb(65, 185, 35);
+    font: {
+      size: 13px;
+      weight: bold;
+    }
+  }
+  .tag-icon {
+    &.--chat {
+      fill: rgb(65, 185, 35);
+    }
+  }
+}
