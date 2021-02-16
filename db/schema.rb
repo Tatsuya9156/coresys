@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_055248) do
+ActiveRecord::Schema.define(version: 2021_02_16_040732) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "employee_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_comments_on_customer_id"
+    t.index ["employee_id"], name: "index_comments_on_employee_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -139,6 +149,8 @@ ActiveRecord::Schema.define(version: 2021_02_01_055248) do
   add_foreign_key "chat_employees", "employees"
   add_foreign_key "chat_workers", "chats"
   add_foreign_key "chat_workers", "workers"
+  add_foreign_key "comments", "customers"
+  add_foreign_key "comments", "employees"
   add_foreign_key "customers", "employees"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "employees"
