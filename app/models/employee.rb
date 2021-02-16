@@ -4,6 +4,13 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :chat_employees
+  has_many :chats, through: :chat_employees
+  has_many :customers
+  has_many :comments
+  has_many :messages
+  has_one_attached :face_image
+
   VALID_NUM_REGEX   = /\A[0-9]{4}\z/.freeze
   VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
   VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/.freeze
@@ -20,10 +27,4 @@ class Employee < ApplicationRecord
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :admin, inclusion: { in: [true, false] }
-
-  has_many :chat_employees
-  has_many :chats, through: :chat_employees
-  has_many :customers
-  has_many :messages
-  has_one_attached :face_image
 end

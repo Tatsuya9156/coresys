@@ -1,6 +1,11 @@
 class Customer < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   
+  belongs_to :employee
+  belongs_to :store
+  belongs_to :status
+  has_many   :comments
+  
   VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
   VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/.freeze
   VALID_PHONE_REGEX = /\A[0-9]{10,11}\z/.freeze
@@ -22,8 +27,4 @@ class Customer < ApplicationRecord
       validates :residence_zip
     end
   end
-  
-  belongs_to :employee
-  belongs_to :store
-  belongs_to :status
 end
