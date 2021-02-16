@@ -10,7 +10,8 @@ require("channels")
 require("modal_window/chat_create")
 require("modal_window/worker_create")
 require("modal_window/customer_create")
-require("modal_window/customer_detail_create")
+require("modal_window/customer_meeting_create")
+require("modal_window/customer_construction_create")
 require("customer/status_color")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
