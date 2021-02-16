@@ -142,33 +142,26 @@
     <%# コメント画面 %>
     <div class="customer-wrapper --right">
       <div class="customer-info-wrapper --right">
+      
         <%# ヘッダーカラーとタイトル %>
         <div class="customer-info-wrapper--header"></div>
         <div class="customer-info-wrapper--title">コメント</div>
+
         <%# コメントエリア %>
         <div class="customer-info-wrapper--comment">
-          <% @comments.each do |comment| %>
-            <%# コメント詳細 %>
-            <div class="comment-area">
-              <%# 上段が名前と投稿日 %>
-              <div class="comment-top">
-                <div class="comment --user"><%= comment.employee.name %></div>
-                <div class="comment --create"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-              </div>
-              <%# 下段がコメント内容 %>
-              <div class="comment-bottom">
-                <div class="comment--text"><%= simple_format(comment.text) %></div>
-              </div>
-            </div>
-          <% end %>
-        <%# メッセージ投稿フォーム %>
+
+        <%# メッセージ一覧の部分テンプレート呼び出し %>
+          <%= render partial:"shared/customer_show/comments", collection: @comments, as: "comment" %>
         </div>
+
+        <%# メッセージ投稿フォーム %>
         <div class="customer-info-wrapper--form">
           <%= form_with(model: [@customer_show, @comment], local: true) do |f| %>
             <%= f.text_area :text, class:"comment-form", placeholder:"コメントを入力してください" %>
             <%= image_submit_tag("submit.png", onclick: "submit();", class:"comment-send") %>
           <% end %>
         </div>
+
       </div>
     </div>
 
