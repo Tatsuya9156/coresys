@@ -12,7 +12,7 @@
 
       <%# 入力フォーム %>
       <div class="modal-window--card--form">
-        <%= form_with model: @chat_show, url: chat_path, method: :patch, local: true do |f| %>
+        <%= form_with model: @chat_show, url: chat_path(:chat_id), method: :patch, local: true do |f| %>
 
           <%# チャット名入力 %>
           <div class="modal-window--card--form--field">
