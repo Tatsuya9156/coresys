@@ -3,14 +3,16 @@ class CustomersController < ApplicationController
 
   def index
     @customers = Customer.all
+    @customer = Customer.new
   end
 
   def create
+    @customers = Customer.all
     @customer = Customer.new(customer_params)
     if @customer.save
       redirect_to customers_path
     else
-      render :new
+      render :index
     end
   end
 
@@ -29,7 +31,7 @@ class CustomersController < ApplicationController
 
   # ストロングパラメーター
   def customer_params
-    params.require(:customer).permit(:order_date, :store_id, :name, :name_kana, :phone, :email, :address_zip, :address,
+    params.require(:customer).permit(:order_date, :store_id, :name, :name_kana, :phone, :email, :employee_id, :address_zip, :address,
                                      :residence_zip, :residence, :status_id)
   end
 

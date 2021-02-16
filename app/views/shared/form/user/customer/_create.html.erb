@@ -1,18 +1,18 @@
 
 <%# モーダルウィンドウ %>
 
-<%# 1ページ目 %>
-<div class="modal-window hidden" id="customer-create-first">
-  <div class="modal-window--card">
+<%= form_with model: @customer, url: customers_path, method: :post, local: true do |f| %>
+  <%# 1ページ目 %>
+  <div class="modal-window hidden" id="customer-create-first">
+    <div class="modal-window--card">
 
-    <%# ヘッダーとタイトル %>
-    <div class="modal-window--card--header --customer"></div>
-    <%= image_tag "close.png", class:"close-icon", id:"first-customer-create-close-btn" %>
-    <div class="modal-window--card--title">新規物件作成</div>
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --customer"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"first-customer-create-close-btn" %>
+      <div class="modal-window--card--title">新規物件作成</div>
 
-    <%# 入力フォーム %>
-    <div class="modal-window--card--form">
-      <%= form_with model: @customer, url: customers_path, method: :post, local: true do |f| %>
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
 
         <%# 受注日 %>
         <div class="modal-window--card--form--field">
@@ -59,24 +59,22 @@
           </div>
         </div>
 
-      <% end %>
+      </div>
+
     </div>
-
   </div>
-</div>
 
-<%# 2ページ目 %>
-<div class="modal-window hidden" id="customer-create-second">
-  <div class="modal-window--card">
+  <%# 2ページ目 %>
+  <div class="modal-window hidden" id="customer-create-second">
+    <div class="modal-window--card">
 
-    <%# ヘッダーとタイトル %>
-    <div class="modal-window--card--header --customer"></div>
-    <%= image_tag "close.png", class:"close-icon", id:"second-customer-create-close-btn" %>
-    <div class="modal-window--card--title">新規物件作成</div>
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --customer"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"second-customer-create-close-btn" %>
+      <div class="modal-window--card--title">新規物件作成</div>
 
-    <%# 入力フォーム %>
-    <div class="modal-window--card--form">
-      <%= form_with model: @customer, url: customers_path, method: :post, local: true do |f| %>
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
 
         <%# 担当者 %>
         <div class="modal-window--card--form--field">
@@ -122,8 +120,8 @@
           </div>
         </div>
 
-      <% end %>
-    </div>
+      </div>
 
+    </div>
   </div>
-</div>
+<% end %>
