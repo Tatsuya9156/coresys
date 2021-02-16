@@ -15,67 +15,153 @@
     <%= render partial:"shared/side_bar/customer" %>
   </div>
 
-  <%# メイン画面 %>
-  <div class="main-wrapper">
-    <div class="customer-info-wrapper">
-      <%# ヘッダーカラー %>
-      <div class="customer-info-wrapper--header"></div>
-      <%# ステータスバー %>
-      <div class="customer-info-wrapper--status--icon">
-        <% Status.all.each.with_index(1) do |status, index| %>
-          <div class="--status--bar before-color" id="bar-<%= index %>"></div>
-          <div class="--status--box before-color" id="box-<%= index %>"><%= status.name %></div>
-        <% end %>
-      </div>
-      <%# ステータス取得のための記述 %>
-      <div class="hidden" id="customer-status"><%= @customer_show.status.id %></div>
-      <%# 基本情報(左側) %>
-      <div class="customer-info-wrapper--detail">
-        <div class="customer-info-wrapper--detail--half">
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">顧客ID</div>
-            <div class="detail--child --value"><%= @customer_show.id %></div>
+  <div class="main-wrapper --customer">
+
+    <%# 顧客情報画面 %>
+    <div class="customer-wrapper --left">
+
+      <%# 顧客情報／上段 %>
+      <div class="--left--top">
+
+        <div class="customer-info-wrapper">
+          <%# ヘッダーカラー %>
+          <div class="customer-info-wrapper--header"></div>
+          <%# ステータスバー %>
+          <div class="customer-info-wrapper--status--icon">
+            <% Status.all.each.with_index(1) do |status, index| %>
+              <div class="--status--bar before-color" id="bar-<%= index %>"></div>
+              <div class="--status--box before-color" id="box-<%= index %>"><%= status.name %></div>
+            <% end %>
           </div>
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">受注日</div>
-            <div class="detail--child --value"><%= @customer_show.order_date %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">受注店舗</div>
-            <div class="detail--child --value"><%= @customer_show.store.name %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">名前</div>
-            <div class="detail--child --value"><%= @customer_show.name %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child --child--bottom">
-            <div class="detail--child --tag">名前(カナ)</div>
-            <div class="detail--child --value"><%= @customer_show.name_kana %></div>
+          <%# ステータス取得のための記述 %>
+          <div class="hidden" id="customer-status"><%= @customer_show.status.id %></div>
+          <%# 基本情報(左側) %>
+          <div class="customer-info-wrapper--detail">
+            <div class="customer-info-wrapper--detail--area --half">
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">顧客ID</div>
+                <div class="detail--child --value"><%= @customer_show.id %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">受注日</div>
+                <div class="detail--child --value"><%= @customer_show.order_date %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">受注店舗</div>
+                <div class="detail--child --value"><%= @customer_show.store.name %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">名前</div>
+                <div class="detail--child --value"><%= @customer_show.name %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child --child--bottom">
+                <div class="detail--child --tag">名前(カナ)</div>
+                <div class="detail--child --value"><%= @customer_show.name_kana %></div>
+              </div>
+            </div>
+            <%# 基本情報(右側) %>
+            <div class="customer-info-wrapper--detail--area --half">
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">担当者</div>
+                <div class="detail--child --value"><%= @customer_show.employee.name %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">TEL</div>
+                <div class="detail--child --value"><%= @customer_show.phone %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">Email</div>
+                <div class="detail--child --value"><%= @customer_show.email %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child">
+                <div class="detail--child --tag">居住地</div>
+                <div class="detail--child --value">〒<%= @customer_show.address_zip %> <%= @customer_show.address %></div>
+              </div>
+              <div class="customer-info-wrapper--detail--child --child--bottom">
+                <div class="detail--child --tag">施工先</div>
+                <div class="detail--child --value">〒<%= @customer_show.residence_zip %> <%= @customer_show.residence %></div>
+              </div>
+            </div>
           </div>
         </div>
-        <%# 基本情報(右側) %>
-        <div class="customer-info-wrapper--detail--half">
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">担当者</div>
-            <div class="detail--child --value"><%= @customer_show.employee.name %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">TEL</div>
-            <div class="detail--child --value"><%= @customer_show.phone %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">Email</div>
-            <div class="detail--child --value"><%= @customer_show.email %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child">
-            <div class="detail--child --tag">居住地</div>
-            <div class="detail--child --value">〒<%= @customer_show.address_zip %> <%= @customer_show.address %></div>
-          </div>
-          <div class="customer-info-wrapper--detail--child --child--bottom">
-            <div class="detail--child --tag">施工先</div>
-            <div class="detail--child --value">〒<%= @customer_show.residence_zip %> <%= @customer_show.residence %></div>
+
+      </div>
+
+      <%# 顧客情報／下段 %>
+      <div class="--left--bottom">
+        <%# 左側／現調関連 %>
+        <div class="--bottom">
+          <div class="customer-info-wrapper --bottom--left">
+            <%# ヘッダーカラーとタイトル %>
+            <div class="customer-info-wrapper--header"></div>
+            <div class="customer-info-wrapper--title">現調情報</div>
+            <%# 基本情報 %>
+            <div class="customer-info-wrapper--detail">
+              <div class="customer-info-wrapper--detail--area --max">
+                <div class="customer-info-wrapper--detail--child">
+                  <div class="detail--child --tag">現調担当</div>
+                  <div class="detail--child --value">田中太郎(田中工務店)</div>
+                </div>
+                <div class="customer-info-wrapper--detail--child --child--bottom">
+                  <div class="detail--child --tag">現調日時</div>
+                  <div class="detail--child --value">2021-02-20 10:00〜</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <%# 右側／工事関連 %>
+        <div class="--bottom">
+          <div class="customer-info-wrapper --bottom--right">
+            <%# ヘッダーカラーとタイトル %>
+            <div class="customer-info-wrapper--header"></div>
+            <div class="customer-info-wrapper--title">工事情報</div>
+            <%# 基本情報 %>
+            <div class="customer-info-wrapper--detail">
+              <div class="customer-info-wrapper--detail--area --max">
+                <div class="customer-info-wrapper--detail--child">
+                  <div class="detail--child --tag">工事担当</div>
+                  <div class="detail--child --value">田中太郎(田中工務店)</div>
+                </div>
+                <div class="customer-info-wrapper--detail--child">
+                  <div class="detail--child --tag">工期</div>
+                  <div class="detail--child --value">2021-02-20 10:00〜</div>
+                </div>
+                <div class="customer-info-wrapper--detail--child --child--bottom">
+                  <div class="detail--child --tag">完了日</div>
+                  <div class="detail--child --value">2021-02-20 10:00〜</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-  </div>
+    </div>
+
+    <%# コメント画面 %>
+    <div class="customer-wrapper --right">
+      <div class="customer-info-wrapper --right">
+        <%# ヘッダーカラーとタイトル %>
+        <div class="customer-info-wrapper--header"></div>
+        <div class="customer-info-wrapper--title">コメント</div>
+        <%# コメントエリア %>
+        <div class="customer-info-wrapper--comment">
+          <%# コメント詳細 %>
+          <div class="comment-area">
+            <%# 上段が名前と投稿日 %>
+            <div class="comment-top">
+              <div class="comment --user">田中太郎</div>
+              <div class="comment --create">2021-02-16</div>
+            </div>
+            <%# 下段がコメント内容 %>
+            <div class="comment-bottom">
+              <div class="comment--text">電話しました。</br>ご成約とのことです。</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 </div>

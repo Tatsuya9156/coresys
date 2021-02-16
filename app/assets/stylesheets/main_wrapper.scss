@@ -111,16 +111,27 @@
   .customer-info-wrapper--header {
     height: 10px;
     width: 100%;
-    margin-bottom: 40px;
     border-radius: 10px 10px 0 0;
     background-color: rgb(200, 230, 150);
+  }
+  // タイトル
+  .customer-info-wrapper--title {
+    width: 70%;
+    height: 30px;
+    margin: 0 auto 20px;
+    padding: 20px 0;
+    text-align: center;
+    font: {
+      size: 14px;
+      weight: bold;
+    }
   }
   // ステータスバー
   .customer-info-wrapper--status--icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom : 40px;
+    margin : 40px 0;
     .--status--bar {
       width: 80px;
       height: 4px;
@@ -138,41 +149,75 @@
       color: white;
     }
   }
-  // 基本情報
-  .customer-info-wrapper--detail {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 0 30px;
-    .customer-info-wrapper--detail--half {
+}
+
+// 基本情報
+.customer-info-wrapper--detail {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 0 30px;
+  .customer-info-wrapper--detail--area {
+    &.--half {
       width: 48%;
-      .customer-info-wrapper--detail--child {
-        display: flex;
-        width: 100%;
-        border: {
-          top: solid 1px rgb(80, 80, 80);
-          left: solid 1px rgb(80, 80, 80);
-          right: solid 1px rgb(80, 80, 80);
+    }
+    &.--max {
+      width: 96%;
+    }
+    .customer-info-wrapper--detail--child {
+      display: flex;
+      width: 100%;
+      border: {
+        top: solid 1px rgb(80, 80, 80);
+        left: solid 1px rgb(80, 80, 80);
+        right: solid 1px rgb(80, 80, 80);
+      }
+      &.--child--bottom {
+        border-bottom: solid 1px rgb(80, 80, 80);
+      }
+      .detail--child {
+        height: 100%;
+        padding: 10px 20px;
+        &.--tag {
+          width: 20%;
+          background-color: rgb(220, 220, 220);
+          border-right: solid 1px rgb(80, 80, 80);
         }
-        &.--child--bottom {
-          border-bottom: solid 1px rgb(80, 80, 80);
-        }
-        .detail--child {
-          height: 100%;
-          padding: 10px 20px;
-          &.--tag {
-            width: 20%;
-            background-color: rgb(220, 220, 220);
-            border-right: solid 1px rgb(80, 80, 80);
-          }
-          &.--value {
-            width: 80%;
-          }
+        &.--value {
+          width: 80%;
         }
       }
     }
   }
 }
+
+// コメント欄
+.customer-info-wrapper--comment {
+  height: calc(100% - 10px - 30px - 30px - 30px);
+  overflow: scroll;
+  .comment-area {
+    margin-bottom: 30px;
+    .comment-top {
+      width: 80%;
+      margin: 0 auto 5px;
+      display: flex;
+      .comment {
+        &.--user {
+          font-size: 13px;
+          margin-right: 10px;
+        }
+        &.--create {
+          font-size: 11px;
+        }
+      }
+    }
+    .comment-bottom {
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
+}
+
 // ステータスカラー変更用の設定(JavaScriptで使用)
 .before-color {
   background-color: rgb(240, 240, 240);
