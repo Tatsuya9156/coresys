@@ -1,6 +1,9 @@
 class ConstructionsController < ApplicationController
 
   def create
+    
+    binding.pry
+    
     @customer = Customer.new
     @comment = Comment.new
     @construction = Construction.new(construction_params)

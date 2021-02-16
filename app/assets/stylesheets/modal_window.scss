@@ -85,6 +85,9 @@
           border: solid 1px rgb(80, 80, 80);
           border-radius: 5px;
           outline: none;
+          &.--select {
+            cursor: pointer;
+          }
           // チェックボックス部分
           &.--check--area {
             height: 120px;

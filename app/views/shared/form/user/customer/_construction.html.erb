@@ -15,13 +15,13 @@
         <%# 現調担当 %>
         <div class="modal-window--card--form--field">
           <%= f.label :worker_id, '工事担当', class:"modal-window--card--form--field--tag" %>
-          <%= f.collection_select(:worker_id, Worker.all, :id, :name, {}, {class:"modal-window--card--form--field--value"}) %>
+          <%= f.collection_select(:worker_id, Worker.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
         </div>
 
         <%# 現調日時 %>
         <div class="modal-window--card--form--field">
           <%= f.label :construction_datetime, '着工日時', class:"modal-window--card--form--field--tag" %>
-          <%= f.datetime_field :construction_datetime, class:"modal-window--card--form--field--value" %>
+          <%= f.datetime_field :construction_datetime, class:"modal-window--card--form--field--value --select" %>
         </div>
 
         <%# 作成ボタン %>

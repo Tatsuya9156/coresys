@@ -17,13 +17,13 @@
         <%# 受注日 %>
         <div class="modal-window--card--form--field">
           <%= f.label :order_date, '受注日', class:"modal-window--card--form--field--tag" %>
-          <%= f.date_field :order_date, class:"modal-window--card--form--field--value", autofocus: true %>
+          <%= f.date_field :order_date, class:"modal-window--card--form--field--value --select", autofocus: true %>
         </div>
 
         <%# 受注店舗 %>
         <div class="modal-window--card--form--field">
           <%= f.label :store_id, '受注店舗', class:"modal-window--card--form--field--tag" %>
-          <%= f.collection_select(:store_id, Store.all, :id, :name, {}, {class:"modal-window--card--form--field--value"}) %>
+          <%= f.collection_select(:store_id, Store.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
         </div>
 
         <%# 名前 %>
@@ -81,7 +81,7 @@
         <%# 担当者 %>
         <div class="modal-window--card--form--field">
           <%= f.label :employee_id, '担当者', class:"modal-window--card--form--field--tag" %>
-          <%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"modal-window--card--form--field--value"}) %>
+          <%= f.collection_select(:employee_id, Employee.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
         </div>
 
         <%# 居住地(郵便番号) %>
