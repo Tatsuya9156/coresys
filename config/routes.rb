@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :customers, only: [:index, :create, :show] do
     resources :comments, only: [:create]
     resources :meetings, only: [:create, :update]
-    resources :construntions, only: [:create, :update]
+    resources :constructions, only: [:create, :update]
   end
   resources :chats, only: [:index, :create, :show, :update] do
     resources :messages, only: [:create]

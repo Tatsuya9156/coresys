@@ -17,8 +17,12 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.new
     @comment = Comment.new
+    @meeting = Meeting.new
+    @construction = Construction.new
     @customer_show = Customer.find(params[:id])
     @comments = @customer_show.comments.includes(:employee)
+    @meeting_show = @customer_show.meeting
+    @construction_show = @customer_show.construction
   end
 
   private

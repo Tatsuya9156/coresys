@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
   belongs_to :store
   belongs_to :status
   has_many   :comments
+  has_one    :meeting
+  has_one    :construction
   
   VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
   VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/.freeze

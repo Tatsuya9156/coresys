@@ -8,6 +8,12 @@
 <%# 物件グループ作成の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/user/customer/create" %>
 
+<%# 現調情報作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/meeting" %>
+
+<%# 工事情報作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/construction" %>
+
 <div class="wrapper">
 
   <%# サイドバー部分テンプレートの読み込み %>
@@ -98,14 +104,20 @@
             <%# 基本情報 %>
             <div class="customer-info-wrapper--detail">
               <div class="customer-info-wrapper--detail--area --max">
-                <div class="customer-info-wrapper--detail--child">
-                  <div class="detail--child --tag">現調担当</div>
-                  <div class="detail--child --value">田中太郎(田中工務店)</div>
-                </div>
-                <div class="customer-info-wrapper--detail--child --child--bottom">
-                  <div class="detail--child --tag">現調日時</div>
-                  <div class="detail--child --value">2021-02-20 10:00〜</div>
-                </div>
+                <% if Meeting.find_by(customer_id: @customer_show.id).present? %>
+                  <div class="customer-info-wrapper--detail--child">
+                    <div class="detail--child --tag">現調担当</div>
+                    <div class="detail--child --value"><%= @meeting_show.worker.name %></div>
+                  </div>
+                  <div class="customer-info-wrapper--detail--child --child--bottom">
+                    <div class="detail--child --tag">現調日時</div>
+                      <% if @meeting_show.meeting_datetime.present? %>
+                        <div class="detail--child --value"><%= @meeting_show.meeting_datetime.strftime("%Y-%m-%d %H:%M") %> 〜</div>
+                      <% end %>
+                  </div>
+                <% else %>
+                  <div class="customer-info-wrapper--detail--create" id="meeting-create-btn">現調情報を登録する</div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -119,18 +131,26 @@
             <%# 基本情報 %>
             <div class="customer-info-wrapper--detail">
               <div class="customer-info-wrapper--detail--area --max">
-                <div class="customer-info-wrapper--detail--child">
-                  <div class="detail--child --tag">工事担当</div>
-                  <div class="detail--child --value">田中太郎(田中工務店)</div>
-                </div>
-                <div class="customer-info-wrapper--detail--child">
-                  <div class="detail--child --tag">工期</div>
-                  <div class="detail--child --value">2021-02-20〜2021-02-21</div>
-                </div>
-                <div class="customer-info-wrapper--detail--child --child--bottom">
-                  <div class="detail--child --tag">完了日</div>
-                  <div class="detail--child --value">2021-02-22</div>
-                </div>
+                <% if Construction.find_by(customer_id: @customer_show.id).present? %>
+                  <div class="customer-info-wrapper--detail--child">
+                    <div class="detail--child --tag">工事担当</div>
+                    <div class="detail--child --value"><%= @construction_show.worker.name %></div>
+                  </div>
+                  <div class="customer-info-wrapper--detail--child">
+                    <div class="detail--child --tag">着工日時</div>
+                    <% if @construction_show.construction_datetime.present? %>
+                      <div class="detail--child --value"><%= @construction_show.construction_datetime.strftime("%Y-%m-%d %H:%M") %> 〜</div>
+                    <% end %>
+                  </div>
+                  <div class="customer-info-wrapper--detail--child --child--bottom">
+                    <div class="detail--child --tag">完了日</div>
+                    <% if @construction_show.completion_date.present? %>
+                      <div class="detail--child --value"><%= @construction_show.completion_date %></div>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <div class="customer-info-wrapper--detail--create" id="construction-create-btn">工事情報を登録する</div>
+                <% end %>
               </div>
             </div>
           </div>

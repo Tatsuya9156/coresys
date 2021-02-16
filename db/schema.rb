@@ -67,15 +67,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_065347) do
     t.index ["employee_id"], name: "index_comments_on_employee_id"
   end
 
-  create_table "construntions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "construntion_datetime", null: false
+  create_table "constructions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "construction_datetime"
     t.date "completion_date"
     t.bigint "customer_id"
     t.bigint "worker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_construntions_on_customer_id"
-    t.index ["worker_id"], name: "index_construntions_on_worker_id"
+    t.index ["customer_id"], name: "index_constructions_on_customer_id"
+    t.index ["worker_id"], name: "index_constructions_on_worker_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_065347) do
   end
 
   create_table "meetings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "meeting_datetime", null: false
+    t.datetime "meeting_datetime"
     t.bigint "customer_id"
     t.bigint "worker_id"
     t.datetime "created_at", precision: 6, null: false
@@ -172,8 +172,8 @@ ActiveRecord::Schema.define(version: 2021_02_16_065347) do
   add_foreign_key "chat_workers", "workers"
   add_foreign_key "comments", "customers"
   add_foreign_key "comments", "employees"
-  add_foreign_key "construntions", "customers"
-  add_foreign_key "construntions", "workers"
+  add_foreign_key "constructions", "customers"
+  add_foreign_key "constructions", "workers"
   add_foreign_key "customers", "employees"
   add_foreign_key "meetings", "customers"
   add_foreign_key "meetings", "workers"
