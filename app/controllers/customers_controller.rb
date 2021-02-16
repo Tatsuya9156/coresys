@@ -16,7 +16,9 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.new
+    @comment = Comment.new
     @customer_show = Customer.find(params[:id])
+    @comments = @customer_show.comments.includes(:employee)
   end
 
   private

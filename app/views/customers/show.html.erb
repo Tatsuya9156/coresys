@@ -147,19 +147,27 @@
         <div class="customer-info-wrapper--title">コメント</div>
         <%# コメントエリア %>
         <div class="customer-info-wrapper--comment">
-          <%# コメント詳細 %>
-          <div class="comment-area">
-            <%# 上段が名前と投稿日 %>
-            <div class="comment-top">
-              <div class="comment --user">田中太郎</div>
-              <div class="comment --create">2021-02-16</div>
+          <% @comments.each do |comment| %>
+            <%# コメント詳細 %>
+            <div class="comment-area">
+              <%# 上段が名前と投稿日 %>
+              <div class="comment-top">
+                <div class="comment --user"><%= comment.employee.name %></div>
+                <div class="comment --create"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+              </div>
+              <%# 下段がコメント内容 %>
+              <div class="comment-bottom">
+                <div class="comment--text"><%= simple_format(comment.text) %></div>
+              </div>
             </div>
-            <%# 下段がコメント内容 %>
-            <div class="comment-bottom">
-              <div class="comment--text">電話しました。</br>ご成約とのことです。</div>
-            </div>
-          </div>
-
+          <% end %>
+        <%# メッセージ投稿フォーム %>
+        </div>
+        <div class="customer-info-wrapper--form">
+          <%= form_with(model: [@customer_show, @comment], local: true) do |f| %>
+            <%= f.text_area :text, class:"comment-form", placeholder:"コメントを入力してください" %>
+            <%= image_submit_tag("submit.png", onclick: "submit();", class:"comment-send") %>
+          <% end %>
         </div>
       </div>
     </div>

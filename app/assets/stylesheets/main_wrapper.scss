@@ -126,6 +126,32 @@
       weight: bold;
     }
   }
+  // コメントフォーム
+  .customer-info-wrapper--form {
+    position: relative;
+    // 入力フォーム
+    .comment-form {
+      width: 92%;
+      height: 100px;
+      display: block;
+      resize: none;
+      outline: none;
+      margin: 0 auto;
+      padding: 10px 15px;
+      box-shadow: 0 1px 5px 0 rgba(200, 200, 200, 0.5) inset;
+      border: solid 1px rgb(185, 185, 185);
+      border-radius: 5px;
+      font-size: 13px;
+    }
+    // 送信ボタン
+    .comment-send {
+      display: block;
+      width: 25px;
+      position: absolute;
+      right: 14px;
+      bottom: 1px;
+    }
+  }
   // ステータスバー
   .customer-info-wrapper--status--icon {
     display: flex;
@@ -191,14 +217,15 @@
   }
 }
 
-// コメント欄
+// コメント一覧
 .customer-info-wrapper--comment {
-  height: calc(100% - 10px - 30px - 30px - 30px);
+  height: calc(100% - 10px - 30px - 30px - 30px - 80px);
+  margin: 30px 0;
   overflow: scroll;
   .comment-area {
-    margin-bottom: 30px;
+    margin-top: 30px 0;
     .comment-top {
-      width: 80%;
+      width: 85%;
       margin: 0 auto 5px;
       display: flex;
       .comment {
@@ -213,7 +240,7 @@
     }
     .comment-bottom {
       width: 85%;
-      margin: 0 auto;
+      margin: 0 auto 30px;
     }
   }
 }
