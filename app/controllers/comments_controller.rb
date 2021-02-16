@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
     @customer = Customer.new
     @comment = Comment.new(comment_params)
     @customer_show = Customer.find(params[:customer_id])
+    @meeting_show = @customer_show.meeting
+    @construction_show = @customer_show.construction
     @comments = @customer_show.comments.includes(:employee)
     if @comment.save
       redirect_to customer_path(params[:customer_id])
