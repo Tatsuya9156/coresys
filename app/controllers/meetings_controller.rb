@@ -1,5 +1,4 @@
 class MeetingsController < ApplicationController
-
   def create
     @customer = Customer.new
     @comment = Comment.new
@@ -24,5 +23,4 @@ class MeetingsController < ApplicationController
   def meeting_params
     params.require(:meeting).permit(:meeting_datetime, :worker_id).merge(customer_id: params[:customer_id])
   end
-
 end

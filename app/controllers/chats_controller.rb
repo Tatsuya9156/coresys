@@ -59,5 +59,4 @@ class ChatsController < ApplicationController
   def current_user_is_employee?
     redirect_to root_path if worker_signed_in? && !employee_signed_in?
   end
-
 end

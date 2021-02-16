@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Construntions", type: :request do
-
+RSpec.describe 'Construntions', type: :request do
 end

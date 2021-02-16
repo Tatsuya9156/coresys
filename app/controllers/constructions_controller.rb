@@ -1,5 +1,4 @@
 class ConstructionsController < ApplicationController
-
   def create
     @customer = Customer.new
     @comment = Comment.new
@@ -15,12 +14,12 @@ class ConstructionsController < ApplicationController
 
   def update
   end
-  
+
   private
 
   # ストロングパラメーター
   def construction_params
-    params.require(:construction).permit(:construction_datetime, :completion_date, :worker_id).merge(customer_id: params[:customer_id])
+    params.require(:construction).permit(:construction_datetime, :completion_date,
+                                         :worker_id).merge(customer_id: params[:customer_id])
   end
-
 end

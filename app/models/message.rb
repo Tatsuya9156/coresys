@@ -7,6 +7,6 @@ class Message < ApplicationRecord
   validates :text, presence: true, unless: :was_attached?
 
   def was_attached?
-    self.message_images.attached?
+    message_images.attached?
   end
 end

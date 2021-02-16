@@ -37,7 +37,6 @@ class WorkersController < ApplicationController
 
   # 管理者権限を持つ社員でなければroot_pathへリダイレクトされる
   def updatable?
-    redirect_to root_path if !current_employee_is_admin?
+    redirect_to root_path unless current_employee_is_admin?
   end
-
 end

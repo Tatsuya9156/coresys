@@ -11,5 +11,4 @@ class ApplicationController < ActionController::Base
       authenticate_employee!
     end
   end
-  
 end
