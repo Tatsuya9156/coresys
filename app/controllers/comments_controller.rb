@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :current_user_is_employee?, only: [:create]
 
   def create
     @customer = Customer.new
@@ -17,6 +18,11 @@ class CommentsController < ApplicationController
   # ストロングパラメーター
   def comment_params
     params.require(:comment).permit(:text).merge(employee_id: current_employee.id, customer_id: params[:customer_id])
+  end
+
+  # ログインユーザーが社員でなければroot_pathへリダイレクトされる
+  def current_user_is_employee?
+    redirect_to root_path if worker_signed_in? && !employee_signed_in?
   end
 
 end
