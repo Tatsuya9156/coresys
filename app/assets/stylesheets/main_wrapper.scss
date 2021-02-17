@@ -277,13 +277,10 @@
   text-shadow: 0 0 5px rgb(80, 80, 80);
 }
 
-/************** 顧客詳細ページ *************/
 
+/**************** チャットルーム ***************/
 
-/*****************************************************/
-/***** チャットルーム *****/
-/***** 共通設定 *****/
-
+// チャットルームタイトル
 .chat-room-title {
   width: 90%;
   line-height: 50px;
@@ -291,121 +288,96 @@
   margin: 0 auto;
   border-bottom: solid 2px rgb(80, 80, 80);
   font-size: 20px;
+  .edit-icon {
+    width: 18px;
+    margin-left: 13px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
 }
 
-.edit-icon {
-  width: 18px;
-  margin-left: 13px;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
+// メッセージ一覧表示
 .chat-room-messages {
   height: calc(100vh - 65px - 50px - 150px - 10px);
   overflow: scroll;
+  // 各メッセージ
+  .chat-message {
+    width: 95%;
+    display: flex;
+    margin: 15px auto 0;
+    padding-bottom: 30px;
+    // 投稿者の顔写真
+    .message-icon {
+      width: 80px;
+      height: 100%;
+      margin: 0 0 0 20px;
+      .message-face-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        margin: 10px 0 0 0;
+      }
+    }
+    // 投稿詳細
+    .message-area {
+      // 投稿者と投稿時間
+      .message-data-area {
+        display: flex;
+        .message-name {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .message-date {
+          margin: 3px 0 0 30px;
+          font-size: 12px;
+        }
+      }
+      // 投稿テキストと投稿画像
+      .message-text-area {
+        font-size: 14px;
+        .message-text {
+          padding: 0;
+        }
+        .message-image {
+          display: block;
+          margin-bottom: 20px;
+          box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
+          border-radius: 5px;
+        }
+      }
+    }
+  }
 }
 
-/***** 共通設定 *****/
-
-.chat-message {
-  width: 95%;
-  display: flex;
-  margin: 15px auto 0;
-  padding-bottom: 30px;
+// メッセージフォーム
+.chat-message-form {
+  position: relative;
+  .message-form {
+    width: 95%;
+    margin: 0 auto;
+    padding: 15px;
+    display: block;
+    resize: none;
+    outline: none;
+    background-color: white;
+    box-shadow: 0 0 5px 3px rgba(200, 200, 200, 0.5);
+    border: solid 1px rgb(185, 185, 185);
+    border-radius: 5px;
+    font-size: 13px;
+  }
+  .file-clip-icon {
+    width: 25px;
+    display: block;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
+    cursor: pointer;
+  }
+  .message-send {
+    width: 30px;
+    display: block;
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+  }
 }
-
-.message-icon {
-  width: 80px;
-  height: 100%;
-  margin: 0 0 0 20px;
-}
-
-.message-face-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  margin: 10px 0 0 0;
-}
-
-.message-data-area {
-  display: flex;
-}
-
-
-.message-name {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.message-date {
-  margin: 3px 0 0 30px;
-  font-size: 12px;
-}
-
-.message-text-area {
-  font-size: 14px;
-}
-
-.message-text {
-  padding: 0;
-}
-
-.message-image {
-  display: block;
-  margin-bottom: 20px;
-  box-shadow: 2px 2px 2px 0 rgb(150, 150, 150);
-  border-radius: 5px;
-}
-
-/* メッセージフォーム */
-
-.message-form {
-  display: block;
-  resize: none;
-  outline: none;
-  width: 95%;
-  margin: 0 auto;
-  padding: 15px;
-  background-color: white;
-  box-shadow: 0 1px 10px 0 rgba(200, 200, 200, 0.5);
-  border: solid 1px rgb(185, 185, 185);
-  border-radius: 5px;
-  font-size: 13px;
-}
-
-.file-clip-icon {
-  display: block;
-  width: 25px;
-  position: absolute;
-  right: 100px;
-  bottom: 31px;
-  cursor: pointer;
-}
-
-.message-send {
-  display: block;
-  width: 30px;
-  position: absolute;
-  right: 60px;
-  bottom: 30px;
-}
-
-/***** メッセージフォーム *****/
-/******* チャットルーム *******/
-
-/************************/
-
-/***** チャット新規作成 *****/
-
-.chat-new-wrapper {
-  margin-top: 300px;
-  text-align: center;
-}
-
-.chat-new-field {
-  margin-bottom: 20px;
-}
-
-/***** チャット新規作成 *****/
-
-
