@@ -167,3 +167,35 @@ a {
     top: 2px;
   }
 }
+
+// フェードイン表示
+.fadein {
+  animation-name: fadein;
+  animation-duration: 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ふわっと表示
+.fullfy {
+  animation-name: fullfy;
+  animation-duration: 0.7s;
+}
+
+@keyframes fullfy {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

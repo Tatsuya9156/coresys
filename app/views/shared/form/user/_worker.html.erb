@@ -7,8 +7,8 @@
 <%= form_with(model: worker, local: true) do |f| %>
 
   <%# 情報入力フォーム No.1 %>
-  <div class="user-sign" id="first-info">
-    <div class="user-sign--card">
+  <div class="user-sign fadein">
+    <div class="user-sign--card" id="first-info">
 
       <%# ヘッダーとタイトル %>
       <div class="user-sign--card--header"></div>
@@ -70,12 +70,10 @@
 
       </div>
     </div>
-  </div>
 
 
   <%# 情報入力フォーム No.2 %>
-  <div class="user-sign hidden" id="second-info">
-    <div class="user-sign--card">
+    <div class="user-sign--card hidden" id="second-info">
 
       <%# ヘッダーとタイトル %>
       <div class="user-sign--card--header"></div>
@@ -137,12 +135,10 @@
 
       </div>
     </div>
-  </div>
 
 
   <%# 情報入力フォーム No.3 %>
-  <div class="user-sign hidden" id="third-info">
-    <div class="user-sign--card">
+    <div class="user-sign--card hidden" id="third-info">
 
       <%# ヘッダーとタイトル %>
       <div class="user-sign--card--header"></div>
@@ -202,6 +198,7 @@
         </div>
 
       </div>
+
     </div>
   </div>
 <% end %>
