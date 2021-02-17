@@ -82,29 +82,13 @@
         border: none;
         outline: none;
       }
-    }
-  }
-}
-
-// 社員のみ管理者チェックエリア
-.user-sign-employee {
-  width: 50%;
-  &.--admin-check {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .admin-check {
-      &.--label {
-        margin-right: 10px;
-      }
-      &.--box {
-        width: 15px;
-        height: 15px;
-        margin-bottom: 5px;
+      // チェックボックスのみ指定
+      &.--check {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
       }
     }
-  }
-  &.--create-btn {
   }
 }
 
