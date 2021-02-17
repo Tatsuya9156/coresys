@@ -15,4 +15,9 @@
     <%= render partial:"shared/side_bar/chat" %>
   </div>
 
+  <div class="main-wrapper">
+    <%# 背景動画 %>
+    <%= video_tag("/videos/chat.mp4", autoplay: :true, loop: :true, muted: :true, class: "chat-video") %>
+  </div>
+
 </div>

@@ -64,3 +64,27 @@ a {
 .hidden {
   display: none;
 }
+
+/***** 背景動画の設定 *****/
+.session-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.signup-video {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  object-fit: cover;
+  z-index: 1;
+  filter: opacity(80%) blur(3px);
+}
+
+.chat-video {
+  width: calc(100vw - 250px);
+  height: calc(100vh - 50px);
+  object-fit: cover;
+  z-index: 1;
+  filter: opacity(90%) blur(2px);
+}

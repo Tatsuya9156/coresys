@@ -1,5 +1,8 @@
 
-<%# 社員登録フォーム %>
+<%# 背景動画 %>
+<%= video_tag("/videos/session.mp4", autoplay: :true, loop: :true, muted: :true, class: "session-video") %>
+
+<%# ログインフォーム %>
 <%= form_with model: user, url: user_session_path, method: :POST, local: true do |f| %>
   <div class="user-sign">
     <div class="user-sign--card">
@@ -19,7 +22,7 @@
         </div>
 
         <%# パスワード %>
-        <div class="user-sign--card--info--child user-sign--card--info--child--bottom">
+        <div class="user-sign--card--info--child --bottom">
           <%= f.label :password, 'パスワード', class:"user-sign--card--info--child--tag" %>
           <%= f.password_field :password, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"半角英数字混合" %>
         </div>
