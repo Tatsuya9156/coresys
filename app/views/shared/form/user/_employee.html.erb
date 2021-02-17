@@ -66,7 +66,7 @@
         </div>
 
         <%# パスワード再入力 %>
-        <div class="user-sign--card--info--child user-sign--card--info--child--bottom">
+        <div class="user-sign--card--info--child --bottom">
           <%= f.label :password_confirmation, 'パスワード再入力', class:"user-sign--card--info--child--tag" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"パスワードを再入力してください" %>
         </div>
@@ -74,12 +74,12 @@
         <%# 管理者権限と登録ボタン %>
         <div class="user-sign--card--info--child">
           <%# 管理者権限 %>
-          <div class="user-sign--card--info--child--checkbox">
-            <%= f.label :admin, '管理者権限', class:"admin-check-label" %>
-            <%= f.check_box :admin, class:"admin-check-box" %>
+          <div class="user-sign-employee --admin-check">
+            <%= f.label :admin, '管理者権限', class:"admin-check --label" %>
+            <%= f.check_box :admin, class:"admin-check --box" %>
           </div>
           <%# 登録ボタン %>
-          <div class="user-sign--card--info--child--btn">
+          <div class="user-sign--employee --create-btn">
             <%= f.button "登録", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
           </div>
         </div>
