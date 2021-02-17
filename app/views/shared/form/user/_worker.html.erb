@@ -1,4 +1,7 @@
 
+<%# 背景動画 %>
+<%= video_tag("/videos/signup.mp4", autoplay: :true, loop: :true, muted: :true, class: "signup-video") %>
+
 <%# 職人登録フォーム %>
 <%# モーダルウィンドウにて画面切り替え %>
 <%= form_with(model: worker, local: true) do |f| %>

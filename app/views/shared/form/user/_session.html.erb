@@ -1,5 +1,8 @@
 
-<%# 社員登録フォーム %>
+<%# 背景動画 %>
+<%= video_tag("/videos/session.mp4", autoplay: :true, loop: :true, muted: :true, class: "session-video") %>
+
+<%# ログインフォーム %>
 <%= form_with model: user, url: user_session_path, method: :POST, local: true do |f| %>
   <div class="user-sign">
     <div class="user-sign--card">

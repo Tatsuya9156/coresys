@@ -1,4 +1,7 @@
 
+<%# 背景動画 %>
+<%= video_tag("/videos/signup.mp4", autoplay: :true, loop: :true, muted: :true, class: "signup-video") %>
+
 <%# 社員登録フォーム %>
 <%= form_with(model: employee, local: true) do |f| %>
   <div class="user-sign">
