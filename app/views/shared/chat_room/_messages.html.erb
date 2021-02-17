@@ -6,7 +6,7 @@
   <% if message.employee.present? %>
     <div class="message-icon">
       <% if message.employee.face_image.present? %>
-        <%= image_tag message.employee.face_image, class: 'message-face-image' %>
+        <%= image_tag message.employee.face_image.variant(resize: '55x55'), class: 'message-face-image' %>
       <% else %>
         <%= image_tag "employee.png", class:"message-face-image" %>
       <% end %>
@@ -28,7 +28,7 @@
   <% elsif message.worker.present? %>
     <div class="message-icon">
       <% if message.worker.face_image.present? %>
-        <%= image_tag message.worker.face_image, class: 'message-face-image' %>
+        <%= image_tag message.worker.face_image.variant(resize: '55x55'), class: 'message-face-image' %>
       <% else %>
         <%= image_tag "employee.png", class:"message-face-image" %>
       <% end %>
