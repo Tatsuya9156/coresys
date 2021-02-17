@@ -6,26 +6,20 @@
   background-color: rgb(110, 110, 110);
 }
 
-.form-open-btn:active{
-  box-shadow: none;
-  position: relative;
-  top: 2px;
-}
-
 .search-area {
   width: 100%;
   height: 40px;
   margin: 0 auto;
   text-align: center;
   cursor: pointer;
+  .search-form {
+    width: 80%;
+    height: 27px;
+    padding: 10px;
+    outline: none;
+  }
 }
 
-.search-form {
-  outline: none;
-  width: 80%;
-  height: 27px;
-  padding: 10px;
-}
 
 
 /**** チャットルーム ****/
@@ -37,31 +31,6 @@
   text-align: center;
 }
 
-.to-create-btn {
-  width: 100px;
-  line-height: 30px;
-  margin: 0 auto;
-  padding: 0;
-  font-size: 13px;
-  color: white;
-  box-shadow: 0 2px 0 0 rgba(50, 50, 50, 1);
-  text-shadow: 0 0 5px rgb(80, 80, 80);
-  border-radius: 8px;
-  cursor: pointer;
-  &.--customer {
-    background-color: rgb(200, 230, 150);
-  }
-  &.--chat {
-    background-color: rgb(65, 185, 35);
-  }
-}
-
-.to-create-btn:active{
-  box-shadow: none;
-  position: relative;
-  top: 2px;
-}
-
 .chat-room-header {
   text-align: center;
   line-height: 40px;
@@ -70,23 +39,18 @@
 
 .chat-room-area {
   overflow: scroll;
+  .chat-room-index {
+    text-align: center;
+    line-height: 40px;
+    font-size: 13px;
+    .chat-room-name {
+      text-decoration: none;
+      display: block;
+      color: rgb(249, 249, 249);
+      &:hover {
+        background-color: rgb(151, 151, 151);
+        transition: 0.2s;
+      }
+    }
+  }
 }
-
-.chat-room-index {
-  text-align: center;
-  line-height: 40px;
-  font-size: 13px;
-}
-
-.chat-room-name {
-  text-decoration: none;
-  display: block;
-  color: rgb(249, 249, 249);
-}
-
-.chat-room-name:hover {
-  background-color: rgb(110, 110, 110);
-  transition: 0.2s;
-}
-
-/**** チャットルーム ****/

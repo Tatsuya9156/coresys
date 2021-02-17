@@ -3,13 +3,16 @@
 <%= video_tag("/videos/signup.mp4", autoplay: :true, loop: :true, muted: :true, class: "signup-video") %>
 
 <%# 社員登録フォーム %>
+<%# モーダルウィンドウにて画面切り替え %>
 <%= form_with(model: employee, local: true) do |f| %>
-  <div class="user-sign">
-    <div class="user-sign--card">
+
+  <%# 情報入力フォーム No.1 %>
+  <div class="user-sign fadein">
+    <div class="user-sign--card" id="first-employee-info">
 
       <%# ヘッダーとタイトル %>
       <div class="user-sign--card--header"></div>
-      <div class="user-sign--card--title"><%= title %></div>
+      <div class="user-sign--card--title"><%= title %> ／ 基本情報1</div>
 
       <%# 入力フォーム %>
       <div class="user-sign--card--info">
@@ -23,7 +26,7 @@
         <%# 社員ID %>
         <div class="user-sign--card--info--child">
           <%= f.label :employee_number, '社員ID', class:"user-sign--card--info--child--tag" %>
-          <%= f.text_field :employee_number, autofocus: true, class:"user-sign--card--info--child--value", placeholder:"1234" %>
+          <%= f.text_field :employee_number, autofocus: true, class:"user-sign--card--info--child--value", placeholder:"0001" %>
         </div>
 
         <%# 名前(漢字) %>
@@ -41,14 +44,37 @@
         <%# 所属 %>
         <div class="user-sign--card--info--child">
           <%= f.label :section, '所属', class:"user-sign--card--info--child--tag" %>
-          <%= f.text_field :section, class:"user-sign--card--info--child--value", placeholder:"受発注" %>
+          <%= f.text_field :section, class:"user-sign--card--info--child--value", placeholder:"工程管理チーム" %>
         </div>
 
         <%# 役職 %>
-        <div class="user-sign--card--info--child">
+        <div class="user-sign--card--info--child --bottom">
           <%= f.label :position, '役職', class:"user-sign--card--info--child--tag" %>
           <%= f.text_field :position, class:"user-sign--card--info--child--value", placeholder:"チーフ" %>
         </div>
+
+        <%# ページ遷移 %>
+        <div class="user-sign--card--info--child">
+          <div class="page-nav">
+            <div class="nav-child --left"></div>
+            <div class="nav-child --center">1 / 2</div>
+            <div class="nav-child --right"><p id="to-info-second">次へ >></p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  <%# 情報入力フォーム No.2 %>
+    <div class="user-sign--card hidden" id="second-employee-info">
+
+      <%# ヘッダーとタイトル %>
+      <div class="user-sign--card--header"></div>
+      <div class="user-sign--card--title"><%= title %> ／ 基本情報2</div>
+
+      <%# 入力フォーム %>
+      <div class="user-sign--card--info">
 
         <%# 電話番号 %>
         <div class="user-sign--card--info--child">
@@ -69,21 +95,28 @@
         </div>
 
         <%# パスワード再入力 %>
-        <div class="user-sign--card--info--child --bottom">
+        <div class="user-sign--card--info--child">
           <%= f.label :password_confirmation, 'パスワード再入力', class:"user-sign--card--info--child--tag" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"パスワードを再入力してください" %>
         </div>
 
-        <%# 管理者権限と登録ボタン %>
+        <%# 管理者権限 %>
+        <div class="user-sign--card--info--child --bottom">
+            <%= f.label :admin, '管理者権限', class:"user-sign--card--info--child--tag" %>
+            <%= f.check_box :admin, class:"user-sign--card--info--child--value --check" %>
+        </div>
+        
+        <%# 登録ボタン %>
         <div class="user-sign--card--info--child">
-          <%# 管理者権限 %>
-          <div class="user-sign-employee --admin-check">
-            <%= f.label :admin, '管理者権限', class:"admin-check --label" %>
-            <%= f.check_box :admin, class:"admin-check --box" %>
-          </div>
-          <%# 登録ボタン %>
-          <div class="user-sign--employee --create-btn">
-            <%= f.button "登録", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
+            <%= f.button "登録", type: 'button', onclick: 'submit();', class:"submit-btn" %>
+        </div>
+
+        <%# ページ遷移 %>
+        <div class="user-sign--card--info--child">
+          <div class="page-nav">
+            <div class="nav-child --left"><p id="to-info-first"><< 前へ</p></div>
+            <div class="nav-child --center">２ / 2</div>
+            <div class="nav-child --right"></div>
           </div>
         </div>
 

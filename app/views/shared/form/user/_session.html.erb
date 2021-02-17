@@ -5,12 +5,18 @@
 <%# ログインフォーム %>
 <%= form_with model: user, url: user_session_path, method: :POST, local: true do |f| %>
   <div class="user-sign">
-    <div class="user-sign--card">
+    <div class="user-sign--card fadein">
 
       <%# ヘッダーとタイトル %>
       <div class="user-sign--card--header"></div>
       <div class="user-sign--card--logo"><%= image_tag("logo.png", class:"session-logo-icon") %></div>
       <div class="user-sign--card--title"><%= title %></div>
+
+      <%# エラーメッセージ  %>
+      <div class='error-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </div>
 
       <%# 入力フォーム %>
       <div class="user-sign--card--info">
@@ -29,7 +35,7 @@
 
         <%# 登録ボタン %>
         <div class="user-sign--card--info--child">
-          <%= f.button "ログイン", type: 'button', onclick: 'submit();', class:"modal-create-btn" %>
+          <%= f.button "ログイン", type: 'button', onclick: 'submit();', class:"submit-btn" %>
         </div>
 
       </div>

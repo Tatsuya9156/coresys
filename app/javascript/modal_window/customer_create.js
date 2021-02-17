@@ -1,5 +1,6 @@
 function customerCreate() {
   const open = document.getElementById("customer-create-btn");
+  const customerModal = document.getElementById("customer-modal");
   const firstModal = document.getElementById("customer-create-first");
   const secondModal = document.getElementById("customer-create-second");
   const toFirst = document.getElementById("to-first");
@@ -8,6 +9,7 @@ function customerCreate() {
   const secondClose = document.getElementById("second-customer-create-close-btn");
   // 物件作成をクリックしたらモーダルウィンドウが表示される
   open.addEventListener("click", function() {
+    customerModal.classList.remove("hidden");
     firstModal.classList.remove("hidden");
   });
   // 「次へ」をクリックしたら2ページ目が表示される
@@ -22,21 +24,19 @@ function customerCreate() {
   });
   // 1ページ目の右上の×ボタンを押したらモーダルウィンドウを閉じる
   firstClose.addEventListener("click", function() {
+    customerModal.classList.add("hidden");
     firstModal.classList.add("hidden");
-  });
-  // 1ページ目のモーダルウィンドウ外のグレー部分を押してもモーダルウィンドウを閉じることができる
-  firstModal.addEventListener("click", function(e) {
-    if (e.target == firstModal) {
-      firstModal.classList.add("hidden");
-    }
   });
   // 2ページ目の右上の×ボタンを押したらモーダルウィンドウを閉じる
   secondClose.addEventListener("click", function() {
+    customerModal.classList.add("hidden");
     secondModal.classList.add("hidden");
   });
-  // 2ページ目のモーダルウィンドウ外のグレー部分を押してもモーダルウィンドウを閉じることができる
-  secondModal.addEventListener("click", function(e) {
-    if (e.target == secondModal) {
+  // モーダルウィンドウ外のグレー部分を押してもモーダルウィンドウを閉じることができる
+  customerModal.addEventListener("click", function(e) {
+    if (e.target == customerModal) {
+      customerModal.classList.add("hidden");
+      firstModal.classList.add("hidden");
       secondModal.classList.add("hidden");
     }
   });

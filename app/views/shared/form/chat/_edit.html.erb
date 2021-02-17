@@ -1,6 +1,6 @@
 <% if employee_signed_in? %>
   <%# モーダルウィンドウ %>
-  <div class="modal-window hidden" id="chat-edit-modal">
+  <div class="modal-window hidden fullfy" id="chat-edit-modal">
     <div class="modal-window--card">
 
       <%# ヘッダーとタイトル %>
@@ -48,7 +48,7 @@
 
           <%# 作成ボタン %>
           <div class="modal-window--card--form--field--btn">
-            <%= f.button "作成", type: "button", onclick: 'submit();', class: "modal-create-btn" %>
+            <%= f.button "作成", type: "button", onclick: 'submit();', class: "submit-btn" %>
           </div>
 
         <% end %>
