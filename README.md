@@ -11,9 +11,10 @@ coresysはエクステリア業界向けの業務管理アプリです。
 ぜひご覧ください！
 
 # 🌐URL
-![login mov](https://user-images.githubusercontent.com/75982790/108338529-b452b480-7219-11eb-935f-02c358252070.gif)  
+![README mov](https://user-images.githubusercontent.com/75982790/108340150-9ab26c80-721b-11eb-92da-9844f84b4e1e.gif)  
   
 URL:https://t-coresys.com  
+  
 以下のアカウントでログインができます。
 1. 社員アカウント  
  Email:test1@example.com  
