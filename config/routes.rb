@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :meetings, only: [:create, :update]
     resources :constructions, only: [:create, :update]
   end
-  resources :chats, only: [:index, :create, :show, :update] do
+  resources :chats, only: [:index, :create, :show, :update, :destroy] do
     resources :messages, only: [:create]
   end
 end

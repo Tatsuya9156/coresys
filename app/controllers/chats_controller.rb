@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
   before_action :current_user_is_employee?, only: [:create, :update]
   before_action :chat_new, only: [:index, :show, :update]
-  before_action :chat_find, only: [:show, :update]
+  before_action :chat_find, only: [:show, :update, :destroy]
   before_action :message_new, only: [:show, :update]
   before_action :message_find, only: [:show, :update]
 
@@ -23,6 +23,14 @@ class ChatsController < ApplicationController
   def update
     if @chat_show.update(chat_params)
       redirect_to chat_path(@chat_show)
+    else
+      render :show
+    end
+  end
+
+  def destroy
+    if @chat_show.destroy
+      redirect_to chats_path
     else
       render :show
     end
