@@ -36,7 +36,7 @@
     .user-sign--card--title {
       width: 70%;
       height: 50px;
-      margin: 0 auto 40px;
+      margin: 0 auto;
       border-bottom: solid 1px rgb(80, 80, 80);
       font-size: 15px;
       font-weight: bold;
@@ -64,9 +64,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    // 一番上のフォームのみ指定
+    &.--top {
+      margin-top: 40px;
+    }
     // 一番下のフォームのみ指定
     &.--bottom {
       margin-bottom: 45px;
+    }
+    // 顔写真のプレビュー表示
+    &.face-image {
+      height: 100px;
+      margin-top: 20px;
+      .image-preview {
+        text-align: center;
+        // 未選択時
+        .face-image-icon {
+          width: 100px;
+          line-height: 100px;
+          border: solid 1px rgb(80, 80, 80);
+          border-radius: 50%;
+        }
+        // 選択時
+        div > img {
+          width: 100px;
+          border-radius: 50%;
+        }
+      }
     }
     // タグ
     .user-sign--card--info--child--tag {
@@ -109,3 +133,4 @@
     font-weight: bold;
   }
 }
+

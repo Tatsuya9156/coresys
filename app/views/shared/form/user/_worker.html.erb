@@ -18,7 +18,7 @@
       <div class="user-sign--card--info">
 
         <%# 顔写真 %>
-        <div class="user-sign--card--info--child">
+        <div class="user-sign--card--info--child --top">
           <%= f.label :face_image, '顔写真', class:"user-sign--card--info--child--tag" %>
           <%= f.file_field :face_image, class:"user-sign--card--info--child--value image-select" %>
         </div>
@@ -83,7 +83,7 @@
       <div class="user-sign--card--info">
 
         <%# 電話番号 %>
-        <div class="user-sign--card--info--child">
+        <div class="user-sign--card--info--child --top">
           <%= f.label :phone, 'TEL', class:"user-sign--card--info--child--tag" %>
           <%= f.text_field :phone, class:"user-sign--card--info--child--value", placeholder:"09012345678" %>
         </div>
@@ -148,7 +148,7 @@
       <div class="user-sign--card--info">
 
         <%# イナバ物置 %>
-        <div class="user-sign--card--info--child">
+        <div class="user-sign--card--info--child --top">
           <%= f.label :inaba, 'イナバ物置', class:"user-sign--card--info--child--tag" %>
           <%= f.text_field :inaba, class:"user-sign--card--info--child--value", placeholder:"直送コードがない場合は現状を記入" %>
         </div>
