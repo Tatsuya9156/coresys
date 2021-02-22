@@ -1,15 +1,13 @@
 class MeetingsController < ApplicationController
   before_action :current_user_is_employee?, only: [:create, :update, :destroy]
+  before_action :customer_show, only: [:create, :update, :destroy]
 
   def create
-    @customer = Customer.new
-    @comment = Comment.new
     @meeting = Meeting.new(meeting_params)
-    @construction = Construction.new
     @customer_show = Customer.find(params[:customer_id])
+    @comments = @customer_show.comments.includes(:employee)
     @meeting_show = @customer_show.meeting
     @construction_show = @customer_show.construction
-    @comments = @customer_show.comments.includes(:employee)
     if @meeting.save
       redirect_to customer_path(params[:customer_id])
     else
@@ -21,10 +19,6 @@ class MeetingsController < ApplicationController
   end
   
   def destroy
-    @customer = Customer.new
-    @comment = Comment.new
-    @meeting = Meeting.new
-    @construction = Construction.new
     @customer_show = Customer.find(params[:id])
     @comments = @customer_show.comments.includes(:employee)
     @meeting_show = @customer_show.meeting
@@ -41,6 +35,13 @@ class MeetingsController < ApplicationController
   # ストロングパラメーター
   def meeting_params
     params.require(:meeting).permit(:meeting_datetime, :worker_id).merge(customer_id: params[:customer_id])
+  end
+
+  # 顧客詳細ページ用インスタンス変数
+  def customer_show
+    @customer = Customer.new
+    @comment = Comment.new
+    @construction = Construction.new
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる
