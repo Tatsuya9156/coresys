@@ -32,6 +32,11 @@
         <div class="customer-info-wrapper">
           <%# ヘッダーカラー %>
           <div class="customer-info-wrapper--header"></div>
+          <%# 編集・削除ボタン %>
+          <%= image_tag "edit.png", class:"edit-btn --customer" %>
+          <%= link_to customer_path(@customer_show.id), method: :delete, data: { confirm: "【重要】\n顧客情報を削除します。\n現調情報、工事情報、コメントも削除されます。\nよろしいですか？" } do %>
+            <%= image_tag "trash.png", class:"trash-btn --customer" %>
+          <% end %>
           <%# ステータスバー %>
           <div class="customer-info-wrapper--status--icon">
             <% Status.all.each.with_index(1) do |status, index| %>
@@ -98,8 +103,16 @@
         <%# 左側／現調関連 %>
         <div class="--bottom">
           <div class="customer-info-wrapper --bottom--left">
-            <%# ヘッダーカラーとタイトル %>
+            <%# ヘッダーカラー %>
             <div class="customer-info-wrapper--header"></div>
+            <%# 編集・削除ボタン %>
+            <% if Meeting.find_by(customer_id: @customer_show.id).present? %>
+              <%= image_tag "edit.png", class:"edit-btn --customer" %>
+              <%= link_to customer_meeting_path(@meeting_show.id), method: :delete, data: { confirm: "【重要】\n現調情報を削除します。\nよろしいですか？" } do %>
+                <%= image_tag "trash.png", class:"trash-btn --customer" %>
+              <% end %>
+            <% end %>
+            <%# タイトル %>
             <div class="customer-info-wrapper--title">現調情報</div>
             <%# 基本情報 %>
             <div class="customer-info-wrapper--detail">
@@ -126,8 +139,16 @@
         <%# 右側／工事関連 %>
         <div class="--bottom">
           <div class="customer-info-wrapper --bottom--right">
-            <%# ヘッダーカラーとタイトル %>
+            <%# ヘッダーカラー %>
             <div class="customer-info-wrapper--header"></div>
+            <%# 編集・削除ボタン %>
+            <% if Construction.find_by(customer_id: @customer_show.id).present? %>
+              <%= image_tag "edit.png", class:"edit-btn --customer" %>
+              <%= link_to customer_construction_path(@construction_show.id), method: :delete, data: { confirm: "【重要】\n工事情報を削除します。\nよろしいですか？" } do %>
+                <%= image_tag "trash.png", class:"trash-btn --customer" %>
+              <% end %>
+            <% end %>
+            <%# タイトル %>
             <div class="customer-info-wrapper--title">工事情報</div>
             <%# 基本情報 %>
             <div class="customer-info-wrapper--detail">

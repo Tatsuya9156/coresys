@@ -4,9 +4,9 @@ class Customer < ApplicationRecord
   belongs_to :employee
   belongs_to :store
   belongs_to :status
-  has_many   :comments
-  has_one    :meeting
-  has_one    :construction
+  has_many   :comments, dependent: :destroy
+  has_one    :meeting, dependent: :destroy
+  has_one    :construction, dependent: :destroy
 
   VALID_NAME_REGEX  = /\A[ぁ-んァ-ン一-龠々]+\z/.freeze
   VALID_KANA_REGEX  = /\A[ァ-ヶー－]+\z/.freeze

@@ -26,5 +26,6 @@ class Employee < ApplicationRecord
     validates :position
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX }
-  validates :admin, inclusion: { in: [true, false] }
+  validates :admin,    inclusion: { in: [true, false] }
+  validates :enrolled, inclusion: { in: [true, false] }
 end

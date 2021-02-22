@@ -67,11 +67,18 @@
         height: 30px;
         margin-bottom: 30px;
         display: flex;
+        justify-content: center;
         // 社員・職人選択エリア
         &.--user--area {
           height: 120px;
-          // タグ
         }
+        &.--btn {
+          margin-bottom: 0;
+        }
+        &.--delete {
+          margin-top: 25px;
+        }
+        // タグ
         .modal-window--card--form--field--tag {
         width: 30%;
         line-height: 30px;
@@ -118,8 +125,8 @@
     }
     // 作成ボタン
     .modal-window--card--form--field--btn {
-      padding-top: 10px;
       &.--customer {
+        padding-top: 10px;
         padding-bottom: 20px;
       }
     }

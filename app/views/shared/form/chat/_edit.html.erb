@@ -11,7 +11,7 @@
 
       <%# 入力フォーム %>
       <div class="modal-window--card--form">
-        <%= form_with model: @chat_show, url: chat_path(:chat_id), method: :patch, local: true do |f| %>
+        <%= form_with model: @chat_show, url: chat_path(@chat_show.id), method: :patch, local: true do |f| %>
 
           <%# チャット名入力 %>
           <div class="modal-window--card--form--field">
@@ -46,9 +46,14 @@
             </div>
           </div>
 
-          <%# 作成ボタン %>
-          <div class="modal-window--card--form--field--btn">
-            <%= f.button "作成", type: "button", onclick: 'submit();', class: "submit-btn" %>
+          <%# 編集ボタン %>
+          <div class="modal-window--card--form--field --btn">
+            <%= f.button "登録", type: "button", onclick: 'submit();', class: "submit-btn" %>
+          </div>
+
+          <%# 削除ボタン %>
+          <div class="modal-window--card--form--field --btn --delete">
+            <%= link_to "チャットルームを削除する", chat_path(@chat_show.id), method: :delete, class: "delete-btn", data: { confirm: "【重要】\n投稿されたメッセージや画像も削除されます。\nチャットルームを削除してもよろしいですか？" } %>
           </div>
 
         <% end %>

@@ -36,7 +36,7 @@
     .user-sign--card--title {
       width: 70%;
       height: 50px;
-      margin: 0 auto 40px;
+      margin: 0 auto;
       border-bottom: solid 1px rgb(80, 80, 80);
       font-size: 15px;
       font-weight: bold;
@@ -64,6 +64,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    // 一番上のフォームのみ指定
+    &.--top {
+      margin-top: 40px;
+    }
     // 一番下のフォームのみ指定
     &.--bottom {
       margin-bottom: 45px;
@@ -109,3 +113,4 @@
     font-weight: bold;
   }
 }
+
