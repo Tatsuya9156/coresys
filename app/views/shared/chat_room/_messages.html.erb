@@ -8,7 +8,7 @@
       <% if message.employee.face_image.present? %>
         <%= image_tag message.employee.face_image.variant(resize: '55x55'), class: 'message-face-image' %>
       <% else %>
-        <%= image_tag "employee.png", class:"message-face-image" %>
+        <%= image_tag "face_image_sample.png", class:"message-face-image" %>
       <% end %>
     </div>
     <div class="message-area">
@@ -46,23 +46,6 @@
       </div>
     </div>
 
-  <%# ユーザーが存在しない(削除されている)場合 %>
-  <% else %>
-    <div class="message-icon">
-      <%= image_tag "employee.png", class:"message-face-image" %>
-    </div>
-    <div class="message-area">
-      <div class="message-data-area">
-        <p class="message-name">ユーザーが存在しません</p>
-        <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-      </div>
-      <div class="message-text-area">
-        <p class="message-text"><%= simple_format(message.text) %></p>
-        <% message.message_images.each do |image| %>
-          <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-        <% end %>
-      </div>
-    </div>
   <% end %>
 
 </div>

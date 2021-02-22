@@ -47,12 +47,12 @@
           </div>
 
           <%# 編集ボタン %>
-          <div class="modal-window--card--form--field--btn">
+          <div class="modal-window--card--form--field --btn">
             <%= f.button "登録", type: "button", onclick: 'submit();', class: "submit-btn" %>
           </div>
 
-          <%# 作成ボタン %>
-          <div class="modal-window--card--form--field--btn">
+          <%# 削除ボタン %>
+          <div class="modal-window--card--form--field --btn --delete">
             <%= link_to "チャットルームを削除する", chat_path(@chat_show.id), method: :delete, class: "delete-btn", data: { confirm: "【重要】\n投稿されたメッセージや画像も削除されます。\nチャットルームを削除してもよろしいですか？" } %>
           </div>
 

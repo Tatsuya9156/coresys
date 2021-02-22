@@ -103,7 +103,8 @@ ActiveRecord::Schema.define(version: 2021_02_16_065347) do
     t.string "section", null: false
     t.string "position", null: false
     t.string "phone", null: false
-    t.boolean "admin", null: false
+    t.boolean "admin", default: false, null: false
+    t.boolean "enrolled", default: true, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

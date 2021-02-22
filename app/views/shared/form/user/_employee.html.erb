@@ -100,12 +100,12 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"user-sign--card--info--child--value", placeholder:"パスワードを再入力してください" %>
         </div>
 
-        <%# 管理者権限 %>
+        <%# 在籍状況 %>
         <div class="user-sign--card--info--child --bottom">
-            <%= f.label :admin, '管理者権限', class:"user-sign--card--info--child--tag" %>
-            <%= f.check_box :admin, class:"user-sign--card--info--child--value --check" %>
+          <%= f.label :admin, '在籍状況', class:"user-sign--card--info--child--tag" %>
+          <%= f.check_box :admin, class:"user-sign--card--info--child--value --check" %>
         </div>
-        
+
         <%# 登録ボタン %>
         <div class="user-sign--card--info--child">
             <%= f.button "登録", type: 'button', onclick: 'submit();', class:"submit-btn" %>
@@ -122,5 +122,6 @@
 
       </div>
     </div>
+
   </div>
 <% end %>
