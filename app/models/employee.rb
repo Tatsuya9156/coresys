@@ -28,4 +28,11 @@ class Employee < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :admin,    inclusion: { in: [true, false] }
   validates :enrolled, inclusion: { in: [true, false] }
+
+  def self.guest
+    find_or_create_by!(email: "test1@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
 end

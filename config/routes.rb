@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     registrations: "employees/registrations"
   }
 
+  devise_scope :employee do
+    post "employees/guest_sign_in", to: "employees/sessions#new_guest"
+  end
+
   root to: "chats#index"
   resources :employees, only: [:index, :edit, :update]
   resources :workers, only: [:index, :edit, :update]

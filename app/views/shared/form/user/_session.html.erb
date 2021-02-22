@@ -10,7 +10,7 @@
       <%# ヘッダーとタイトル %>
       <div class="user-sign--card--header"></div>
       <div class="user-sign--card--logo"><%= image_tag("logo.png", class:"session-logo-icon") %></div>
-      <div class="user-sign--card--title"><%= title %></div>
+      <div class="user-sign--card--title"><%= user_name %>ログインページ</div>
 
       <%# エラーメッセージ  %>
       <div class='error-message'>
@@ -38,9 +38,17 @@
           <%= f.button "ログイン", type: 'button', onclick: 'submit();', class:"submit-btn" %>
         </div>
 
+        <%# ゲストログインボタン %>
+        <div class="user-sign--card--info--child">
+          <%= link_to "ゲストログイン(#{ user_name })", employees_guest_sign_in_path, method: :post, class:"submit-btn --guest" %>
+        </div>
+
+        <div class="user-sign--card--info--child --top">
+          <%= link_to "--- #{ another_user_name }の方はこちらへ ---", another_user_session_path, class:"to-login" %>
+        </div>
+
       </div>
 
-      <%= link_to "--- #{ another_user_name }の方はこちらへ ---", another_user_session_path, class:"to-login" %>
 
     </div>
   </div>

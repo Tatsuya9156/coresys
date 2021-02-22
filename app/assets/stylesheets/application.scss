@@ -102,6 +102,11 @@ a {
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+  &.--guest {
+    width: 150px;
+    line-height: 30px;
+    text-align: center;
+  }
   &:active{
     box-shadow: none;
     position: relative;
