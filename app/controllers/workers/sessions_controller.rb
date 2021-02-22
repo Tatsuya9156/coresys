@@ -18,6 +18,12 @@ class Workers::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def new_guest
+    worker = Worker.guest
+    sign_in worker
+    redirect_to root_path, notice: 'ゲスト職人ユーザーとしてログインしました。'
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
