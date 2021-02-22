@@ -3,7 +3,7 @@ class WorkersController < ApplicationController
   before_action :worker_find, only: [:edit, :update]
 
   def index
-    @workers = Worker.all
+    @workers = Worker.with_attached_face_image
   end
 
   def edit
