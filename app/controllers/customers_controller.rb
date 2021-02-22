@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :current_user_is_employee?, only: [:index, :create, :show]
+  before_action :current_user_is_employee?, only: [:index, :create, :show, :destroy]
 
   def index
     @customers = Customer.all
@@ -25,6 +25,22 @@ class CustomersController < ApplicationController
     @comments = @customer_show.comments.includes(:employee)
     @meeting_show = @customer_show.meeting
     @construction_show = @customer_show.construction
+  end
+
+  def destroy
+    @customer = Customer.new
+    @comment = Comment.new
+    @meeting = Meeting.new
+    @construction = Construction.new
+    @customer_show = Customer.find(params[:id])
+    @comments = @customer_show.comments.includes(:employee)
+    @meeting_show = @customer_show.meeting
+    @construction_show = @customer_show.construction
+    if @customer_show.destroy
+      redirect_to customers_path
+    else
+      render :show
+    end
   end
 
   private

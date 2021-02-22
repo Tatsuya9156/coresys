@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   root to: "chats#index"
   resources :employees, only: [:index, :edit, :update]
   resources :workers, only: [:index, :edit, :update]
-  resources :customers, only: [:index, :create, :show] do
+  resources :customers, only: [:index, :create, :show, :destroy] do
     resources :comments, only: [:create]
-    resources :meetings, only: [:create, :update]
-    resources :constructions, only: [:create, :update]
+    resources :meetings, only: [:create, :update, :destroy]
+    resources :constructions, only: [:create, :update, :destroy]
   end
   resources :chats, only: [:index, :create, :show, :update, :destroy] do
     resources :messages, only: [:create]
