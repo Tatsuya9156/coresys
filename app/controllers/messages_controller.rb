@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     @message = Message.new(employee_message_params) if employee_signed_in?
     @message = Message.new(worker_message_params) if worker_signed_in?
     @chat_show = Chat.find(params[:chat_id])
-    @messages = @chat_show.messages.includes(:employee, :worker)
+    @messages = @chat_show.messages.with_attached_message_images.includes(:employee, :worker)
     if @message.save
       redirect_to chat_path(params[:chat_id])
     else

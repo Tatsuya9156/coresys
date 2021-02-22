@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
   before_action :employee_find, only: [:edit, :update]
 
   def index
-    @employees = Employee.all
+    @employees = Employee.with_attached_face_image
   end
 
   def edit
