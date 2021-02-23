@@ -6,7 +6,7 @@ class Worker < ApplicationRecord
 
   has_many :chat_workers
   has_many :chats, through: :chat_workers
-  has_many :messages
+  has_many :messages, as: :wordable
   has_many :meetings
   has_many :constructions
   has_one_attached :face_image
