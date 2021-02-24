@@ -1,6 +1,7 @@
 class MeetingsController < ApplicationController
   before_action :current_user_is_employee?, only: [:create, :update, :destroy]
   before_action :customer_new, only: [:create, :update, :destroy]
+  before_action :customer_show, only: [:update, :destroy]
 
   def create
     @meeting = Meeting.new(meeting_params)
@@ -16,10 +17,6 @@ class MeetingsController < ApplicationController
   end
   
   def update
-    @customer_show = Customer.find(params[:id])
-    @comments = @customer_show.comments.includes(:employee)
-    @meeting_show = @customer_show.meeting
-    @construction_show = @customer_show.construction
     if @meeting_show.update(meeting_params)
       redirect_to customer_path(@customer_show.id)
     else
@@ -28,10 +25,6 @@ class MeetingsController < ApplicationController
   end
   
   def destroy
-    @customer_show = Customer.find(params[:id])
-    @comments = @customer_show.comments.includes(:employee)
-    @meeting_show = @customer_show.meeting
-    @construction_show = @customer_show.construction
     if @meeting_show.destroy
       redirect_to customer_path(@customer_show.id)
     else
@@ -51,6 +44,14 @@ class MeetingsController < ApplicationController
     @customer = Customer.new
     @comment = Comment.new
     @construction = Construction.new
+  end
+
+  # update,destroy用インスタンス変数
+  def customer_show
+    @customer_show = Customer.find(params[:id])
+    @comments = @customer_show.comments.includes(:employee)
+    @meeting_show = @customer_show.meeting
+    @construction_show = @customer_show.construction
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる
