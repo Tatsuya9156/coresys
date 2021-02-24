@@ -16,6 +16,15 @@ class ConstructionsController < ApplicationController
   end
 
   def update
+    @customer_show = Customer.find(params[:id])
+    @comments = @customer_show.comments.includes(:employee)
+    @meeting_show = @customer_show.meeting
+    @construction_show = @customer_show.construction
+    if @construction_show.update(construction_params)
+      redirect_to customer_path(@customer_show.id)
+    else
+      render 'customers/show'
+    end
   end
 
   def destroy

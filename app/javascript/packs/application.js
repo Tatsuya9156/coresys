@@ -14,6 +14,7 @@ require("form/customer_create")
 require("form/customer_meeting_create")
 require("form/customer_meeting_edit")
 require("form/customer_construction_create")
+require("form/customer_construction_edit")
 require("customer/status_color")
 
 // Uncomment to copy all static images under ../images to the output folder and reference

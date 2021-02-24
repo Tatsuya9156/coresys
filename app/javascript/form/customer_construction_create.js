@@ -1,4 +1,3 @@
-// 工事情報登録
 if (document.URL.match( /customers/ )) {
   function constructionCreate() {
     const constructionOpen = document.getElementById("construction-create-btn");

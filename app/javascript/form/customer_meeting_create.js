@@ -18,6 +18,6 @@ if (document.URL.match( /customers/ )) {
         meetingModal.classList.add("hidden");
       }
     });
-  }
+  };
   window.addEventListener('load', meetingCreate);
 }
