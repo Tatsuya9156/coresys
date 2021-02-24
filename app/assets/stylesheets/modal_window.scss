@@ -15,7 +15,7 @@
   // モーダルウィンドウ
   .modal-window--card {
     position: absolute;
-    top: 18%;
+    top: 15%;
     right: 0;
     left: 0;
     width: 500px;
@@ -127,7 +127,10 @@
     .modal-window--card--form--field--btn {
       &.--customer {
         padding-top: 10px;
-        padding-bottom: 20px;
+        padding-bottom: 15px;
+      }
+      &.--bottom {
+        padding-bottom: 23px;
       }
     }
   }

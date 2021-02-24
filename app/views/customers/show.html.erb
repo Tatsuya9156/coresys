@@ -5,8 +5,11 @@
 <%# ヘッダー部分テンプレートの読み込み %>
 <%= render partial:"shared/header" %>
 
-<%# 物件グループ作成の部分テンプレートの読み込み %>
+<%# 物件新規作成の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/user/customer/create" %>
+
+<%# 物件編集の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/edit" %>
 
 <%# 現調情報作成の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/user/customer/meeting" %>
@@ -32,11 +35,8 @@
         <div class="customer-info-wrapper">
           <%# ヘッダーカラー %>
           <div class="customer-info-wrapper--header"></div>
-          <%# 編集・削除ボタン %>
-          <%= image_tag "edit.png", class:"edit-btn --customer" %>
-          <%= link_to customer_path(@customer_show.id), method: :delete, data: { confirm: "【重要】\n顧客情報を削除します。\n現調情報、工事情報、コメントも削除されます。\nよろしいですか？" } do %>
-            <%= image_tag "trash.png", class:"trash-btn --customer" %>
-          <% end %>
+          <%# 編集ボタン %>
+          <%= image_tag "edit.png", class:"edit-btn --customer", id:"customer-edit-btn" %>
           <%# ステータスバー %>
           <div class="customer-info-wrapper--status--icon">
             <% Status.all.each.with_index(1) do |status, index| %>
