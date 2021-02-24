@@ -158,7 +158,7 @@ worker = Worker.create!(
       address:        "愛知県旭川市坂下新田3-19",
       warehouse_zip:  "234-5678",
       warehouse:      "愛知県旭川市坂下新田3-19",
-      warehouse_info: "直送不可",
+      warehouse_info: "自宅の庭の一角です。倉庫ではありません。",
       inaba:          "直送不可",
       yodo:           "直送不可",
       takubo:         "直送不可",
@@ -167,6 +167,72 @@ worker = Worker.create!(
       lixil:          "直送不可"
 )
 worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_10.jpg')), filename: 'face_image_10.jpg')
+
+worker = Worker.create!(
+      worker_number:  "5004",
+      name:           "武井正裕",
+      name_kana:      "タケイマサヒロ",
+      trade_name:     "マサ工房",
+      phone:          "09000301743",
+      email:          "testtest4@example.com",
+      password:       "coresys5004",
+      address_zip:    "201-6723",
+      address:        "愛知県所沢市金成入生田25-1",
+      warehouse_zip:  "201-4422",
+      warehouse:      "愛知県所沢市金成入生田30-5-1",
+      warehouse_info: "鍵番号：5511",
+      inaba:          "未申請",
+      yodo:           "未申請",
+      takubo:         "未申請",
+      ykkap:          "171WA4",
+      sankyo:         "B1",
+      lixil:          "109825"
+)
+worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_11.jpg')), filename: 'face_image_11.jpg')
+
+worker = Worker.create!(
+      worker_number:  "5005",
+      name:           "二宮龍星",
+      name_kana:      "ニノミヤリュウセイ",
+      trade_name:     "二宮硝子店",
+      phone:          "09000711144",
+      email:          "testtest5@example.com",
+      password:       "coresys5005",
+      address_zip:    "401-3524",
+      address:        "静岡県伊達郡国見町三潴町清松40-1",
+      warehouse_zip:  "401-3524",
+      warehouse:      "静岡県伊達郡国見町三潴町清松40-1",
+      warehouse_info: "早朝の配送により近隣からクレームがあったため注意",
+      inaba:          "401",
+      yodo:           "22",
+      takubo:         "A300",
+      ykkap:          "171EC1",
+      sankyo:         "B9",
+      lixil:          "198123"
+)
+worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_12.jpg')), filename: 'face_image_12.jpg')
+
+worker = Worker.create!(
+      worker_number:  "5006",
+      name:           "石井壮一郎",
+      name_kana:      "イシイソウイチロウ",
+      trade_name:     "石井建設",
+      phone:          "09000303011",
+      email:          "testtest6@example.com",
+      password:       "coresys5006",
+      address_zip:    "200-1100",
+      address:        "岐阜県高山市小淵沢町下笹尾110-1",
+      warehouse_zip:  "200-1100",
+      warehouse:      "岐阜県高山市小淵沢町下笹尾110-1",
+      warehouse_info: "受付に声をかければ案内してくれます",
+      inaba:          "300",
+      yodo:           "10G",
+      takubo:         "GA220",
+      ykkap:          "171RQ2",
+      sankyo:         "C40",
+      lixil:          "197156"
+)
+worker.face_image.attach(io: File.open(Rails.root.join('./app/assets/images/face_image_13.jpg')), filename: 'face_image_13.jpg')
 
 
 ##### 顧客データ
@@ -214,4 +280,64 @@ customer = Customer.create!(
       residence_zip: "207-1923",
       residence:     "愛知県宮津市嵐山虚空蔵山町331",
       employee_id:   "3"
+)
+
+customer = Customer.create!(
+      order_date:    "2021-02-20",
+      store_id:      "15",
+      status_id:     "8",
+      name:          "千田世里花",
+      name_kana:     "センダセリカ",
+      phone:         "09000301725",
+      email:         "senda@example.com",
+      address_zip:   "401-2244",
+      address:       "三重県大島郡天城町奈川440-10",
+      residence_zip: "401-2244",
+      residence:     "三重県大島郡天城町奈川440-10",
+      employee_id:   "5"
+)
+
+customer = Customer.create!(
+      order_date:    "2021-02-10",
+      store_id:      "11",
+      status_id:     "2",
+      name:          "金井鮎夢",
+      name_kana:     "カナイアユム",
+      phone:         "09000558162",
+      email:         "kanai@example.com",
+      address_zip:   "500-1111",
+      address:       "三重県芦屋市神出町小束野300-1",
+      residence_zip: "500-1111",
+      residence:     "三重県芦屋市神出町小束野300-1",
+      employee_id:   "7"
+)
+
+customer = Customer.create!(
+      order_date:    "2021-02-05",
+      store_id:      "13",
+      status_id:     "3",
+      name:          "豊田寿一",
+      name_kana:     "トヨダトシカズ",
+      phone:         "09000558162",
+      email:         "toyoda@example.com",
+      address_zip:   "101-0099",
+      address:       "静岡県下北郡佐井村谷田10-10",
+      residence_zip: "101-0099",
+      residence:     "静岡県下北郡佐井村谷田10-10",
+      employee_id:   "2"
+)
+
+customer = Customer.create!(
+      order_date:    "2021-01-30",
+      store_id:      "10",
+      status_id:     "3",
+      name:          "宮城晴斗",
+      name_kana:     "ミヤギハルト",
+      phone:         "09000411029",
+      email:         "miyagi@example.com",
+      address_zip:   "330-2201",
+      address:       "岐阜県児玉郡神川町上黒瀬40-4",
+      residence_zip: "330-2201",
+      residence:     "岐阜県児玉郡神川町上黒瀬40-4",
+      employee_id:   "4"
 )
