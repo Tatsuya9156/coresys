@@ -1,0 +1,45 @@
+
+<% if Meeting.find_by(customer_id: @customer_show.id).present? %>
+
+  <%# モーダルウィンドウ %>
+  <div class="modal-window hidden fullfy" id="meeting-modal-edit">
+    <div class="modal-window--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --customer"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"meeting-edit-close-btn" %>
+      <div class="modal-window--card--title">現調情報編集</div>
+
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
+        <%= form_with model: @meeting_show, url: customer_meeting_path(@customer_show.id), method: :patch, local: true do |f| %>
+
+          <%# 現調担当 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :worker_id, '現調担当', class:"modal-window--card--form--field--tag" %>
+            <%= f.collection_select(:worker_id, Worker.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
+          </div>
+
+          <%# 現調日時 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :meeting_datetime, '現調日時', class:"modal-window--card--form--field--tag" %>
+            <%= f.datetime_field :meeting_datetime, class:"modal-window--card--form--field--value --select" %>
+          </div>
+
+          <%# 作成ボタン %>
+          <div class="modal-window--card--form--field--btn --customer">
+            <%= f.button "更新", type: "button", onclick: 'submit();', class: "submit-btn" %>
+          </div>
+
+          <%# 削除ボタン %>
+          <div class="modal-window--card--form--field--btn --customer --bottom">
+            <%= link_to "現調情報を削除する", customer_meeting_path(@customer_show.id), method: :delete, data: { confirm: "【重要】\n現調情報を削除します。\nよろしいですか？" }, class:"delete-btn" %>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>

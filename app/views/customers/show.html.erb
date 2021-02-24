@@ -14,6 +14,9 @@
 <%# 現調情報作成の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/user/customer/meeting" %>
 
+<%# 現調情報編集の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/meeting_edit" %>
+
 <%# 工事情報作成の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/user/customer/construction" %>
 
@@ -105,13 +108,6 @@
           <div class="customer-info-wrapper --bottom--left">
             <%# ヘッダーカラー %>
             <div class="customer-info-wrapper--header"></div>
-            <%# 編集・削除ボタン %>
-            <% if Meeting.find_by(customer_id: @customer_show.id).present? %>
-              <%= image_tag "edit.png", class:"edit-btn --customer" %>
-              <%= link_to customer_meeting_path(@meeting_show.id), method: :delete, data: { confirm: "【重要】\n現調情報を削除します。\nよろしいですか？" } do %>
-                <%= image_tag "trash.png", class:"trash-btn --customer" %>
-              <% end %>
-            <% end %>
             <%# タイトル %>
             <div class="customer-info-wrapper--title">現調情報</div>
             <%# 基本情報 %>
@@ -133,6 +129,10 @@
                 <% end %>
               </div>
             </div>
+            <%# 編集・削除ボタン %>
+            <% if Meeting.find_by(customer_id: @customer_show.id).present? %>
+              <%= image_tag "edit.png", class:"edit-btn --customer", id:"meeting-edit-btn" %>
+            <% end %>
           </div>
         </div>
         

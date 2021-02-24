@@ -1,6 +1,6 @@
-// 現調情報登録
 if (document.URL.match( /customers/ )) {
   function meetingCreate() {
+    // 新規作成の場合
     const meetingOpen = document.getElementById("meeting-create-btn");
     const meetingModal = document.getElementById("meeting-modal-create");
     const meetingClose = document.getElementById("meeting-close-btn");
@@ -18,6 +18,6 @@ if (document.URL.match( /customers/ )) {
         meetingModal.classList.add("hidden");
       }
     });
-  };
+  }
   window.addEventListener('load', meetingCreate);
 }

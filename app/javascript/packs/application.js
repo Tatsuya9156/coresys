@@ -12,6 +12,7 @@ require("form/worker_create")
 require("form/chat_create")
 require("form/customer_create")
 require("form/customer_meeting_create")
+require("form/customer_meeting_edit")
 require("form/customer_construction_create")
 require("customer/status_color")
 
