@@ -1,8 +1,8 @@
 class CustomersController < ApplicationController
-  before_action :current_user_is_employee?, only: [:index, :create, :show, :destroy]
+  before_action :current_user_is_employee?, only: [:index, :create, :show, :update, :destroy]
   before_action :customer_all, only: [:index, :create]
-  before_action :customer_new, only: [:index, :show, :destroy]
-  before_action :customer_show, only: [:show, :destroy]
+  before_action :customer_new, only: [:index, :show, :update, :destroy]
+  before_action :customer_show, only: [:show, :update, :destroy]
 
   def index
   end
@@ -19,6 +19,14 @@ class CustomersController < ApplicationController
   def show
   end
 
+  def update
+    if @customer_show.update(customer_params)
+      redirect_to customer_path(@customer_show)
+    else
+      render :show
+    end
+  end
+
   def destroy
     if @customer_show.destroy
       redirect_to customers_path
@@ -31,8 +39,8 @@ class CustomersController < ApplicationController
 
   # ストロングパラメーター
   def customer_params
-    params.require(:customer).permit(:order_date, :store_id, :name, :name_kana, :phone, :email, :employee_id, :address_zip, :address,
-                                     :residence_zip, :residence, :status_id)
+    params.require(:customer).permit(:order_date, :store_id, :status_id, :name, :name_kana, :phone, :email, :employee_id, :address_zip, :address,
+                                     :residence_zip, :residence)
   end
 
   # 顧客情報を全て取得

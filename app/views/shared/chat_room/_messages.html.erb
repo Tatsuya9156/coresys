@@ -2,18 +2,12 @@
 <%# 投稿メッセージ表示 %>
 <div class="chat-message">
 
-  <%# 社員の場合 %>
-  <% if message.employee.present? %>
     <div class="message-icon">
-      <% if message.employee.face_image.present? %>
-        <%= image_tag message.employee.face_image.variant(resize: '55x55'), class: 'message-face-image' %>
-      <% else %>
-        <%= image_tag "face_image_sample.png", class:"message-face-image" %>
-      <% end %>
+        <%= image_tag message.wordable.face_image.variant(resize: '55x55'), class: 'message-face-image' %>
     </div>
     <div class="message-area">
       <div class="message-data-area">
-        <p class="message-name"><%= message.employee.name %></p>
+        <p class="message-name"><%= message.wordable.name %></p>
         <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
       </div>
       <div class="message-text-area">
@@ -23,29 +17,5 @@
         <% end %>
       </div>
     </div>
-
-  <%# 職人の場合 %>
-  <% elsif message.worker.present? %>
-    <div class="message-icon">
-      <% if message.worker.face_image.present? %>
-        <%= image_tag message.worker.face_image.variant(resize: '55x55'), class: 'message-face-image' %>
-      <% else %>
-        <%= image_tag "employee.png", class:"message-face-image" %>
-      <% end %>
-    </div>
-    <div class="message-area">
-      <div class="message-data-area">
-        <p class="message-name"><%= message.worker.name %> (<%= message.worker.trade_name %>)</p>
-        <p class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-      </div>
-      <div class="message-text-area">
-        <p class="message-text"><%= simple_format(message.text) %></p>
-        <% message.message_images.each do |image| %>
-          <%= image_tag image.variant(resize: '300x300'), class: 'message-image' %>
-        <% end %>
-      </div>
-    </div>
-
-  <% end %>
 
 </div>

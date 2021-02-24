@@ -60,7 +60,7 @@ class ChatsController < ApplicationController
 
   # チャット別のメッセージデータ取得
   def message_find
-    @messages = @chat_show.messages.with_attached_message_images.includes(:employee, :worker)
+    @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる

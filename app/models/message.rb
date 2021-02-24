@@ -1,7 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :chat
-  belongs_to :employee, optional: true
-  belongs_to :worker, optional: true
+  belongs_to :wordable, polymorphic: true
   has_many_attached :message_images
 
   validates :text, presence: true, unless: :was_attached?

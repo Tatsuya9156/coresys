@@ -1,0 +1,51 @@
+
+<% if Construction.find_by(customer_id: @customer_show.id).present? %>
+
+  <%# モーダルウィンドウ %>
+  <div class="modal-window hidden fullfy" id="construction-modal-edit">
+    <div class="modal-window--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --customer"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"construction-edit-close-btn" %>
+      <div class="modal-window--card--title">工事情報編集</div>
+
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
+        <%= form_with model: @construction_show, url: customer_construction_path(@customer_show.id), method: :patch, local: true do |f| %>
+
+          <%# 現調担当 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :worker_id, '工事担当', class:"modal-window--card--form--field--tag" %>
+            <%= f.collection_select(:worker_id, Worker.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
+          </div>
+
+          <%# 現調日時 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :construction_datetime, '着工日時', class:"modal-window--card--form--field--tag" %>
+            <%= f.datetime_field :construction_datetime, class:"modal-window--card--form--field--value --select" %>
+          </div>
+
+          <%# 完了日 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :completion_date, '完了日', class:"modal-window--card--form--field--tag" %>
+            <%= f.date_field :completion_date, class:"modal-window--card--form--field--value --select" %>
+          </div>
+
+          <%# 作成ボタン %>
+          <div class="modal-window--card--form--field--btn --customer">
+            <%= f.button "更新", type: "button", onclick: 'submit();', class: "submit-btn" %>
+          </div>
+
+          <%# 削除ボタン %>
+          <div class="modal-window--card--form--field--btn --customer --bottom">
+            <%= link_to "工事情報を削除する", customer_construction_path(@customer_show.id), method: :delete, data: { confirm: "【重要】\n工事情報を削除します。\nよろしいですか？" }, class:"delete-btn" %>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+<% end %>

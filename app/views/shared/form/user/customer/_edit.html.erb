@@ -1,18 +1,18 @@
 
 <%# モーダルウィンドウ %>
 
-<%= form_with model: @customer, url: customers_path, method: :post, local: true do |f| %>
-  <%# 1ページ目 %>
-  <div class="modal-window hidden fullfy" id="customer-modal">
-    <div class="modal-window--card hidden" id="customer-create-first">
+<%# 1ページ目 %>
+<div class="modal-window hidden fullfy" id="customer-edit-modal">
+  <div class="modal-window--card hidden" id="customer-edit-first">
 
-      <%# ヘッダーとタイトル %>
-      <div class="modal-window--card--header --customer"></div>
-      <%= image_tag "close.png", class:"close-icon", id:"first-customer-create-close-btn" %>
-      <div class="modal-window--card--title">新規物件作成</div>
+    <%# ヘッダーとタイトル %>
+    <div class="modal-window--card--header --customer"></div>
+    <%= image_tag "close.png", class:"close-icon", id:"first-customer-edit-close-btn" %>
+    <div class="modal-window--card--title">物件情報編集</div>
 
-      <%# 入力フォーム %>
-      <div class="modal-window--card--form">
+    <%# 入力フォーム %>
+    <div class="modal-window--card--form">
+      <%= form_with model: @customer_show, url: customer_path(@customer_show.id), method: :patch, local: true do |f| %>
 
         <%# 受注日 %>
         <div class="modal-window--card--form--field">
@@ -61,7 +61,7 @@
           <div class="page-nav">
             <div class="nav-child --left"></div>
             <div class="nav-child --center">1 / 2</div>
-            <div class="nav-child --right"><p id="to-second">次へ >></p></div>
+            <div class="nav-child --right"><p id="edit-to-second">次へ >></p></div>
           </div>
         </div>
 
@@ -70,12 +70,12 @@
     </div>
 
   <%# 2ページ目 %>
-    <div class="modal-window--card hidden" id="customer-create-second">
+    <div class="modal-window--card hidden" id="customer-edit-second">
 
       <%# ヘッダーとタイトル %>
       <div class="modal-window--card--header --customer"></div>
-      <%= image_tag "close.png", class:"close-icon", id:"second-customer-create-close-btn" %>
-      <div class="modal-window--card--title">新規物件作成</div>
+      <%= image_tag "close.png", class:"close-icon", id:"second-customer-edit-close-btn" %>
+      <div class="modal-window--card--title">物件編集</div>
 
       <%# 入力フォーム %>
       <div class="modal-window--card--form">
@@ -112,24 +112,25 @@
 
         <%# 作成ボタン %>
         <div class="modal-window--card--form--field--btn --customer">
-          <%= f.button "作成", type: "button", onclick: 'submit();', class: "submit-btn" %>
+          <%= f.button "更新", type: "button", onclick: 'submit();', class: "submit-btn" %>
         </div>
 
-        <%# 高さ調整 %>
-        <div class="modal-window--card--form--field">
+        <%# 削除ボタン %>
+        <div class="modal-window--card--form--field--btn --customer --bottom">
+          <%= link_to "物件を削除する", customer_path(@customer_show.id), method: :delete, data: { confirm: "【重要】\n顧客情報を削除します。\n現調情報、工事情報、コメントも削除されます。\nよろしいですか？" }, class:"delete-btn" %>
         </div>
 
         <%# ページ遷移 %>
         <div class="modal-window--card--form--field">
           <div class="page-nav">
-            <div class="nav-child --left"><p id="to-first"><< 前へ</p></div>
+            <div class="nav-child --left"><p id="edit-to-first"><< 前へ</p></div>
             <div class="nav-child --center">2 / 2</div>
             <div class="nav-child --right"></div>
           </div>
         </div>
 
-      </div>
-
+      <% end %>
     </div>
+
   </div>
-<% end %>
+</div>

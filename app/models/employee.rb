@@ -8,7 +8,7 @@ class Employee < ApplicationRecord
   has_many :chats, through: :chat_employees
   has_many :customers
   has_many :comments
-  has_many :messages
+  has_many :messages, as: :wordable
   has_one_attached :face_image
 
   VALID_NUM_REGEX   = /\A[0-9]{4}\z/.freeze
