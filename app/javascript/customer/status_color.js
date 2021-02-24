@@ -84,7 +84,7 @@ if (document.URL.match( /customers/ )) {
         toSeven.classList.add("after-color");
         seven.classList.add("after-color");
         break;
-      case "7":
+      case "8":
         one.classList.add("after-color");
         toTwo.classList.add("after-color");
         two.classList.add("after-color");
