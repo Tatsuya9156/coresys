@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_065347) do
+ActiveRecord::Schema.define(version: 2021_03_03_085639) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -137,6 +137,19 @@ ActiveRecord::Schema.define(version: 2021_02_16_065347) do
     t.index ["wordable_type", "wordable_id"], name: "index_messages_on_wordable_type_and_wordable_id"
   end
 
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "message_id"
+    t.bigint "client_id"
+    t.bigint "pic_id"
+    t.datetime "deadline", null: false
+    t.boolean "done", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_tasks_on_client_id"
+    t.index ["message_id"], name: "index_tasks_on_message_id"
+    t.index ["pic_id"], name: "index_tasks_on_pic_id"
+  end
+
   create_table "workers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "worker_number", null: false
     t.string "name", null: false
@@ -178,4 +191,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_065347) do
   add_foreign_key "meetings", "customers"
   add_foreign_key "meetings", "workers"
   add_foreign_key "messages", "chats"
+  add_foreign_key "tasks", "employees", column: "client_id"
+  add_foreign_key "tasks", "employees", column: "pic_id"
+  add_foreign_key "tasks", "messages"
 end
