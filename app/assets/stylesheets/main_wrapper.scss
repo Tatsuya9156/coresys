@@ -15,6 +15,9 @@
     display: flex;
     justify-content: space-evenly;
   }
+  &.--chat {
+    display: flex;
+  }
 }
 
 // 編集ボタン
@@ -289,6 +292,10 @@
 
 /**************** チャットルーム ***************/
 
+.message-wrapper {
+  width: 80%;
+}
+
 // チャットルームタイトル
 .chat-room-title {
   width: 90%;
@@ -388,5 +395,23 @@
     position: absolute;
     right: 50px;
     bottom: 10px;
+  }
+}
+
+
+
+.task-wrapper {
+  width: 20%;
+  border-left: solid 1px rgb(80, 80, 80);
+  .task-title {
+    text-align: center;
+    p {
+      font-size: 13px;
+    }
+  }
+  .task-area {
+    .task-message {
+      border: solid 1px rgb(80, 80, 80);
+    }
   }
 }
