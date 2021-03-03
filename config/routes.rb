@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :constructions, only: [:create, :update, :destroy]
   end
   resources :chats, only: [:index, :create, :show, :update, :destroy] do
-    resources :messages, only: [:create]
+    resources :messages, only: [:create] do
+      resources :tasks, only: [:create, :update]
+    end
   end
 end
