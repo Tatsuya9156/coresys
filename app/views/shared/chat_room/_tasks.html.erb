@@ -18,7 +18,7 @@
   <% if employee_signed_in? && current_employee.id == task.pic.id %>
     <div class="task-btn">
       <div class="--child">
-        <%= link_to "完了する", chat_task_path(task.id), method: :delete %>
+        <%= link_to "完了する", chat_task_path(task.id), method: :delete, class:"task-done" %>
       </div>
     </div>
   <% end %>

@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_085639) do
     t.text "text", null: false
     t.bigint "client_id"
     t.bigint "pic_id"
-    t.boolean "done", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chat_id"], name: "index_tasks_on_chat_id"

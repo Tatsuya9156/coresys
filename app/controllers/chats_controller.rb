@@ -55,6 +55,7 @@ class ChatsController < ApplicationController
     @message = Message.new
     @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
     @tasks = @chat_show.tasks.includes(:client, :pic)
+  end
 
   # チャットデータ取得
   def chat_find

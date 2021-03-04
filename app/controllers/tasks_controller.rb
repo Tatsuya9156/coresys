@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
   before_action :current_user_is_employee?, only: [:create, :destroy]
-  before_action :message_data, only: [:create, :destroy]
+  before_action :message_new, only: [:create, :destroy]
 
   def create
     @chat_show = Chat.find(params[:chat_id])
+    @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
     @task = Task.new(task_params)
     if @task.save
       redirect_to chat_path(params[:chat_id])
@@ -14,6 +15,7 @@ class TasksController < ApplicationController
 
   def destroy
     @chat_show = Chat.find(params[:id])
+    @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
     @task = Task.find(params[:chat_id])
     if @task.destroy
       redirect_to chat_path(params[:id])
@@ -30,10 +32,8 @@ class TasksController < ApplicationController
   end
 
   # メッセージインスタンス生成
-  # チャット別のメッセージデータ取得
-  def message_data
+  def message_new
     @message = Message.new
-    @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる

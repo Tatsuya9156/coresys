@@ -28,7 +28,7 @@
           <%# 担当者選択 %>
           <div class="modal-window--card--form--field">
             <%= f.label :pic_id, '担当者選択', class:"modal-window--card--form--field--tag" %>
-            <%= f.collection_select(:pic_id, Employee.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
+            <%= f.collection_select(:pic_id, @chat_show.employees, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
           </div>
 
           <%# 作成ボタン %>

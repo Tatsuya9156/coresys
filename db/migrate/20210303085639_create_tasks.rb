@@ -6,7 +6,6 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.text       :text,     null: false
       t.references :client,   foreign_key: {to_table: :employees}
       t.references :pic,      foreign_key: {to_table: :employees}
-      t.boolean    :done,     null: false, default: false
       t.timestamps
     end
   end
