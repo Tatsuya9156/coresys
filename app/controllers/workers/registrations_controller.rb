@@ -59,7 +59,7 @@ class Workers::RegistrationsController < Devise::RegistrationsController
     worker_signed_in? == false && current_employee.admin == true
   end
 
-  # 管理者権限を持つ社員でのみユーザー新規登録が可能
+  # 新規作成後のアカウント自動切り替え防止
   def sign_up(resource_name, resource)
     sign_in(resource_name, resource) unless current_employee_is_admin?
   end
