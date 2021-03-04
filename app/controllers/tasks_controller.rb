@@ -28,7 +28,8 @@ class TasksController < ApplicationController
 
   # ストロングパラメーター
   def task_params
-    params.require(:task).permit(:text, :pic_id, :deadline, :done).merge(chat_id: params[:chat_id], client_id: current_employee.id)
+    params.require(:task).permit(:text, :pic_id, :deadline, :done).merge(chat_id: params[:chat_id],
+                                                                         client_id: current_employee.id)
   end
 
   # メッセージインスタンス生成

@@ -15,12 +15,13 @@ class MessagesController < ApplicationController
 
   # ストロングパラメーター(社員の場合)
   def employee_message_params
-    params.require(:message).permit(:text, message_images: []).merge(chat_id: params[:chat_id], wordable_type: Employee, wordable_id: current_employee.id)
+    params.require(:message).permit(:text, message_images: []).merge(chat_id: params[:chat_id], wordable_type: Employee,
+                                                                     wordable_id: current_employee.id)
   end
 
   # ストロングパラメーター(職人の場合)
   def worker_message_params
-    params.require(:message).permit(:text, message_images: []).merge(chat_id: params[:chat_id], wordable_type: Worker, wordable_id: current_worker.id)
+    params.require(:message).permit(:text, message_images: []).merge(chat_id: params[:chat_id], wordable_type: Worker,
+                                                                     wordable_id: current_worker.id)
   end
-
 end
