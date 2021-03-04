@@ -21,7 +21,7 @@ class Employees::SessionsController < Devise::SessionsController
   def new_guest
     employee = Employee.guest
     sign_in employee
-    redirect_to root_path, notice: 'ゲスト社員ユーザーとしてログインしました。'
+    redirect_to root_path
   end
 
   # protected

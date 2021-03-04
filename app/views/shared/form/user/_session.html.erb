@@ -40,9 +40,10 @@
 
         <%# ゲストログインボタン %>
         <div class="user-sign--card--info--child">
-          <%= link_to "ゲストログイン(#{ user_name })", guest_sign_in_path, method: :post, class:"submit-btn --guest" %>
+          <%= link_to "簡単ログイン(#{ user_name })", guest_sign_in_path, method: :post, class:"submit-btn --guest" %>
         </div>
 
+        <%# 社員or職人ログインページへの遷移ボタン %>
         <div class="user-sign--card--info--child --top">
           <%= link_to "--- #{ another_user_name }の方はこちらへ ---", another_user_session_path, class:"to-login" %>
         </div>
