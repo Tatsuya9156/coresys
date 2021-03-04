@@ -197,7 +197,7 @@ a {
 // フェードイン表示
 .fadein {
   animation-name: fadein;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes fadein {
@@ -214,7 +214,7 @@ a {
 // ふわっと表示
 .fullfy {
   animation-name: fullfy;
-  animation-duration: 0.7s;
+  animation-duration: 0.5s;
 }
 
 @keyframes fullfy {

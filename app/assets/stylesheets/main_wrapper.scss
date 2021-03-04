@@ -339,12 +339,13 @@
       // 投稿者と投稿時間
       .message-data-area {
         display: flex;
+        align-items: center;
         .message-name {
           font-size: 16px;
           font-weight: bold;
         }
         .message-date {
-          margin: 3px 0 0 30px;
+          margin-left: 30px;
           font-size: 12px;
         }
       }
@@ -402,16 +403,68 @@
 
 .task-wrapper {
   width: 20%;
-  border-left: solid 1px rgb(80, 80, 80);
-  .task-title {
+  border-left: solid 1px rgb(200, 200, 200);
+  .task-new {
+    height: 60px;
     text-align: center;
-    p {
-      font-size: 13px;
+    padding: 5px 10px;
+    font-size: 13px;
+    &.em {
+      p {
+        cursor: pointer;
+        margin: 5px 10px;
+        border-radius: 30px;
+        &:hover {
+          font-weight: bold;
+          background-color: rgb(230, 230, 230);
+        }
+      }
     }
   }
-  .task-area {
-    .task-message {
-      border: solid 1px rgb(80, 80, 80);
+  .task-index {
+    height: calc(100vh - 50px - 60px);
+    overflow: scroll;
+    .task-area {
+      margin: 0 5px 5px 5px;
+      border: solid 1px rgb(150, 150, 150);
+      .task-message {
+        padding: 0 10px;
+        border-bottom: solid 1px rgb(200, 200, 200);
+      }
+      .task-show {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        border-bottom: solid 1px rgb(200, 200, 200);
+        &.--bottom {
+          border-bottom: none;
+        }
+        .task-tag {
+          width: 20%;
+          padding-left: 10px;
+          border-right: solid 1px rgb(200, 200, 200);
+        }
+        .task-value {
+          width: 80%;
+          padding-left: 10px;
+        }
+      }
+      .task-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        height: 36px;
+        border-top: solid 1px rgb(200, 200, 200);
+        .--child {
+          width: 100%;
+          line-height: 35px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(240, 240, 240);
+          }
+        }
+      }
     }
   }
 }

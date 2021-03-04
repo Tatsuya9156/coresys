@@ -11,6 +11,9 @@
 <%# チャットグループ編集の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/chat/edit" %>
 
+<%# タスク登録の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/task/create" %>
+
 <div class="wrapper">
 
   <%# サイドバー部分テンプレートの読み込み %>
@@ -39,7 +42,7 @@
 
       <%# メッセージ投稿フォーム %>
       <div class="chat-message-form">
-        <%= form_with(model: [@chat_show, @message], local: true) do |f| %>
+        <%= form_with model: [@chat_show, @message], url:chat_messages_path(@chat_show), method: :post, local: true  do |f| %>
           <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"7" %>
           <%= f.label :message_images do %>
             <%= image_tag('clip.png', class:"file-clip-icon") %>
@@ -53,29 +56,18 @@
 
     <%# タスクエリア %>
     <div class="task-wrapper">
-      <div class="task-title">
-        <p>タスク一覧</p>
-      </div>
-      <div class="task-index">
-
-        <div class="task-area">
-          <div class="task-message">
-            秋本さんに連絡してください。<br>その後お客様にも連絡してください。
-          </div>
-          <div class="task-deadline">
-            期限　：2021年03月01日(月)
-          </div>
-          <div class="task-client">
-            依頼者：柏木清人
-          </div>
-          <div class="task-pic">
-            担当者：神谷砂良
-          </div>
-          <div class="task-submit">
-            完了した
-          </div>
+      <% if employee_signed_in? %>
+        <div class="task-new em" id="new-task">
+          <p>タスクを追加する</p>
         </div>
-
+      <% else %>
+        <div class="task-new wo">
+          <p>タスク一覧</p>
+        </div>
+      <% end %>
+      <div class="task-index">
+        <%# タスク一覧の部分テンプレート呼び出し %>
+        <%= render partial:"shared/chat_room/tasks", collection: @tasks, as: "task" %>
       </div>
     </div>
 

@@ -1,0 +1,44 @@
+<% if employee_signed_in? %>
+  <%# モーダルウィンドウ %>
+  <div class="modal-window hidden fullfy" id="task-modal">
+    <div class="modal-window--card">
+
+      <%# ヘッダーとタイトル %>
+      <div class="modal-window--card--header --chat"></div>
+      <%= image_tag "close.png", class:"close-icon", id:"close-task" %>
+
+      <div class="modal-window--card--title">タスク登録</div>
+
+      <%# 入力フォーム %>
+      <div class="modal-window--card--form">
+        <%= form_with model: [@chat_show, @task], url:chat_tasks_path(@chat_show), method: :post, local: true do |f| %>
+
+          <%# タスク内容 %>
+          <div class="modal-window--card--form--field --text">
+            <%= f.label :text, 'タスク内容', class:"modal-window--card--form--field--tag" %>
+            <%= f.text_area :text, class:"modal-window--card--form--field--value --text" %>
+          </div>
+
+          <%# 期限設定 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :deadline, '期限設定', class:"modal-window--card--form--field--tag" %>
+            <%= f.datetime_field :deadline, class:"modal-window--card--form--field--value --select" %>
+          </div>
+
+          <%# 担当者選択 %>
+          <div class="modal-window--card--form--field">
+            <%= f.label :pic_id, '担当者選択', class:"modal-window--card--form--field--tag" %>
+            <%= f.collection_select(:pic_id, Employee.all, :id, :name, {}, {class:"modal-window--card--form--field--value --select"}) %>
+          </div>
+
+          <%# 作成ボタン %>
+          <div class="modal-window--card--form--field--btn --task">
+            <%= f.button "登録", type: "button", onclick: 'submit();', class: "submit-btn" %>
+          </div>
+
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+<% end %>

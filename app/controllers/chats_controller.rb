@@ -4,6 +4,7 @@ class ChatsController < ApplicationController
   before_action :chat_find, only: [:show, :update, :destroy]
   before_action :message_new, only: [:show, :update]
   before_action :message_find, only: [:show, :update]
+  before_action :task_find, only: [:show, :update]
 
   def index
   end
@@ -18,6 +19,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @task = Task.new
   end
 
   def update
@@ -61,6 +63,10 @@ class ChatsController < ApplicationController
   # チャット別のメッセージデータ取得
   def message_find
     @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
+  end
+
+  def task_find
+    @tasks = @chat_show.tasks.includes(:client, :pic)
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる
