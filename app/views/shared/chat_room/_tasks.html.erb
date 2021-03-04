@@ -1,0 +1,25 @@
+
+<div class="task-area">
+  <div class="task-message">
+    <%= simple_format(task.text) %>
+  </div>
+  <div class="task-show">
+    <div class="task-tag">期限</div>
+    <div class="task-value"><%= task.deadline.strftime("%Y-%m-%d %H:%M") %></div>
+  </div>
+  <div class="task-show">
+    <div class="task-tag">依頼者</div>
+    <div class="task-value"><%= task.client.name %></div>
+  </div>
+  <div class="task-show --bottom">
+    <div class="task-tag">担当者</div>
+    <div class="task-value"><%= task.pic.name %></div>
+  </div>
+  <% if employee_signed_in? && current_employee.id == task.pic.id %>
+    <div class="task-btn">
+      <div class="--child">
+        <%= link_to "完了する", chat_task_path(task.id), method: :delete, class:"task-done" %>
+      </div>
+    </div>
+  <% end %>
+</div>

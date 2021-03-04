@@ -15,7 +15,7 @@ class MeetingsController < ApplicationController
       render 'customers/show'
     end
   end
-  
+
   def update
     if @meeting_show.update(meeting_params)
       redirect_to customer_path(@customer_show.id)
@@ -23,7 +23,7 @@ class MeetingsController < ApplicationController
       render 'customers/show'
     end
   end
-  
+
   def destroy
     if @meeting_show.destroy
       redirect_to customer_path(@customer_show.id)

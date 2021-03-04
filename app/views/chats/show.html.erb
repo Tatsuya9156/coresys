@@ -11,6 +11,9 @@
 <%# チャットグループ編集の部分テンプレートの読み込み %>
 <%= render partial:"shared/form/chat/edit" %>
 
+<%# タスク登録の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/task/create" %>
+
 <div class="wrapper">
 
   <%# サイドバー部分テンプレートの読み込み %>
@@ -18,33 +21,54 @@
     <%= render partial:"shared/side_bar/chat" %>
   </div>
 
-  <div class="main-wrapper">
+  <div class="main-wrapper --chat">
 
-    <%# チャットルームタイトルと編集アイコン %>
-    <div class="chat-room-title">
-      <%= @chat_show.title %>
-      <%# 社員のみ編集ボタンを表示 %>
-      <% if employee_signed_in? %>
-        <%= image_tag "edit.png", class:"edit-icon", id:"chat-edit-btn" %>
-      <% end %>
-    </div>
-
-    <%# メッセージ表示 %>
-    <div class="chat-room-messages">
-      <%# メッセージ一覧の部分テンプレート呼び出し %>
-      <%= render partial:"shared/chat_room/messages", collection: @messages, as: "message" %>
-    </div>
-
-    <%# メッセージ投稿フォーム %>
-    <div class="chat-message-form">
-      <%= form_with(model: [@chat_show, @message], local: true) do |f| %>
-        <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"6" %>
-        <%= f.label :message_images do %>
-          <%= image_tag('clip.png', size:"15×15", class:"file-clip-icon") %>
-          <%= f.file_field :message_images, name: 'message[message_images][]', class: "hidden", multiple: true %>
+    <%# メッセージエリア %>
+    <div class="message-wrapper">
+      <%# チャットルームタイトルと編集アイコン %>
+      <div class="chat-room-title">
+        <%= @chat_show.title %>
+        <%# 社員のみ編集ボタンを表示 %>
+        <% if employee_signed_in? %>
+          <%= image_tag "edit.png", class:"edit-icon", id:"chat-edit-btn" %>
         <% end %>
-        <%= image_submit_tag("submit.png", onclick: "submit();", class:"message-send") %>
+      </div>
+
+      <%# メッセージ表示 %>
+      <div class="chat-room-messages">
+        <%# メッセージ一覧の部分テンプレート呼び出し %>
+        <%= render partial:"shared/chat_room/messages", collection: @messages, as: "message" %>
+      </div>
+
+      <%# メッセージ投稿フォーム %>
+      <div class="chat-message-form">
+        <%= form_with model: [@chat_show, @message], url:chat_messages_path(@chat_show), method: :post, local: true  do |f| %>
+          <%= f.text_area :text, class:"message-form", placeholder:"メッセージを入力してください", rows:"7" %>
+          <%= f.label :message_images do %>
+            <%= image_tag('clip.png', class:"file-clip-icon") %>
+            <%= f.file_field :message_images, name: 'message[message_images][]', class: "hidden", multiple: true %>
+          <% end %>
+          <%= image_submit_tag("submit.png", onclick: "submit();", class:"message-send") %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <%# タスクエリア %>
+    <div class="task-wrapper">
+      <% if employee_signed_in? %>
+        <div class="task-new em" id="new-task">
+          <p>タスクを追加する</p>
+        </div>
+      <% else %>
+        <div class="task-new wo">
+          <p>タスク一覧</p>
+        </div>
       <% end %>
+      <div class="task-index">
+        <%# タスク一覧の部分テンプレート呼び出し %>
+        <%= render partial:"shared/chat_room/tasks", collection: @tasks, as: "task" %>
+      </div>
     </div>
 
   </div>

@@ -9,6 +9,8 @@ class Employee < ApplicationRecord
   has_many :customers
   has_many :comments
   has_many :messages, as: :wordable
+  has_many :client_tasks, class_name: 'Task', foreign_key: 'client_id'
+  has_many :pic_tasks, class_name: 'Task', foreign_key: 'pic_id'
   has_one_attached :face_image
 
   VALID_NUM_REGEX   = /\A[0-9]{4}\z/.freeze
@@ -30,7 +32,7 @@ class Employee < ApplicationRecord
   validates :enrolled, inclusion: { in: [true, false] }
 
   def self.guest
-    find_or_create_by!(email: "test1@example.com") do |user|
+    find_or_create_by!(email: 'test1@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end

@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   end
   resources :chats, only: [:index, :create, :show, :update, :destroy] do
     resources :messages, only: [:create]
+    resources :tasks, only: [:create, :destroy]
   end
 end

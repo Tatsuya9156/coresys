@@ -106,6 +106,7 @@ a {
     width: 150px;
     line-height: 30px;
     text-align: center;
+    color: black;
   }
   &:active{
     box-shadow: none;
@@ -197,7 +198,7 @@ a {
 // フェードイン表示
 .fadein {
   animation-name: fadein;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 @keyframes fadein {
@@ -214,7 +215,7 @@ a {
 // ふわっと表示
 .fullfy {
   animation-name: fullfy;
-  animation-duration: 0.7s;
+  animation-duration: 0.5s;
 }
 
 @keyframes fullfy {

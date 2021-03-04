@@ -2,8 +2,7 @@ class ChatsController < ApplicationController
   before_action :current_user_is_employee?, only: [:create, :update]
   before_action :chat_new, only: [:index, :show, :update]
   before_action :chat_find, only: [:show, :update, :destroy]
-  before_action :message_new, only: [:show, :update]
-  before_action :message_find, only: [:show, :update]
+  before_action :mess_task_data, only: [:show, :update]
 
   def index
   end
@@ -18,6 +17,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @task = Task.new
   end
 
   def update
@@ -49,18 +49,17 @@ class ChatsController < ApplicationController
   end
 
   # メッセージインスタンス生成
-  def message_new
+  # チャット別のメッセージデータ取得
+  # チャット別のタスクデータ取得
+  def mess_task_data
     @message = Message.new
+    @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
+    @tasks = @chat_show.tasks.includes(:client, :pic)
   end
 
   # チャットデータ取得
   def chat_find
     @chat_show = Chat.find(params[:id])
-  end
-
-  # チャット別のメッセージデータ取得
-  def message_find
-    @messages = @chat_show.messages.with_attached_message_images.includes(wordable: [face_image_attachment: [:blob]])
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる
