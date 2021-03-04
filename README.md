@@ -11,7 +11,7 @@ coresysはエクステリア業界向けの業務管理アプリです。
 ぜひご覧ください！
 
 # 🌐URL
-![README mov](https://user-images.githubusercontent.com/75982790/108340150-9ab26c80-721b-11eb-92da-9844f84b4e1e.gif)  
+![wantedly_1](https://user-images.githubusercontent.com/75982790/109946157-4a5b0480-7d1b-11eb-8133-0d07086069f8.gif)  
   
 URL:https://t-coresys.com  
   
