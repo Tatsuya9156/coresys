@@ -1,0 +1,28 @@
+
+<%# 個別CSSの読み込み %>
+<%= stylesheet_link_tag "header_icons/customer", :media => "all" %>
+
+<%# ヘッダー部分テンプレートの読み込み %>
+<%= render partial:"shared/header" %>
+
+<%# 物件グループ作成の部分テンプレートの読み込み %>
+<%= render partial:"shared/form/user/customer/create" %>
+
+<div class="wrapper">
+
+  <%# サイドバー %>
+  <div class="side-bar">
+    <%# サイドバー部分テンプレートの読み込み %>
+    <%= render partial:"shared/side_bar/customer" %>
+  </div>
+
+  <%# メイン画面 %>
+  <div class="main-wrapper customer-index">
+    <% if @results.length != 0 %>
+      <%= render partial:"shared/repeat/customer/customers", collection: @results, as: "customer" %>
+    <% else %>
+      該当する物件はありません。
+    <% end %>
+  </div>
+
+</div>

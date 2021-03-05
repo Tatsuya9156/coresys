@@ -6,12 +6,41 @@
   background-color: rgb(110, 110, 110);
 }
 
+.search-title {
+  margin: 20px 0;
+  font-size: 13px;
+  text-align: center;
+  color: whitesmoke;
+}
+
 .search-area {
   width: 100%;
   height: 40px;
   margin: 0 auto;
   text-align: center;
   cursor: pointer;
+  .search-select {
+    width: 90%;
+    height: 25px;
+    margin: 0 auto 20px;
+    display: flex;
+    .--form {
+      width: 100%;
+      padding: 0 10px;
+      outline: none;
+    }
+    .--tag {
+      width: 25%;
+      line-height: 25px;
+      text-align: left;
+      color: whitesmoke;
+    }
+    .--value {
+      width: 75%;
+      outline: none;
+      cursor: pointer;
+    }
+  }
   .search-form {
     width: 80%;
     height: 27px;
@@ -26,8 +55,7 @@
 
 .create-btn-area {
   width: 100%;
-  height: 60px;
-  margin-bottom: 10px;
+  height: 50px;
   text-align: center;
 }
 
