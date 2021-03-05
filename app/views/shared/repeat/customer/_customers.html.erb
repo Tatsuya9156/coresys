@@ -1,0 +1,18 @@
+
+<%= link_to customer_path(customer.id) do %>
+  <div class="customer-list">
+    <div class="list-info --left">
+      <div class="value --status">
+        <p><%= customer.status.name %></p>
+      </div>
+      <div class="value">受注日：<%= customer.order_date %></div>
+      <div class="value"><%= customer.store.name %></div>
+      <div class="value"><%= customer.name %></div>
+      <div class="value"><%= customer.phone %></div>
+      <div class="value"><%= customer.email %></div>
+    </div>
+    <div class="list-info --right">
+      <div class="value --update">更新日：<%= customer.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+    </div>
+  </div>
+<% end %>

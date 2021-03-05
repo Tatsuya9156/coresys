@@ -10,40 +10,16 @@
 
 <div class="wrapper">
 
-  <%# サイドバー部分テンプレートの読み込み %>
+  <%# サイドバー %>
   <div class="side-bar">
+    <%# サイドバー部分テンプレートの読み込み %>
     <%= render partial:"shared/side_bar/customer" %>
   </div>
 
   <%# メイン画面 %>
-  <div class="main-wrapper">
-
-    <%# ページ遷移リンク %>
-    <div class="page-link">
-      <%= link_to image_tag("left.png", class:"before-page"), "/" %>
-      <p>2／10</p>
-      <%= link_to image_tag("right.png", class:"after-page"), "/" %>
-    </div>
-
-    <div class="customer-index">
-      <% @customers.each do |customer| %>
-        <%= link_to customer_path(customer.id), class:"customer" do %>
-        <div class="customer-info">
-          <div class="info-left">
-            <div class="status">
-              <p><%= customer.status.name %></p>
-            </div>
-            <div class="order">受注日：<%= customer.order_date %></div>
-            <div class="store"><%= customer.store.name %></div>
-            <div class="name"><%= customer.name %></div>
-          </div>
-          <div class="info-right">
-            <div class="update">更新日：<%= customer.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-    </div>
-
+  <div class="main-wrapper customer-index">
+    <%# 物件一覧の部分テンプレート呼び出し %>
+    <%= render partial:"shared/repeat/customer/customers", collection: @customers, as: "customer" %>
   </div>
+
 </div>
