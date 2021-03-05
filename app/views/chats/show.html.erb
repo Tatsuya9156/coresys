@@ -37,7 +37,7 @@
       <%# メッセージ表示 %>
       <div class="chat-room-messages">
         <%# メッセージ一覧の部分テンプレート呼び出し %>
-        <%= render partial:"shared/chat_room/messages", collection: @messages, as: "message" %>
+        <%= render partial:"shared/repeat/chat/messages", collection: @messages, as: "message" %>
       </div>
 
       <%# メッセージ投稿フォーム %>
@@ -67,7 +67,7 @@
       <% end %>
       <div class="task-index">
         <%# タスク一覧の部分テンプレート呼び出し %>
-        <%= render partial:"shared/chat_room/tasks", collection: @tasks, as: "task" %>
+        <%= render partial:"shared/repeat/chat/tasks", collection: @tasks, as: "task" %>
       </div>
     </div>
 
