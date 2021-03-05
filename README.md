@@ -92,6 +92,6 @@ URL:https://t-coresys.com
  - Nginx, Unicorn, MariaDB
 
 # 🗂 ER図
-![ER](https://user-images.githubusercontent.com/75982790/109944704-d66c2c80-7d19-11eb-9732-b8a7ec609b10.png)  
+![ER](https://user-images.githubusercontent.com/75982790/110082097-3e7d4a00-7dd0-11eb-9a02-df7eb2cc1424.png)  
 オレンジ色のテーブルは実装済みです。  
 青色のテーブルは今後実装予定のテーブルになります。
