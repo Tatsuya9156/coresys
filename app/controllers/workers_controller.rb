@@ -1,10 +1,16 @@
 class WorkersController < ApplicationController
   before_action :updatable?, only: [:edit, :update]
   before_action :worker_find, only: [:edit, :update]
+  before_action :search_worker, only: [:index, :search]
 
   def index
     @workers = Worker.with_attached_face_image
   end
+
+  def search
+    @results = @w.result.with_attached_face_image
+  end
+
 
   def edit
   end
@@ -28,6 +34,11 @@ class WorkersController < ApplicationController
   # 職人データ取得
   def worker_find
     @worker = Worker.find(params[:id])
+  end
+
+  # 検索オブジェクトの生成
+  def search_worker
+    @w = Worker.ransack(params[:q])
   end
 
   # 管理者権限を持っている
