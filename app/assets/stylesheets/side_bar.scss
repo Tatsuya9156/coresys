@@ -38,6 +38,14 @@
       width: 75%;
       outline: none;
       cursor: pointer;
+      &.--radio {
+        display: flex;
+        align-items: center;
+        color: whitesmoke;
+        .--child {
+          margin-left: 20px;
+        }
+      }
     }
   }
   .search-form {

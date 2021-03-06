@@ -20,5 +20,14 @@
     <%= f.collection_select(:position_eq, @employee_position, :position, :position, {include_blank: "指定なし"}, {class:"--value"}) %>
   </div>
 
+  <%# 在籍状況 %>
+  <div class="search-select">
+    <%= f.label :enrolled_eq, "在籍状況", class:"--tag" %>
+    <div class="--value --radio">
+      <%= f.radio_button :enrolled_eq, true, class:"--child"%>在籍中
+      <%= f.radio_button :enrolled_eq, false, class:"--child" %>退職済
+    </div>
+  </div>
+
   <%= f.button "検索", type: 'button', onclick: 'submit();', class:"submit-btn" %>
 <% end %>
