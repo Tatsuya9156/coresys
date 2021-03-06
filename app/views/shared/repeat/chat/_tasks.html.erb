@@ -20,5 +20,11 @@
         <%= link_to "完了する", chat_task_path(task.id), method: :delete, class:"task-done" %>
       </div>
     </div>
+  <% elsif employee_signed_in? && current_employee.id == task.client.id %>
+    <div class="task-btn">
+      <div class="--child">
+        <%= link_to "削除する", chat_task_path(task.id), method: :delete, class:"task-done", data: { confirm: "【重要】\nタスクを削除してもよろしいですか？" }  %>
+      </div>
+    </div>
   <% end %>
 </div>
