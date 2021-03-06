@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   before_action :customer_all, only: [:index, :create]
   before_action :customer_new, only: [:index, :show, :update, :destroy]
   before_action :customer_show, only: [:show, :update, :destroy]
-  before_action :search_customer, only: [:index, :search]
+  before_action :search_customer, only: [:index, :search, :show]
 
   def index
   end
