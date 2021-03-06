@@ -1,6 +1,6 @@
 
 <%# 社員カード %>
-<div class="user-card --employee">
+<div class="user-card">
 
   <%# 編集ページへのリンク／管理者権限を持つ社員のみ表示 %>
   <% if employee_signed_in? && current_employee.admin == true %>
@@ -47,6 +47,16 @@
     <div class="user-card--info--child">
       <div class="user-card--info--child--tag">Email</div>
       <div class="user-card--info--child--value"><%= employee.email %></div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">在籍状況</div>
+      <div class="user-card--info--child--value">
+        <% if employee.enrolled == true %>
+          在職中
+        <% elsif employee.enrolled == false %>
+          退職済
+        <% end %>
+      </div>
     </div>
   </div>
   
