@@ -15,8 +15,11 @@
 
   <%# メイン画面 %>
   <div class="main-wrapper --user">
-    <%# 職人一覧の部分テンプレート呼び出し %>
-    <%= render partial:"shared/repeat/user/worker", collection: @workers, as: "worker" %>
+    <% if @results.length != 0 %>
+      <%= render partial:"shared/repeat/user/worker", collection: @results, as: "worker" %>
+    <% else %>
+      該当する職人が見つかりませんでした。
+    <% end %>
   </div>
 
 </div>

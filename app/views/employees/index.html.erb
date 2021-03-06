@@ -9,17 +9,14 @@
 
   <%# サイドバー %>
   <div class="side-bar">
-    <div class="search-area">
-      <input type="text" class="search-form" placeholder="フリーワード検索">
-    </div>
+    <%# サイドバー部分テンプレートの読み込み %>
+    <%= render partial:"shared/side_bar/employee" %>
   </div>
 
   <%# メイン画面 %>
   <div class="main-wrapper --user">
-
     <%# 社員一覧の部分テンプレート呼び出し %>
-    <%= render partial:"shared/user_index/employee", collection: @employees, as: "employee" %>
-
+    <%= render partial:"shared/repeat/user/employee", collection: @employees, as: "employee" %>
   </div>
 
 </div>

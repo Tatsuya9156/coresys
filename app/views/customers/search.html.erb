@@ -18,8 +18,11 @@
 
   <%# メイン画面 %>
   <div class="main-wrapper customer-index">
-    <%# 物件一覧の部分テンプレート呼び出し %>
-    <%= render partial:"shared/repeat/customer/customers", collection: @customers, as: "customer" %>
+    <% if @results.length != 0 %>
+      <%= render partial:"shared/repeat/customer/customers", collection: @results, as: "customer" %>
+    <% else %>
+      該当する物件はありません。
+    <% end %>
   </div>
 
 </div>

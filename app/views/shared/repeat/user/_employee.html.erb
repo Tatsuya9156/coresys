@@ -26,7 +26,11 @@
     </div>
     <div class="user-card--info--child">
       <div class="user-card--info--child--tag">名前</div>
-      <div class="user-card--info--child--value"><%= employee.name %>(<%= employee.name_kana %>)</div>
+      <div class="user-card--info--child--value"><%= employee.name %></div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">カナ</div>
+      <div class="user-card--info--child--value"><%= employee.name_kana %></div>
     </div>
     <div class="user-card--info--child">
       <div class="user-card--info--child--tag">所属</div>
@@ -43,6 +47,16 @@
     <div class="user-card--info--child">
       <div class="user-card--info--child--tag">Email</div>
       <div class="user-card--info--child--value"><%= employee.email %></div>
+    </div>
+    <div class="user-card--info--child">
+      <div class="user-card--info--child--tag">在籍状況</div>
+      <div class="user-card--info--child--value">
+        <% if employee.enrolled == true %>
+          在職中
+        <% elsif employee.enrolled == false %>
+          退職済
+        <% end %>
+      </div>
     </div>
   </div>
   

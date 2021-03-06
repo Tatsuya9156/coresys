@@ -3,8 +3,13 @@ class CustomersController < ApplicationController
   before_action :customer_all, only: [:index, :create]
   before_action :customer_new, only: [:index, :show, :update, :destroy]
   before_action :customer_show, only: [:show, :update, :destroy]
+  before_action :search_customer, only: [:index, :search]
 
   def index
+  end
+
+  def search
+    @results = @c.result
   end
 
   def create
@@ -62,6 +67,11 @@ class CustomersController < ApplicationController
     @comments = @customer_show.comments.includes(:employee)
     @meeting_show = @customer_show.meeting
     @construction_show = @customer_show.construction
+  end
+
+  # 検索オブジェクトの生成
+  def search_customer
+    @c = Customer.ransack(params[:q])
   end
 
   # ログインユーザーが社員でなければroot_pathへリダイレクトされる

@@ -26,9 +26,7 @@
 
 <div class="wrapper">
 
-  <%# サイドバー部分テンプレートの読み込み %>
   <div class="side-bar">
-    <%= render partial:"shared/side_bar/customer" %>
   </div>
 
   <div class="main-wrapper --customer">
@@ -193,7 +191,7 @@
         <div class="customer-info-wrapper--comment">
 
         <%# メッセージ一覧の部分テンプレート呼び出し %>
-          <%= render partial:"shared/customer_show/comments", collection: @comments, as: "comment" %>
+          <%= render partial:"shared/repeat/customer/comments", collection: @comments, as: "comment" %>
         </div>
 
         <%# メッセージ投稿フォーム %>

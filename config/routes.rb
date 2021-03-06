@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     registrations: "employees/registrations"
   }
 
-  # ゲストログインのためのルーティング設定
+  # 簡単ログイン機能のためのルーティング設定
   devise_scope :employee do
     post "employees/guest_sign_in", to: "employees/sessions#new_guest"
   end
@@ -22,12 +22,23 @@ Rails.application.routes.draw do
   end
 
   root to: "chats#index"
-  resources :employees, only: [:index, :edit, :update]
-  resources :workers, only: [:index, :edit, :update]
+  resources :employees, only: [:index, :edit, :update] do
+    collection do
+      get "search"
+    end
+  end
+  resources :workers, only: [:index, :edit, :update] do
+    collection do
+      get "search"
+    end
+  end
   resources :customers, only: [:index, :create, :show, :update, :destroy] do
     resources :comments, only: [:create]
     resources :meetings, only: [:create, :update, :destroy]
     resources :constructions, only: [:create, :update, :destroy]
+    collection do
+      get "search"
+    end
   end
   resources :chats, only: [:index, :create, :show, :update, :destroy] do
     resources :messages, only: [:create]
