@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   end
 
   root to: "chats#index"
-  resources :employees, only: [:index, :edit, :update]
+  resources :employees, only: [:index, :edit, :update] do
+    collection do
+      get "search"
+    end
+  end
   resources :workers, only: [:index, :edit, :update]
   resources :customers, only: [:index, :create, :show, :update, :destroy] do
     resources :comments, only: [:create]

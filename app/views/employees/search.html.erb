@@ -15,8 +15,11 @@
 
   <%# メイン画面 %>
   <div class="main-wrapper --user">
-    <%# 社員一覧の部分テンプレート呼び出し %>
-    <%= render partial:"shared/repeat/user/employee", collection: @employees, as: "employee" %>
+    <% if @results.length != 0 %>
+      <%= render partial:"shared/repeat/user/employee", collection: @results, as: "employee" %>
+    <% else %>
+      該当する物件はありません。
+    <% end %>
   </div>
 
 </div>
