@@ -20,16 +20,16 @@ class Employee < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
   with_options presence: true do
-    validates :employee_number, format: { with: VALID_NUM_REGEX }, uniqueness: { case_sensitive: true }
-    validates :name,            format: { with: VALID_NAME_REGEX }
-    validates :name_kana,       format: { with: VALID_KANA_REGEX }
-    validates :phone,           format: { with: VALID_PHONE_REGEX }
+    validates :employee_number, format: { with: VALID_NUM_REGEX, message: 'は半角数字4桁で入力してください' }, uniqueness: { case_sensitive: true }
+    validates :name,            format: { with: VALID_NAME_REGEX, message: 'は漢字・ひらがな・カタカナのいずれかで入力してください' }
+    validates :name_kana,       format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力してください' }
+    validates :phone,           format: { with: VALID_PHONE_REGEX, message: 'は半角数字10〜11桁で入力してください' }
     validates :section
     validates :position
   end
   validates :password, format: { with: VALID_PASSWORD_REGEX }
-  validates :admin,    inclusion: { in: [true, false] }
-  validates :enrolled, inclusion: { in: [true, false] }
+  validates :admin,    inclusion: { in: [true, false], message: 'を選択してください' }
+  validates :enrolled, inclusion: { in: [true, false], message: 'を選択してください' }
 
   def self.guest
     find_or_create_by!(email: 'test1@example.com') do |user|
