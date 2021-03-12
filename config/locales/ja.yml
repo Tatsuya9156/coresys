@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      employee:
+        employee_number: 社員番号
+        name: 名前
+        name_kana: 名前(カナ)
+        section: 所属
+        position: 役職
+        phone: 電話番号
+        admin: 管理者権限
+        enrolled: 在籍状況
