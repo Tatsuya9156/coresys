@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
 
   # ログアウト状態でアクセスするとログインページへ遷移する
   def authenticate_user!
-    if employee_signed_in? || worker_signed_in?
-      true
-    else
+    if !(employee_signed_in? || worker_signed_in?)
       authenticate_employee!
     end
   end
