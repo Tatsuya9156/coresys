@@ -16,6 +16,7 @@ FactoryBot.define do
     address               { address }
     warehouse_zip         { zip }
     warehouse             { address }
+    warehouse_info        { Faker::Lorem.sentence }
     inaba                 { delicode }
     yodo                  { delicode }
     takubo                { delicode }
