@@ -3,85 +3,91 @@
   <p class="to-create-btn --customer" id="customer-create-btn">物件作成</p>
 </div>
 
+<div class="search-area">
 
-<div class="search-title">--- 物件検索 ---</div>
-
-<%= search_form_for @c, url: search_customers_path, class:"search-area" do |f| %>
+  <%= search_form_for @c, url: search_customers_path do |f| %>
 
   <%# フリーワード %>
-  <div class="search-select">
-    <%= f.search_field :name_or_name_kana_or_phone_or_email_or_address_zip_or_address_or_residence_zip_or_residence_cont, placeholder:"フリーワード", class:"--form" %>
-  </div>
-
-  <%# 受注日 %>
-  <div class="search-select">
-    <%= f.label :order_date_eq, "受注日", class:"--tag" %>
-    <%= f.date_field :order_date_gteq, include_blank: true, class:"--value" %>
-  </div>
-  <div class="search-select">
-    <div class="--tag">　〜</div>
-    <%= f.date_field :order_date_lteq, include_blank: true, class:"--value" %>
-  </div>
-
-  <%# 現調日 %>
-  <div class="search-select">
-    <%= f.label :meeting_meeting_datetime_eq, "現調日", class:"--tag" %>
-    <%= f.date_field :meeting_meeting_datetime_gteq, include_blank: true, class:"--value" %>
-  </div>
-  <div class="search-select">
-    <div class="--tag">　〜</div>
-    <%= f.date_field :meeting_meeting_datetime_lteq, include_blank: true, class:"--value" %>
-  </div>
-
-  <%# 工事日 %>
-  <div class="search-select">
-    <%= f.label :construction_construction_datetime_eq, "工事日", class:"--tag" %>
-    <%= f.date_field :construction_construction_datetime_gteq, include_blank: true, class:"--value" %>
-  </div>
-  <div class="search-select">
-    <div class="--tag">　〜</div>
-    <%= f.date_field :construction_construction_datetime_lteq, include_blank: true, class:"--value" %>
-  </div>
-
-  <%# 完了日 %>
-  <div class="search-select">
-    <%= f.label :construction_completion_date_eq, "完了日", class:"--tag" %>
-    <%= f.date_field :construction_completion_date_gteq, include_blank: true, class:"--value" %>
-  </div>
-  <div class="search-select">
-    <div class="--tag">　〜</div>
-    <%= f.date_field :construction_completion_date_lteq, include_blank: true, class:"--value" %>
-  </div>
-
-  <%# 物件状況 %>
-  <div class="search-select">
-    <%= f.label :status_id_eq, "物件状況", class:"--tag" %>
-    <%= f.collection_select(:status_id_eq, Status.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
-  </div>
-
-  <%# 受注店舗 %>
-  <div class="search-select">
-    <%= f.label :store_id_eq, "受注店舗", class:"--tag" %>
-    <%= f.collection_select(:store_id_eq, Store.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
-  </div>
-
-  <%# 営業担当 %>
-  <div class="search-select">
-    <%= f.label :employee_id_eq, "営業担当", class:"--tag" %>
-    <%= f.collection_select(:employee_id_eq, Employee.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
-  </div>
-
-  <%# 現調担当 %>
-  <div class="search-select">
-    <%= f.label :meeting_worker_id_eq, "現調担当", class:"--tag" %>
-    <%= f.collection_select(:meeting_worker_id_eq, Worker.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
-  </div>
-
-  <%# 工事担当 %>
-  <div class="search-select">
-    <%= f.label :construction_worker_id_eq, "工事担当", class:"--tag" %>
-    <%= f.collection_select(:construction_worker_id_eq, Worker.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
+  <div class="search-select --user">
+    <%= f.search_field :name_or_name_kana_or_phone_or_email_or_address_zip_or_address_or_residence_zip_or_residence_cont, placeholder:"フリーワード検索", class:"--form" %>
   </div>
 
   <%= f.button "検索", type: 'button', onclick: 'submit();', class:"submit-btn" %>
-<% end %>
+
+  <div class="accordion" id="js-menu-button">--- 絞り込み検索する ---</div>
+
+    <ul class="search-menu" id="js-menu">
+
+      <%# 受注日 %>
+      <li class="search-select">
+        <%= f.label :order_date_eq, "受注日", class:"--tag" %>
+        <%= f.date_field :order_date_gteq, include_blank: true, class:"--value" %>
+      </li>
+      <li class="search-select">
+        <div class="--tag">　〜</div>
+        <%= f.date_field :order_date_lteq, include_blank: true, class:"--value" %>
+      </li>
+
+      <%# 現調日 %>
+      <li class="search-select">
+        <%= f.label :meeting_meeting_datetime_eq, "現調日", class:"--tag" %>
+        <%= f.date_field :meeting_meeting_datetime_gteq, include_blank: true, class:"--value" %>
+      </li>
+      <li class="search-select">
+        <div class="--tag">　〜</div>
+        <%= f.date_field :meeting_meeting_datetime_lteq, include_blank: true, class:"--value" %>
+      </li>
+
+      <%# 工事日 %>
+      <li class="search-select">
+        <%= f.label :construction_construction_datetime_eq, "工事日", class:"--tag" %>
+        <%= f.date_field :construction_construction_datetime_gteq, include_blank: true, class:"--value" %>
+      </li>
+      <li class="search-select">
+        <div class="--tag">　〜</div>
+        <%= f.date_field :construction_construction_datetime_lteq, include_blank: true, class:"--value" %>
+      </li>
+
+      <%# 完了日 %>
+      <li class="search-select">
+        <%= f.label :construction_completion_date_eq, "完了日", class:"--tag" %>
+        <%= f.date_field :construction_completion_date_gteq, include_blank: true, class:"--value" %>
+      </li>
+      <li class="search-select">
+        <div class="--tag">　〜</div>
+        <%= f.date_field :construction_completion_date_lteq, include_blank: true, class:"--value" %>
+      </li>
+
+      <%# 物件状況 %>
+      <li class="search-select">
+        <%= f.label :status_id_eq, "物件状況", class:"--tag" %>
+        <%= f.collection_select(:status_id_eq, Status.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+      <%# 受注店舗 %>
+      <li class="search-select">
+        <%= f.label :store_id_eq, "受注店舗", class:"--tag" %>
+        <%= f.collection_select(:store_id_eq, Store.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+      <%# 営業担当 %>
+      <li class="search-select">
+        <%= f.label :employee_id_eq, "営業担当", class:"--tag" %>
+        <%= f.collection_select(:employee_id_eq, Employee.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+      <%# 現調担当 %>
+      <li class="search-select">
+        <%= f.label :meeting_worker_id_eq, "現調担当", class:"--tag" %>
+        <%= f.collection_select(:meeting_worker_id_eq, Worker.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+      <%# 工事担当 %>
+      <li class="search-select">
+        <%= f.label :construction_worker_id_eq, "工事担当", class:"--tag" %>
+        <%= f.collection_select(:construction_worker_id_eq, Worker.all, :id, :name, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+    </ul>
+  <% end %>
+</div>

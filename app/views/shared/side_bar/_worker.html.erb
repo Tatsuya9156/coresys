@@ -1,11 +1,10 @@
 
-<div class="search-title">--- 職人検索 ---</div>
 
 <%= search_form_for @w, url: search_workers_path, class:"search-area" do |f| %>
 
   <%# フリーワード %>
-  <div class="search-select">
-    <%= f.search_field :worker_number_or_name_or_name_kana_or_trade_name_or_phone_or_email_or_address_zip_or_address_or_warehouse_zip_or_warehouse_or_warehouse_info_or_inaba_or_yodo_or_takubo_or_ykkap_or_sankyo_or_lixil_cont, placeholder:"フリーワード", class:"--form" %>
+  <div class="search-select --user">
+    <%= f.search_field :worker_number_or_name_or_name_kana_or_trade_name_or_phone_or_email_or_address_zip_or_address_or_warehouse_zip_or_warehouse_or_warehouse_info_or_inaba_or_yodo_or_takubo_or_ykkap_or_sankyo_or_lixil_cont, placeholder:"フリーワード検索", class:"--form" %>
   </div>
 
   <%= f.button "検索", type: 'button', onclick: 'submit();', class:"submit-btn" %>

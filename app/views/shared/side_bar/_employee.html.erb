@@ -1,33 +1,43 @@
 
-<div class="search-title">--- 社員検索 ---</div>
+<div class="search-area">
 
-<%= search_form_for @e, url: search_employees_path, class:"search-area" do |f| %>
+  <%= search_form_for @e, url: search_employees_path do |f| %>
 
   <%# フリーワード %>
-  <div class="search-select">
-    <%= f.search_field :employee_number_or_name_or_name_kana_or_phone_or_email_cont, placeholder:"フリーワード", class:"--form" %>
-  </div>
-
-  <%# 所属 %>
-  <div class="search-select">
-    <%= f.label :section_eq, "所属", class:"--tag" %>
-    <%= f.collection_select(:section_eq, @employee_section, :section, :section, {include_blank: "指定なし"}, {class:"--value"}) %>
-  </div>
-
-  <%# 役職 %>
-  <div class="search-select">
-    <%= f.label :position_eq, "役職", class:"--tag" %>
-    <%= f.collection_select(:position_eq, @employee_position, :position, :position, {include_blank: "指定なし"}, {class:"--value"}) %>
-  </div>
-
-  <%# 在籍状況 %>
-  <div class="search-select">
-    <%= f.label :enrolled_eq, "在籍状況", class:"--tag" %>
-    <div class="--value --radio">
-      <%= f.radio_button :enrolled_eq, true, class:"--child"%>在籍中
-      <%= f.radio_button :enrolled_eq, false, class:"--child" %>退職済
-    </div>
+  <div class="search-select --user">
+    <%= f.search_field :employee_number_or_name_or_name_kana_or_phone_or_email_cont, placeholder:"フリーワード検索", class:"--form" %>
   </div>
 
   <%= f.button "検索", type: 'button', onclick: 'submit();', class:"submit-btn" %>
-<% end %>
+
+  <div class="accordion" id="js-menu-button">--- 絞り込み検索する ---</div>
+
+    <ul class="search-menu" id="js-menu">
+
+
+      <%# 所属 %>
+      <li class="search-select">
+        <%= f.label :section_eq, "所属", class:"--tag" %>
+        <%= f.collection_select(:section_eq, @employee_section, :section, :section, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+      <%# 役職 %>
+      <li class="search-select">
+        <%= f.label :position_eq, "役職", class:"--tag" %>
+        <%= f.collection_select(:position_eq, @employee_position, :position, :position, {include_blank: "指定なし"}, {class:"--value"}) %>
+      </li>
+
+      <%# 在籍状況 %>
+      <li class="search-select">
+        <%= f.label :enrolled_eq, "在籍状況", class:"--tag" %>
+        <div class="--value --radio">
+          <%= f.radio_button :enrolled_eq, true, class:"--child"%>在籍中
+          <%= f.radio_button :enrolled_eq, false, class:"--child" %>退職済
+        </div>
+      </li>
+
+
+    </ul>
+  <% end %>
+
+</div>
